@@ -1,9 +1,7 @@
 $('#treeview-proveedores').on('click',function(event){
   $('#treeview-clientes').removeClass("active");
-  $('#treeview-pagos').removeClass("active");
   $('#treeview-ventas').removeClass("active");
   $('#treeview-reportes').removeClass("active");
-  $('#treeview-transportista').removeClass("active");
   $('#treeview-proveedores').addClass("active");
 })
 
@@ -26,7 +24,9 @@ function editarProveedor(id){
       console.log(data);
       document.getElementById('razon_social-edit').value = data.razon_social;
       document.getElementById('ruc-edit').value = data.ruc;
-      document.getElementById('email-edit').value = data.email;
+    // document.getElementById('email-edit').value = data.email;
+      document.getElementById('direccion-edit').value = data.direccion;
+      document.getElementById('tipo-edit').value = data.tipo;
       document.getElementById('id-edit').value = data.id;
     },
     error: (error)=>{

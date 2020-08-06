@@ -20,7 +20,8 @@ class CreateProveedoresTable extends Migration
             $table->string('deuda')->default(0);
             $table->string('email')->unique()->nullable();
             $table->string('representante')->nullable();
-
+            $table->string('direccion')->nullable();
+            $table->integer('tipo')->nullable();
             $table->timestamps();
         });     
     }

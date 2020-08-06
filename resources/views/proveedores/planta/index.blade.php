@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Plantas')
+@section('title','Insumos')
 @section('styles')
 
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -9,8 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
   <li><a href="{{ route('proveedores.index') }}">Proveedores</a></li>
-  <li><a href="{{ route('proveedores.create') }}">Registro</a></li>
-  
+  <li><a href="{{ route('proveedores.create') }}">Fábrica</a></li>
 </ol>
 @endsection
 
@@ -21,8 +20,8 @@
 			VOLVER PROVEEDORES &nbsp; <span class="fa fa-reply"></span>
 			</button>
     </a> 
-  	<h3>&nbsp;&nbsp;Plantas de  
-  	  <span class="label label-primary">{{$proveedor->razon_social}}</span>:
+  	<h3>&nbsp;&nbsp;Fábrica de  
+  	  <span class="label label-primary">{{$proveedor->razon_social}}</span>
 
     </h3>
 

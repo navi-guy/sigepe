@@ -17,17 +17,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
-        $proveedores = Proveedor::all();
-        /*$deudas = Proveedor::
-            join('plantas','plantas.proveedor_id','=','proveedores.id')
-          ->join('pedidos','pedidos.planta_id','=','plantas.id')
-          ->select('pedidos.galones','pedidos.costo_galon')
-          ->get() ;      
-          //return $deudas->where('id',3)->sum('galones');
-          //->sum('galones');*/
-         
-
+        
+        $proveedores = Proveedor::all();       
         return view('proveedores.index',compact('proveedores'));
     }
 
@@ -40,9 +31,7 @@ class ProveedorController extends Controller
     { 
 
         $proveedores=Proveedor::orderBy('id','asc')->get();
-
         return view('proveedores.index_create',compact('proveedores'));
-        //
     }
 
     /**
@@ -55,14 +44,9 @@ class ProveedorController extends Controller
     {
    
         Proveedor::create($request->validated());
-
-
-    return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
+        return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
      
-
     }
-
-  
 
     /**
      * Display the specified resource.
@@ -76,7 +60,6 @@ class ProveedorController extends Controller
         $id = $planta->proveedor_id;
         $proveedor = Proveedor::findOrFail($id);
         return $proveedor;
-
     }
 
     /**
@@ -124,28 +107,19 @@ class ProveedorController extends Controller
 
         } else{
 
-        return  back()->with('alert-type','error')->with('status','No se puede borrar, elimine su planta primero');
+        return  back()->with('alert-type','error')->with('status','No es posible eliminar, elimine los insumos asociados primero');
         }
        
     }
 
     public function datatable(){
-        /*$plantas2 = Proveedor::Join('plantas','proveedores.id','=','plantas.proveedor_id')
-            ->select(array('*'));  */
             $plantas = Proveedor::query();
 
-        return 
-                datatables()->of($plantas)
-         
-                ->addColumn('btn','actions/proveedor')
-                
+        return datatables()->of($plantas)
+                ->addColumn('btn','actions/proveedor')          
                 ->rawColumns(['btn'])
                 ->toJson();
     }
-
-
-
-
 
 
 }

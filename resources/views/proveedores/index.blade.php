@@ -18,8 +18,8 @@
 @section('content')
 <section class="content-header">
       <a href="{{ route('proveedores.create') }}">
-      <button class="btn bg-olive pull-right">
-      <span class="fa fa-plus"></span> &nbsp; NUEVO PROVEEDOR&nbsp;|&nbsp;PLANTA 
+      <button class="btn bg-olive pull-left">
+      <span class="fa fa-plus"></span> &nbsp; AÑADIR PROVEEDOR
       </button>
     </a> 
     <p><br></p>

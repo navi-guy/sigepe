@@ -1,7 +1,7 @@
 <td>
   <a class="btn btn-info" href="{{ route('planta.show',$proveedor->id) }}">
     <span class="fa fa-pencil"> </span> &nbsp;
-    Gestion planta
+    Gestion Fábricas
     
   </a>
  

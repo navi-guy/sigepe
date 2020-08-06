@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ config('app.nombres', 'Laravel') }} | @yield('title')</title>
+  <title>SINGESPRO | @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" nombres="viewport">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('iconoCorp.ico') }}">
@@ -67,15 +67,15 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="#" class="logo" style="font-size: 15px; background-color: #171717!important;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Cor</b>P</span>
+      <span class="logo-mini"><b>S</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CORPORACION</b>Perú</span>
+      <span class="logo-lg"><b style="font-size: 20px;">SINGESPRO</b></span>
     </a>
 
     <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
+    <nav class="navbar navbar-static-top" role="navigation" style="font-size: 15px; background-color: #171717!important;">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -83,30 +83,6 @@ desired effect
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- Inner Menu: contains the notifications -->
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <!-- end notification -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-
          <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
@@ -143,68 +119,22 @@ desired effect
         </ul>
       </div>
     </nav>
+    <div class="bg-orange" style="font-size: 5px; background-color: #3d9970!important;" align="right"> <label> </label></div>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  <aside class="main-sidebar" style="font-size: 15px; background-color: #171717!important;">
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="{{asset('dist/img/iconoCorp.png')}}" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>{{ Auth::user()->trabajador->nombres }}</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
+      <br>
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENU</li>
+       {{--  <li class="header">MENU</li> --}}
         <!-- Optionally, you can add icons to the links -->
-        <li id="treeview-clientes" class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Clientes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('clientes.index')}}"><i class="fa fa fa-user"></i>Gestion</a></li>
-          </ul>
+        <li><a href="{{route('proveedores.create')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
         </li>
-
-        <li id="treeview-ventas" class="treeview">
-          <a href="#">
-            <i class="fa fa-cart-plus"></i> <span>Ventas</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('pedido_clientes.create')}}"><i class="fa fa-pencil"></i>Registrar Pedido</a></li>
-            <li><a href="{{route('pedido_clientes.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
-            <li><a href="{{route('pago_clientes.index')}}"><i class="fa fa-money"></i> Ver Pagos</a></li>
-          </ul>
-        </li>
-
-        <li id="treeview-proveedores" class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Proveedores</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('proveedores.create')}}"><i class="fa fa-pencil"></i> Registro</a></li>
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-list"></i>Ver Proveedores</a></li>
-          </ul>
-        </li>
-
+        <li><a href="{{route('proveedores.index')}}"><i class="fa fa-truck"></i> <span>Proveedores</span></a></li>
         <li id="treeview-compras" class="treeview">
           <a href="#">
             <i class="fa fa-building-o"></i> <span>Compras</span>
@@ -215,38 +145,39 @@ desired effect
           <ul class="treeview-menu" style="display: none;">
             <li><a href="{{route('pedidos.create')}}"><i class="fa fa-pencil"></i> Registro</a></li>
             <li><a href="{{route('pedidos.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
-            <li><a href="{{route('factura_proveedor.create')}}"><i class="fa fa-share-square-o"></i> Registrar Factura</a></li>
           </ul>
         </li> 
+        <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i> <span>Gestionar Categorias</span></a></li>
+        <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Productos Totales</span> </a></li>       
+{{--    <li id="treeview-clientes" class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Clientes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('clientes.index')}}"><i class="fa fa fa-user"></i>Gestion</a></li>
+          </ul>
+        </li>    --}}
+        <li id="treeview-ventas" class="treeview">
+          <a href="#">
+            <i class="fa fa-cart-plus"></i> <span>Pedidos /Cliente</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('pedido_clientes.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
+            <li><a href="{{route('pedido_clientes.create')}}"><i class="fa fa-pencil"></i>Revisar Pedido</a></li>
+            {{-- <li><a href="{{route('pago_clientes.index')}}"><i class="fa fa-money"></i> Ver Pagos</a></li> --}}
+          </ul>
+        </li>
 
-        <li id="treeview-transportistas" class="treeview">
-          <a href="#">
-            <i class="fa fa-truck"></i> <span>Transportistas</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('transportista.create')}}"><i class="fa fa-pencil"></i> Registro</a></li>
-            <li><a href="{{route('transportista.index')}}"><i class="fa fa-list"></i> Ver Transportistas</a></li>            
-          </ul>
-        </li>
-        
-        <li id="treeview-reportes" class="treeview">
-          <a href="#">
-            <i class="fa fa-book"></i> <span>Reportes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('pedido_clientes.index')}}"><i class="fa fa-book"></i> Reportes</a></li>
-          </ul>
-        </li>
-        
+
         <li id="treeview-usuarios" class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i> <span>Trabajadores</span>
+            <i class="fa fa-users"></i> <span>Usuarios del Sistema</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -256,37 +187,19 @@ desired effect
           </ul>
         </li>
 
-        <li id="treeview-grifos" class="treeview">
+        
+{{--         <li id="treeview-reportes" class="treeview">
           <a href="#">
-            <i class="fa fa-building-o"></i> <span>Grifos</span>
+            <i class="fa fa-book"></i> <span>Reportes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('grifos.index')}}"><i class="fa fa-industry"></i> Gestion</a></li>
-            <li><a href="{{route('ingreso_grifos.index')}}"><i class="fa fa-sort-asc"></i> Ingresos</a></li>
+            <li><a href="{{route('pedido_clientes.index')}}"><i class="fa fa-book"></i> Reportes</a></li>
           </ul>
-        </li>
-
-        <li id="treeview-gastos" class="treeview">
-          <a href="#">
-            <i class="fa  fa-arrow-down"></i> <span>EGRESOS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('gastos.index')}}"><i class="fa fa-pencil"></i> 
-            Agregar gasto </a></li>
-            <li><a href="{{route('gastos.create')}}"><i class="fa fa-minus-square"></i> 
-            Registrar gasto</a>
-            </li>
-            <li><a href="{{route('gastos.create')}}"><i class="fa fa-credit-card"></i> 
-            Salidas Cheque&Banco</a>
-            </li>
-          </ul>
-        </li>  
+        </li> --}}
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -310,7 +223,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="#">SINGESPRO</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
@@ -356,6 +269,10 @@ desired effect
   yearSuffix: ''
  };
  $.datepicker.setDefaults($.datepicker.regional['es']);
+ $('.box').on('click',function(){
+  $('.box').removeClass('box-success');
+  $(this).addClass('box-success');
+})
 </script>
 @yield('scripts')
 @include('partials.session-status')

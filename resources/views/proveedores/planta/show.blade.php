@@ -6,7 +6,7 @@
       <!-- general form elements -->
     <div class="box box-success">      
       <div class="box-header with-border">
-        <h3 class="box-title">Planta Número <span> {{$loop->iteration}}</span></h3>
+        <h3 class="box-title">Fábrica Número <span> {{$loop->iteration}}</span></h3>
       </div><!-- /.box-header -->
 
       <div class="box-body">
@@ -19,8 +19,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group @error('planta') has-error @enderror">
-              <label for="planta">Nombre de la planta*</label>
-              <input id="planta" type="text" class="form-control" name="planta" placeholder="Ingrese la Razon Social"  value="{{old('planta'.$planta->planta,$planta->planta) }}" >
+              <label for="planta">Fábrica*</label>
+              <input id="planta" type="text" class="form-control" name="planta" placeholder="Ingrese el nombre del insumo "  value="{{old('planta'.$planta->planta,$planta->planta) }}" >
               @error('planta')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>
@@ -33,8 +33,8 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group @error('direccion_planta') has-error @enderror">
-              <label for="direccion_planta">Dirección de la planta</label>
-              <input id="direccion_planta" type="text" class="form-control" name="direccion_planta" placeholder="Ingrese la Dirección de la planta" value="{{ old('direccion_planta'.$planta->direccion_planta, $planta->direccion_planta) }}" >
+              <label for="direccion_planta">Dirección de la fábrica</label>
+              <input id="direccion_planta" type="text" class="form-control" name="direccion_planta" placeholder="Ingrese la Dirección de la fábrica" value="{{ old('direccion_planta'.$planta->direccion_planta, $planta->direccion_planta) }}" >
               @error('direccion_planta')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>
@@ -44,8 +44,8 @@
           </div>
           <div class="col-md-6">
             <div class="form-group @error('celular_planta') has-error @enderror">
-              <label for="celular_planta">Celular de la planta</label>
-              <input id="celular_planta" type="number" class="form-control" name="celular_planta" placeholder="Ingrese el celular de la planta" value="{{ old('celular_planta'.$planta->celular_planta, $planta->celular_planta) }}" title="Formato: 11 dígitos" min="900000000" max="999999999">
+              <label for="celular_planta">Celular de la fábrica</label>
+              <input id="celular_planta" type="number" class="form-control" name="celular_planta" placeholder="Ingrese el celular de la fábrica" value="{{ old('celular_planta'.$planta->celular_planta, $planta->celular_planta) }}" title="Formato: 11 dígitos" min="900000000" max="999999999">
               @error('celular_planta')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>

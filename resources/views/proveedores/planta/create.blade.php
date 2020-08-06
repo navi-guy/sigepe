@@ -4,7 +4,7 @@
       <!-- general form elements -->
     <div class="box box-success">
       <div class="box-header with-border">
-        <h3 class="box-title">Datos Planta&nbsp;|&nbsp; <b> Asignar Planta a Proveedor</b></h3>
+        <h3 class="box-title">Datos fábrica&nbsp;|&nbsp; <b> Asignar fábrica a Proveedor</b></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="row">
@@ -26,7 +26,7 @@
 
           <div class="col-md-6">
             <div class="form-group @error('planta') has-error @enderror">
-              <label for="planta">Nombre de la planta*</label>
+              <label for="planta">Nombre del fábrica*</label>
               <input id="planta" type="text" class="form-control" name="planta" placeholder="Ingrese la Razon Social"  value="{{ old('planta') }}" required>
               @error('planta')
                 <span class="help-block" role="alert">
@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group @error('celular_planta') has-error @enderror">
-              <label for="celular_planta">Celular de la planta</label>
+              <label for="celular_planta">Celular de la fábrica</label>
               <input id="celular_planta" type="number" class="form-control" name="celular_planta" placeholder="Ingrese el celular de la planta" value="{{ old('celular_planta') }}" min="900000000" max="999999999" title="Formato: 9 dígitos">
               @error('celular_planta')
                 <span class="help-block" role="alert">
@@ -51,7 +51,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group @error('direccion_planta') has-error @enderror">
-              <label for="direccion_planta">Dirección de la planta</label>
+              <label for="direccion_planta">Dirección de la fábrica</label>
               <input id="direccion_planta" type="text" class="form-control" name="direccion_planta" placeholder="Ingrese la Dirección de la planta" value="{{ old('direccion_planta') }}" >
               @error('direccion_planta')
                 <span class="help-block" role="alert">

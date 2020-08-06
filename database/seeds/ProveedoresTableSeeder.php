@@ -15,20 +15,26 @@ class ProveedoresTableSeeder extends Seeder
 
 
         DB::table('proveedores')->insert([
-            'razon_social'=>'PERUANA DE COMBUSTIBLES S.A - PECSA',
-            'ruc' => '20259033072',
-            'email' => 'tbartra@pecsa.com.pe',
+            'razon_social'=>'Mecanica Industrial Lira',
+            'ruc' => '20190143806',
+            'email' => 'tbartra@lita.com.pe',
+            'direccion' =>'Calle Huarán 149 - 151 . Urb.27 de Abril',
+            'tipo' => '1'
         ]);    	
         DB::table('proveedores')->insert([
-            'razon_social'=>'CORPORACION PRIMAX S.A.',
-            'ruc' => '20554545743',
-            'email' => 'contactenos@primax.com.pe',
+            'razon_social'=>'Dincorsa',
+            'ruc' => '20165016115',
+            'email' => 'contactenos@dincorsa.com.pe',
+            'direccion' =>' Calle Mariscal Luzuriaga 544',
+            'tipo' => '2'
         ]);
 
         DB::table('proveedores')->insert([
-            'razon_social'=>'PURE BIOFUELS DEL PERU S.A.C - PBF',
-            'ruc' => '20513251506',
-            'email' => 'comunicaciones.peru@valero.com',
+            'razon_social'=>'EXIMPORT DISTRIBUIDORES DEL PERU SA | EDIPESA',
+            'ruc' => '20100041520',
+            'email' => 'comunicaciones.peru@edipesa.com',
+            'direccion' =>'Av. Argentina Nro. 1710 (Alt Av Nicolas Dueñas)',
+            'tipo' => '2'
         ]);
     }
 }

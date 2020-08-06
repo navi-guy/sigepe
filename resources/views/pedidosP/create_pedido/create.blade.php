@@ -32,7 +32,7 @@
 
             <div class="form-group">
 
-                 <label for="planta">Planta</label>
+                 <label for="planta">Insumo</label>
                   <select class="form-control" id="planta" name="planta_id" required>
                     @foreach ( $plantas as $planta)
                       <option value="{{$planta->id}}">{{$planta->planta}}</option>
@@ -53,13 +53,13 @@
       <!-- general form elements -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b> DIESEL B5 (S50) UV</b> </h3>
+          <h3 class="box-title"><b> Detalles</b> </h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         {{-- <form role="form"> --}}
           <div class="box-body">
             <div class="form-group @error('galones') has-error @enderror">
-                <label for="galones">Cantidad de galones del pedido</label>
+                <label for="galones">Cantidad</label>
                <input id="galones" type="number" class="form-control" name="galones" placeholder="Ingrese  cantidad de galones" min="0" max="99999" required>
               @error('galones')
               <span class="help-block" role="alert">
@@ -69,7 +69,7 @@
            
             </div>
             <div class="form-group @error('costo_galon') has-error @enderror">
-              <label for="costo_galon">Precio del galón</label>
+              <label for="costo_galon">Precio Total cotización</label>
               <input id="costo_galon" type="text" class="form-control" name="costo_galon" placeholder="Ingrese precio actual del galon" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{5}))?)" title="Formato: Use 5 decimales" required>
               @error('costo_galon')
               <span class="help-block" role="alert">
@@ -95,7 +95,7 @@
     <div class="col-md-12">
       <button type="submit" class="btn btn-lg btn-success pull-right">
         <i class="fa fa-plus-square-o"> </i>
-        Registrar nuevo Pedido
+        Registrar nueva cotización
       </button>
     </div>
   </div> <!-- /.row-bottom -->

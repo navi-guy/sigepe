@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('app.name', 'Laravel') }} | {{ __('Login') }}</title>
+    <title>SIGESPRO | {{ __('Login') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- CSRF Token -->
@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('adminlte/Ionicons/css/ionicons.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
+    
+   {{--  <link rel="stylesheet" href="{{ asset('dist/css/main.css')}}"> --}}
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/iCheck/square/blue.css')}}">
 
@@ -26,17 +28,23 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <a href="#">{{ config('app.name', 'Laravel') }}</a>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
-        <p class="login-box-msg">{{ __('Ingrese al sistema') }}</p>
+  <body class="hold-transition login-page" style=
+     "background:url('dist/img/background/background.jpg'); 
+      background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;">
+    <div class="login-box" >
+      <div class="login-box-body" style="border-radius: 1em!important;">
+        <div align="center">
+           <p class="login-box-msg"  style="font-size: 180%;margin-bottom: 10px;">{{ __('Gestor de producción') }}</p>
+        <img src="{{ asset('dist/img/icons/key.png')}}" style="width: 20%; height: auto;" />
+        </div>
+        <br>
         <form action="{{ route('login') }}" method="post">
           @csrf
           <div class="form-group has-feedback">
-            <input id="email" name="email" type="email" class="form-control" placeholder="Email">
+            <label for="exampleInputEmail1">CORREO ELECTRÓNICO</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="Ingrese su correo electrónico">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             @error('email')
             <span class="invalid-feedback" role="alert">
@@ -45,6 +53,7 @@
             @enderror
           </div>
           <div class="form-group has-feedback">
+            <label for="exampleInputPassword1">CONTRASEÑA</label>
             <input id="password" name="password" type="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             @error('password')
@@ -55,8 +64,8 @@
           </div>
          
           <div class="row">
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">{{ __('Sign In') }}</button>
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-primary btn-block">{{ __('Iniciar sesión') }}</button>
               @if (Route::has('password.request'))
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                     {{ __('Olvidaste tu contraseña?') }}

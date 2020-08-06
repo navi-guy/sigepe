@@ -13,11 +13,6 @@
                <span class="fa fa-plus"></span> &nbsp;Nuevo Pedido Proveedor
               </button>
               </a>
-              <a href="{{route('factura_proveedor.create')}}">
-                <button class="btn bg-purple">
-                Registrar Factura &nbsp;   <i class="fa fa-share-square-o"></i>
-                </button>
-              </a>  
               <a href="#">
                 <button class="btn btn-default">
                   <span class="fa fa-file-excel-o"></span> &nbsp;Exportar a Excel 
@@ -77,9 +72,6 @@
                  
                   @includeWhen($pedido->isConfirmed(), 'actions.pedido.acciones_confirmado')
                   @includeWhen($pedido->isUnconfirmed(),'actions.pedido.acciones_sin_confirmar')
-                  @includeWhen($pedido->isDistributed(), 'actions.pedido.acciones_distribuido') 
-                  @includeWhen($pedido->isPaid(), 'actions.pedido.acciones_pagado')             
-
                 </tr>
               @endforeach
             </tbody>

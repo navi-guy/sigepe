@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Proveedores')
+@section('title','Cotizaciones')
 
 @section('styles')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{route('pedidos.index')}}">Pedidos</a></li>
+  <li><a href="{{route('pedidos.index')}}">Cotizaciones</a></li>
   <li><a href="{{route('pedidos.create')}}">Registro</a></li>
 </ol>
 @endsection
@@ -20,7 +20,7 @@
 <section class="content-header">
     <a href="{{route('pedidos.index')}}">
       <button class="btn bg-olive pull-right">
-      IR PEDIDOS &nbsp; <span class="fa fa-list"></span>
+      IR Cotizaciones &nbsp; <span class="fa fa-list"></span>
       </button>
     </a>    
     <p><br></p>

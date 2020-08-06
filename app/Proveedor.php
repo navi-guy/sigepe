@@ -9,7 +9,8 @@ class Proveedor extends Model
 {
     protected $table = 'proveedores';
     protected $primaryKey = 'id';
-    protected $fillable= ['id','razon_social','ruc' , 'deuda' ,'representante', 'email'];
+    protected $fillable= ['id','razon_social','ruc' , 'deuda' ,'representante', 'email',
+                         'direccion', 'tipo'];
 
 
     public function plantas()
@@ -17,5 +18,18 @@ class Proveedor extends Model
     	//return $this->hasMany('App\PlantaModel', 'id_empleado');
     	return $this->hasMany(Planta::class,'proveedor_id');
     } 
+
+    public function getTipo(){
+        $result="";
+        switch($this->tipo){
+            case 2: 
+                $result="Fábrica";
+                break;
+            case 1:
+                $result="Mecánica";
+                break;
+        }
+        return $result;
+    }
 }
 

@@ -13,14 +13,14 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('trabajadores')->insert([
             'dni'=>'08372118',
-            'nombres' => 'Corporacion Peruana',
-            'apellido_paterno' => 'Corporacion Peruana',
-            'apellido_materno' => 'Corporacion Peruana',
+            'nombres' => 'SIGESPRO',
+            'apellido_paterno' => 'SIGESPRO',
+            'apellido_materno' => 'SIGESPRO',
             'telefono' => '2534035'
         ]);
 
         DB::table('users')->insert([
-            'email' => 'corporacion@gmail.com',
+            'email' => 'sigespro@gmail.com',
             'password' => bcrypt('123456'),
             'trabajador_id'=>'1'
         ]);

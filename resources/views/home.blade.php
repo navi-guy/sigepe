@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Agregar cartillas dashboard...
                 </div>
             </div>
         </div>

@@ -37,8 +37,29 @@
               
             </div>
           </div>
-
-          <div class="form-group @error('email') has-error @enderror">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group @error('direccion') has-error @enderror">
+                <label for="direccion">Dirección </label>
+                <input id="direccion" type="text" class="form-control" name="direccion" placeholder="Ingrese su dirección" value="{{ old('direccion') }}">
+                @error('direccion')
+                  <span class="help-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group @error('tipo') has-error @enderror">
+                <label for="tipo">Tipo</label>
+                <select name="tipo" class="form-control">                
+                  <option value="1" @if (old('tipo') == "1") {{ 'selected' }} @endif>Mecánica</option>
+                  <option value="2" @if (old('tipo') == "2") {{ 'selected' }} @endif>Fábrica</option>
+                </select>    
+              </div>
+            </div>
+          </div>
+{{--           <div class="form-group @error('email') has-error @enderror">
             <label for="email">Correo Electrónico</label>
             <input id="email" type="email" class="form-control" name="email" placeholder="proveedor@ejemplo.com" value="{{ old('email') }}">
             @error('email')
@@ -46,7 +67,7 @@
                 <strong>{{ $message }}</strong>
               </span>
             @enderror
-          </div>          
+          </div>    --}}       
     
 
           </div><!-- /.box-body -->

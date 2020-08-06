@@ -10,7 +10,7 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{route('pedidos.index')}}">Pedidos</a></li>
+  <li><a href="{{route('pedidos.index')}}">Cotizaciones</a></li>
   <li><a href="{{route('pedidos.create')}}">Registro</a></li>
 </ol>
 @endsection
@@ -21,7 +21,6 @@
     @include('pedidosP.table')
     <!-- mODAL-->
     @include('pedidosP.edit')
-    @include('pago_proveedores.modal')
     <!-- End mODAL-->
 </section>
 
@@ -42,39 +41,6 @@ $(document).ready(function(){
       dataType : 'json'      
     }); 
     }
-
-  $("#modal-pagar-proveedor").on("show.bs.modal", function(event) {
-      
-    $.get('pago_proveedors/create', function( data ) {
-        var html = "";
-        console.log(data);
-        data.forEach(function(val) {
-          var keys = Object.keys(val);
-          var prueba = 'futuro valor para saber si hay deuda con el proveedor';
-          console.log(val);
-        //  console.log(band);
-          if( val != null ){ 
-            html +='<div class="row">';
-            html +=  '<div class="col-md-2"></div>';
-            html +=  '<div class="col-md-8">';
-            if ( prueba != null) {
-                          html +=    '<a href="pago_proveedors/'+val['id']+'" class="btn  btn-block btn-lg btn-success">'+val['razon_social'];
-            html +=    '</a> ';
-            }
-            html +=  '</div>';
-            html +=  ' <div class="col-md-2"></div>';
-            html +='</div>';
-            html +='</br>';            
-
-            $(".show-proveedores").html(html);
-          }
-
-        });     
-    });
-
-   
-  });
-
 
 });
 
@@ -103,7 +69,6 @@ $(document).ready(function() {
         if( aData[6] == 0.00 ){
            $('td', nRow).css('background-color', '#D8D8D8');
             }
-
         }else{
            $('td', nRow).css('background-color', '#ffcdd2');
         }

@@ -8,7 +8,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
-        <h4 class="modal-title">Editar datos del pedido</h4>
+        <h4 class="modal-title">Editar datos de la cotización</h4>
         <input type="hidden" id="id_pedido" name="id">
       </div>
 
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="planta" > Planta </label>
+                  <label for="planta" > Insumo </label>
                   <select class="form-control" id="planta-edit" style="width: 100%;" name="planta_id">
                     @foreach ( $plantas as $planta)
                       <option value="{{$planta->id}}">{{$planta->planta}}</option>
@@ -59,12 +59,12 @@
             <!-- general form elements -->
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title"> DIESEL B5 (S50) UV</h3>
+                <h3 class="box-title"> Detalles</h3>
               </div><!-- /.box-header -->
               <div class="box-body">
                 
                  <div class="form-group @error('galones') has-error @enderror">
-                  <label for="galones-edit"> Galones  </label>
+                  <label for="galones-edit"> Cantidad  </label>
                   <input id="galones-edit" type="number" class="form-control" name="galones" placeholder="Ingrese cantidad de galones" min="0" max="99999" required>
                    @error('galones')
                   <span class="help-block" role="alert">
@@ -74,7 +74,7 @@
                 </div>
 
                  <div class="form-group @error('costo_galon') has-error @enderror">
-                  <label for="costo_galon-edit"> Costo galón  </label>
+                  <label for="costo_galon-edit">Costo total  </label>
                   <input id="costo_galon-edit" type="text" class="form-control" name="costo_galon" placeholder="Ingrese el precio del galón" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{5}))?)" title="Formato: Use 5 decimales" required>
                   @error('costo_galon')
                   <span class="help-block" role="alert">

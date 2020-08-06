@@ -25,10 +25,6 @@ class CreatePedidosTable extends Migration
             $table->decimal('costo_flete')->nullable()->default(0);
             $table->string('chofer')->nullable();
             $table->string('brevete_chofer')->nullable();
-            $table->unsignedBigInteger('factura_proveedor_id')->nullable();
-            $table->foreign('factura_proveedor_id')->references('id')->on('factura_proveedors');
-            $table->unsignedBigInteger('vehiculo_id')->nullable();
-            $table->foreign('vehiculo_id')->references('id')->on('vehiculos');
             $table->unsignedBigInteger('planta_id');
             $table->foreign('planta_id')->references('id')->on('plantas');
             $table->timestamps();
@@ -42,12 +38,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::table('pedidos', function (Blueprint $table) {
-            $table->dropForeign(['factura_proveedor_id']);
-        });
-        Schema::table('pedidos', function (Blueprint $table) {
-            $table->dropForeign(['vehiculo_id']);
-        });
         Schema::table('pedidos', function (Blueprint $table) {
             $table->dropForeign(['planta_id']);
         });
