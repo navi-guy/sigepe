@@ -85,7 +85,9 @@
                     <tr>
                       <th style="width:50%">Producto</th>
                       <th style="width:10%">Cantidad</th>
-                      <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                      <th style="width:10%">
+                        <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
+                      </th>
                     </tr>
                   </thead>
 

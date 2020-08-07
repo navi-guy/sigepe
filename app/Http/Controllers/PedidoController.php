@@ -58,7 +58,6 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //$pedido=Pedido::all();
         $insumos = Insumo::all();
         $plantas = Planta::all();
 
