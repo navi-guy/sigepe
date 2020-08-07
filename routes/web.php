@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/productos', 'ProductoController');
 
 	/** Insumos */
-	Route::resource('/insumos', 'InsumosController');
+	Route::resource('/insumos', 'InsumoController');
 	Route::get('/insumos_disponibles','InsumoController@getDisponibles')
 			  ->name('insumos.getDisponibles');
 });

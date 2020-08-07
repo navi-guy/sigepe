@@ -23,7 +23,7 @@ class InsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getDisponibles(){
-        $insumos = Insumo::where('unidad_medida','>',0)->get();
+        $insumos = Insumo::where('cantidad','>',0)->get();
         return response()->json(['insumos' => $insumos]);
     }
 

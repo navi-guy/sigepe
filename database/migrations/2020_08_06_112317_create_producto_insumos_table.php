@@ -15,7 +15,7 @@ class CreateProductoInsumosTable extends Migration
     {
         Schema::create('producto_insumos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('insumos_id')->nullable();
+            $table->unsignedBigInteger('insumo_id')->nullable();
             $table->foreign('insumo_id')->references('id')->on('insumos');
             $table->unsignedBigInteger('producto_id')->nullable();
             $table->foreign('producto_id')->references('id')->on('productos');
