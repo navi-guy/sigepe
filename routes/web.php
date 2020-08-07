@@ -15,16 +15,6 @@ Route::redirect('/', 'login', 301);
 
 Route::middleware(['auth'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home');
-	/* Clientes*/
-	Route::get('/clientes/all', 'ClienteController@getAllClientes');
-	Route::get('/clientes/tipo/{tipo}', 'ClienteController@getByTipo');
-	Route::resource('/clientes', 'ClienteController');
-
-	/* Pedidos Clientes*/
-	Route::put('/pedido_clientes/{id}/confirmar', 'PedidoClienteController@confirmarPedido')->name('pedido_clientes.confirmarPedido');
-	Route::get('/pedido_clientes/cliente/{id}', 'PedidoClienteController@getByRazonSocial');
-	Route::get('/pedido_clientes/detalles/{id}', 'PedidoClienteController@getDetalles')->name('pedido_clientes.detalles');
-	Route::resource('/pedido_clientes', 'PedidoClienteController');
 
 	/* Trabajadores*/
 	Route::resource('/trabajadores', 'TrabajadorController');
@@ -42,4 +32,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/categorias', 'CategoriaController');
 	Route::resource('/productos', 'ProductoController');
 
+	/** Insumos */
+	Route::resource('/insumos', 'InsumosController');
+	Route::get('/insumos_disponibles','InsumoController@getDisponibles')
+			  ->name('insumos.getDisponibles');
 });

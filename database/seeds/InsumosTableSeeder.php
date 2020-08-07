@@ -14,19 +14,19 @@ class InsumosTableSeeder extends Seeder
         DB::table('plantas')->insert([
             'nombre'=>'Insumo 1',
             'cantidad' => '55',
-            'unidad_medida' => 'kg'
+            'unidad_medida' => '1'
         ]);
 
         DB::table('plantas')->insert([
             'nombre'=>'Insumo 1',
             'cantidad' => '52',
-            'unidad_medida' => 'kg'
+            'unidad_medida' => '1'
         ]);
 
         DB::table('plantas')->insert([
             'nombre'=>'Insumo 1',
             'cantidad' => '15',
-            'unidad_medida' => 'u'
+            'unidad_medida' => '2'
         ]);                  
     }
 }

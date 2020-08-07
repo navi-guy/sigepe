@@ -18,6 +18,16 @@ class InsumoController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getDisponibles(){
+        $insumos = Insumo::where('unidad_medida','>',0)->get();
+        return response()->json(['insumos' => $insumos]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -46,7 +56,7 @@ class InsumoController extends Controller
      */
     public function show(Insumo $insumo)
     {
-        //
+        return $insumo;
     }
 
     /**

@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SINGESPRO | @yield('title')</title>
+  <title>SIGEPE | @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" nombres="viewport">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('iconoCorp.ico') }}">
@@ -71,7 +71,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>S</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b style="font-size: 20px;">SINGESPRO</b></span>
+      <span class="logo-lg"><b style="font-size: 20px;">SIGEPE</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -149,17 +149,7 @@ desired effect
         </li> 
         <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i> <span>Gestionar Categorias</span></a></li>
         <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Productos Totales</span> </a></li>       
-{{--    <li id="treeview-clientes" class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Clientes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('clientes.index')}}"><i class="fa fa fa-user"></i>Gestion</a></li>
-          </ul>
-        </li>    --}}
+
         <li id="treeview-ventas" class="treeview">
           <a href="#">
             <i class="fa fa-cart-plus"></i> <span>Pedidos /Cliente</span>
@@ -168,9 +158,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('pedido_clientes.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
-            <li><a href="{{route('pedido_clientes.create')}}"><i class="fa fa-pencil"></i>Revisar Pedido</a></li>
-            {{-- <li><a href="{{route('pago_clientes.index')}}"><i class="fa fa-money"></i> Ver Pagos</a></li> --}}
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-pencil"></i>Revisar Pedido</a></li>
           </ul>
         </li>
 
@@ -223,7 +212,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <a href="#">SINGESPRO</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="#">SIGEPE</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
