@@ -3,6 +3,8 @@
 namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Producto;
+use CorporacionPeru\Insumo;
+use CorporacionPeru\Categoria;
 use Illuminate\Http\Request;
 use CorporacionPeru\Http\Requests\StoreProveedorRequest;
 
@@ -26,7 +28,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $insumos = Insumo::all();
+        $categorias = Categoria::all();
+        return view('productos.create.index', compact('insumos','categorias'));
     }
 
     /**
@@ -61,7 +65,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $insumos = Insumo::all();
+        return view('productos.create.index', compact('insumos','producto'));
     }
 
     /**

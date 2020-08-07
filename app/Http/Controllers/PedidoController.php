@@ -4,6 +4,7 @@ namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Proveedor;
 use CorporacionPeru\Planta;
+use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StorePedidoRequest;
 use Illuminate\Http\Request;
@@ -44,10 +45,10 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
-        $pedidos = Pedido::with('planta')->with('facturaProveedor')->orderBy('id','desc')->get();
+        $insumos = Insumo::all();
+        $pedidos = Pedido::all();
         $plantas = Planta::all();
-        return view('pedidosP.index', compact('pedidos', 'plantas'));
+        return view('pedidosP.index', compact('pedidos', 'plantas','insumos'));
     }
 
     /**
@@ -58,10 +59,11 @@ class PedidoController extends Controller
     public function create()
     {
         //$pedido=Pedido::all();
+        $insumos = Insumo::all();
         $plantas = Planta::all();
 
 
-        return view('pedidosP.create_pedido.index', compact('plantas'));
+        return view('pedidosP.create_pedido.index', compact('plantas','insumos'));
         //
     }
 
@@ -73,7 +75,6 @@ class PedidoController extends Controller
      */
     public function store(StorePedidoRequest $request)
     {
-        //
         Pedido::create($request->validated());
         return  redirect()->action('PedidoController@index')->with('alert-type', 'success')->with('status', 'Pedido creado con exito');
     }

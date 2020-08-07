@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
 	/* Pedido Proveedor  */					
 	Route::resource('/pedidos', 'PedidoController');
+	Route::get('/procesar/{id}', 'PedidoController@confirmarPedido')->name('pedidos.confirmarPedido');
 
 	/* Categoria & Producto  */					
 	Route::resource('/categorias', 'CategoriaController');

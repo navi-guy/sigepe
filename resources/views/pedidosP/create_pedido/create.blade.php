@@ -32,7 +32,7 @@
 
             <div class="form-group">
 
-                 <label for="planta">Insumo</label>
+                 <label for="planta">Fábrica</label>
                   <select class="form-control" id="planta" name="planta_id" required>
                     @foreach ( $plantas as $planta)
                       <option value="{{$planta->id}}">{{$planta->planta}}</option>

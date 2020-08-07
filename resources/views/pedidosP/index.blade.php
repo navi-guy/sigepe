@@ -59,21 +59,8 @@ $(document).ready(function() {
           { responsivePriority: 10001, targets: 2 },
           { responsivePriority: 10002, targets: 5 },
           { responsivePriority: 1, targets: -1 }
-        ],
-
-      "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-        if ( aData[6] == aData[5] ){ //igual no pasa nada
-          //$('td', nRow).css('background-color', '#ffcdd2');               
-        }else if(aData[6] < aData[5] ){//si montoFactura < monto anterior
-          $('td', nRow).css('background-color', '#A9F5D0');//verde
-        if( aData[6] == 0.00 ){
-           $('td', nRow).css('background-color', '#D8D8D8');
-            }
-        }else{
-           $('td', nRow).css('background-color', '#ffcdd2');
-        }
-
-      }
+        ]
+    
   });
 });
 </script>

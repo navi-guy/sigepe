@@ -30,11 +30,11 @@
                 <th>SCOP</th>
                 <th>Planta</th>
                 <!-- <th>Fecha pedido</th> -->
-                <th>GLS</th>
-                <th>Precio galon/u</th> 
+                <th>Cantidad</th>
+                <th>Precio c/u</th> 
                 <th>Monto (S/.)</th>
-                <th>M.Facturado (S/.) </th>
-                <th>Saldo</th>
+              {{--   <th>M.Facturado (S/.) </th> --}}
+               {{--  <th>Saldo</th> --}}
                 <th>Estado</th>
                 <th>Acciones</th>
 
@@ -53,7 +53,7 @@
 
                   <td>{{number_format((float)
                     $pedido->getPrecioTotal(), 2, '.', '') }}</td>
-                  <td>
+{{--                   <td>
                     @if($pedido->saldo == null)
                     0.00
                     @else
@@ -68,7 +68,7 @@
                     @else
                     {{$pedido->saldo}}
                     @endif                      
-                  </td>
+                  </td> --}}
                  
                   @includeWhen($pedido->isConfirmed(), 'actions.pedido.acciones_confirmado')
                   @includeWhen($pedido->isUnconfirmed(),'actions.pedido.acciones_sin_confirmar')

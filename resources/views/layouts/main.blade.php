@@ -132,7 +132,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
        {{--  <li class="header">MENU</li> --}}
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="{{route('proveedores.create')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
+        <li><a href="{{route('home')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
         </li>
         <li><a href="{{route('proveedores.index')}}"><i class="fa fa-truck"></i> <span>Proveedores</span></a></li>
         <li id="treeview-compras" class="treeview">

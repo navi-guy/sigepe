@@ -2,34 +2,45 @@
     <div class="col-xs-12">
       <div class="box box-success">
         <div class="box-header">
-          <h3 class="box-title">LISTA DE <b>PROVEEDORES</b></h3>
+          <h3 class="box-title">Gestionar <b>PRODUCTOS</b></h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tabla-proveedores" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
+          <table id="tabla-productos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
             <thead>
               <tr>
-                {{-- <th>#</th> --}}
-                <th>Razon Social</th>
-                <th>Ruc</th>
-              {{--   <th>Email</th> --}}
-                <th>Dirección</th>
-                <th> Tipo</th>
+                <th>Código</th>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Material</th>
+                <th>U. Medida</th>
                 <th>Acciones</th>
-                
               </tr>
             </thead>
             <tbody>
-              @foreach ($proveedores as $proveedor)
+              @foreach ($productos as $producto)
                 <tr>
-                 {{--  <td>{{$proveedor->id}}</td> --}}
-                  <td>{{$proveedor->razon_social}}</td>
-                  <td>{{$proveedor->ruc}}</td>
-                  {{-- <td>{{$proveedor->email}}</td> --}}
-                  <td>{{$proveedor->direccion}}</td>
-                  <td>{{$proveedor->getTipo()}}</td>
-
-                  @include('actions.proveedor')
+                  <td>{{$producto->id}}</td>
+                  <td>{{$producto->image}}</td>
+                  <td>{{$producto->nombre}}</td>
+                  <td>S/. {{$producto->precio_unitario}}</td>
+                  <td>{{$producto->categoria}}</td>
+                  <td>{{$producto->getMaterial()}}</td>
+                  <td>{{$producto->getUnidadMedida()}}</td>
+                  <td>
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#modal-edit-producto" data-id="{{$producto->id}}">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                   {{--  @if($producto->pedidoproductos->isEmpty()) --}}
+                      <form style="display:inline" method="POST" onsubmit="return confirmarDeleteProducto()" action="{{ route('productos.destroy', $producto->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                      </form>
+                    {{-- @endif --}}
+                  </td>
                 </tr>
               @endforeach
             </tbody>
