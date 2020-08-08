@@ -9,17 +9,17 @@ Abrir laragon y click en 'Terminal'
 
 > git clone https://github.com/navichicken/sigepe
 
-> cd sigepe-master
-> composer install
-> cp .env.example .env
-> php artisan key:generate
+- cd sigepe-master
+- composer install
+- cp .env.example .env
+- php artisan key:generate
 
 Dirigirse al archivo .env en ahí poner las credenciales de la conexión y la BD (crear una base de datos, solo crearla)
 DB_DATABASE=calidad
 DB_USERNAME=root
 DB_PASSWORD=
 
-> php artisan migrate:fresh --seed
+- php artisan migrate:fresh --seed
 
 Ir a
 http://localhost/sigepe-master/public
