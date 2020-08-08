@@ -1,31 +1,87 @@
-## Levantar proyecto
+# PROYECTO SIGEPE
 
-Requisitos:
+_Acá va un párrafo que describa lo que es el proyecto_
 
-- [Tener laragon instalado]
-- [Tener git instalado]
+## Comenzando 🚀
 
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
+Mira **Deployment** para conocer como desplegar el proyecto.
+
+
+### Pre-requisitos 📋
+
+```
+Laragon   https://laragon.org/download/
+```
+```
+Git
+```
 Abrir laragon y click en 'Terminal'
 
-> git clone https://github.com/navichicken/sigepe
+### Instalación 🔧
 
-- cd sigepe-master
-- composer install
-- cp .env.example .env
-- php artisan key:generate
+_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-Dirigirse al archivo .env en ahí poner las credenciales de la conexión y la BD (crear una base de datos, solo crearla)
-DB_DATABASE=calidad
+_1. Abrir Laragon e ingresar a 'Terminal'_
+
+_2. En el terminal ejecutar el siguiente comando para descargar el repositorio_
+```
+git clone https://github.com/navichicken/sigepe
+```
+_3. Ejecutar el siguiente comando para ingresar a la carpeta_
+```
+cd sigepe-master
+```
+_4. Ejecutar el siguiente comando para instalar todas las dependencias_
+```
+composer install
+```
+_5. Este paso puedes hacerlo mientras se instalan las dependencias. Dirigite a Laragon y haz click 'Iniciar Todo', esto iniciará el servidor de Apache y mysql, ahora haces click en "Base de datos", en la interface colocas abrir y te abrirá una GUI, en esta GUI haces anticlick en laragon(la parte izquierda), luego 'Crear Nuevo' y 'base de datos', y creas la base de datos 'sigepe_db'._
+_6. Ejecutas el siguiente comando para crear una copia del archivo de entorno de variable._
+```
+cp .env.example .env
+```
+_5. Ahora que tienes el archivo .env creado. Abre el archivo con un IDE y en este archivo debes poner las credenciales de la conexión a la base de datos._
+```
+DB_DATABASE=sigepe_db
 DB_USERNAME=root
 DB_PASSWORD=
+```
+_6. Ejecutar el siguiente comando, este comando creará las tablas en la base de datos(migrate) e insertará datos iniciales a las tablas(seed)._
+```
+php artisan migrate:fresh --seed
+```
+_7. Ejecutar el siguiente comando, que creará una key en el archivo .env_
+```
+php artisan key:generate
+```
+_8. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public ._
+```
+User: sigespro@gmail.com
+```
+```
+Contraseña: 123456
+```
+## Posibles errores que ocurran durante la instalación y configuración 🤬🤬
+Si estás una versión reciente de Mysql, puede que ocurra un error en el paso de las migraciones, para solucionarlo puedes ejecutar el siguiente comando SQL.
+```
+CREATE USER 'sigepe_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sigepe_pass';
+GRANT ALL PRIVILEGES ON sigepe_bd.* TO 'sigepe_user'@'localhost';
+```
+Donde _DB_USERNAME=sigepe_user_, _DB_PASSWORD=sigepe_pass_ y _DB_DATABASE=_sigepe_bd_
 
-- php artisan migrate:fresh --seed
 
-Ir a
-http://localhost/sigepe-master/public
 
-user: sigespro@gmail.com
-pass:  12345
+
+## Construido con 🛠️
+
+_Menciona las herramientas que utilizaste para crear tu proyecto_
+
+* [Laravel](https://laravel.com/docs/5.6) - El framework web usado
+* [Composer](https://getcomposer.org/) - Manejador de dependencias
+
+
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
