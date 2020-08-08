@@ -11,9 +11,11 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
+https://laragon.org/download/
 ```
-Laragon   https://laragon.org/download/
+Laragon   
 ```
+https://git-scm.com/downloads
 ```
 Git
 ```
@@ -38,25 +40,26 @@ _4. Ejecutar el siguiente comando para instalar todas las dependencias_
 composer install
 ```
 _5. Este paso puedes hacerlo mientras se instalan las dependencias. Dirigite a Laragon y haz click 'Iniciar Todo', esto iniciará el servidor de Apache y mysql, ahora haces click en "Base de datos", en la interface colocas abrir y te abrirá una GUI, en esta GUI haces anticlick en laragon(la parte izquierda), luego 'Crear Nuevo' y 'base de datos', y creas la base de datos 'sigepe_db'._
-_6. Ejecutas el siguiente comando para crear una copia del archivo de entorno de variable._
+
+_6. Ejecutas el siguiente comando para crear una copia del archivo de entorno de variable_
 ```
 cp .env.example .env
 ```
-_5. Ahora que tienes el archivo .env creado. Abre el archivo con un IDE y en este archivo debes poner las credenciales de la conexión a la base de datos._
+_7. Ahora que tienes el archivo .env creado. Abre el archivo con un IDE y en este archivo debes poner las credenciales de la conexión a la base de datos._
 ```
 DB_DATABASE=sigepe_db
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-_6. Ejecutar el siguiente comando, este comando creará las tablas en la base de datos(migrate) e insertará datos iniciales a las tablas(seed)._
+_8. Ejecutar el siguiente comando, este comando creará las tablas en la base de datos(migrate) e insertará datos iniciales a las tablas(seed)._
 ```
 php artisan migrate:fresh --seed
 ```
-_7. Ejecutar el siguiente comando, que creará una key en el archivo .env_
+_9. Ejecutar el siguiente comando, que creará una key en el archivo .env_
 ```
 php artisan key:generate
 ```
-_8. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public ._
+_10. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public ._
 ```
 User: sigespro@gmail.com
 ```
@@ -64,12 +67,12 @@ User: sigespro@gmail.com
 Contraseña: 123456
 ```
 ## Posibles errores que ocurran durante la instalación y configuración 🤬🤬
-Si estás una versión reciente de Mysql, puede que ocurra un error en el paso de las migraciones, para solucionarlo puedes ejecutar el siguiente comando SQL.
+Si estás una versión reciente de Mysql, puede que ocurra un error en el paso de las migraciones, para solucionarlo puedes ejecutar el siguiente comando SQL, desde tu usario root.
 ```
 CREATE USER 'sigepe_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sigepe_pass';
-GRANT ALL PRIVILEGES ON sigepe_bd.* TO 'sigepe_user'@'localhost';
+GRANT ALL PRIVILEGES ON sigepe_db.* TO 'sigepe_user'@'localhost';
 ```
-Donde _DB_USERNAME=sigepe_user_, _DB_PASSWORD=sigepe_pass_ y _DB_DATABASE=_sigepe_bd_
+Donde _DB_USERNAME=sigepe_user_, _DB_PASSWORD=sigepe_pass_ y _DB_DATABASE=_sigepe_db_
 
 
 
