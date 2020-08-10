@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+        //obtener valores de las cartillas y pasarlos a la vista
         return view('home');
     }
 }

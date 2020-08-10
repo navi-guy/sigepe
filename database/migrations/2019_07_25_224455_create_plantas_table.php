@@ -22,8 +22,6 @@ class CreatePlantasTable extends Migration
             $table->foreign('proveedor_id')
                 ->references('id')
                 ->on('proveedores');
-                //->onDelete('cascade')
-                //->onUpdate('cascade');
             $table->timestamps();
         });
     }

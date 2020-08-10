@@ -17,11 +17,11 @@ class CreateProveedoresTable extends Migration
             $table->bigIncrements('id');
             $table->string('razon_social');
             $table->string('ruc');
-            $table->string('deuda')->default(0);
             $table->string('email')->unique()->nullable();
             $table->string('representante')->nullable();
             $table->string('direccion')->nullable();
             $table->integer('tipo')->nullable();
+            $table->decimal('costo_flete',9,2)->nullable();
             $table->timestamps();
         });     
     }

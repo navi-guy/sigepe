@@ -21,6 +21,7 @@ class CreateProductosTable extends Migration
             $table->string('descripcion');
             $table->string('image')->default('dist/img/product_image/defecto.jpg');
             $table->decimal('precio_unitario',9,2);
+            $table->integer('stock')->nullable();            
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();

@@ -23,10 +23,12 @@
               @foreach ($productos as $producto)
                 <tr>
                   <td>{{$producto->id}}</td>
-                  <td>{{$producto->image}}</td>
+                  <td>
+                    <img src="{{asset($producto->image)}}" alt="img" width="50px" height="50px">
+                  </td>
                   <td>{{$producto->nombre}}</td>
                   <td>S/. {{$producto->precio_unitario}}</td>
-                  <td>{{$producto->categoria}}</td>
+                  <td>{{$producto->categoria->nombre}}</td>
                   <td>{{$producto->getMaterial()}}</td>
                   <td>{{$producto->getUnidadMedida()}}</td>
                   <td>

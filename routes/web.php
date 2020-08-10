@@ -14,7 +14,7 @@ Auth::routes(['register' => false]);
 Route::redirect('/', 'login', 301);
 
 Route::middleware(['auth'])->group(function () {
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home.index');
 
 	/* Trabajadores*/
 	Route::resource('/trabajadores', 'TrabajadorController');

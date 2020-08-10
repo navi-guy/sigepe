@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductoInsumosTable extends Migration
+class CreateProductosPedidoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateProductoInsumosTable extends Migration
      */
     public function up()
     {
-        Schema::create('producto_insumos', function (Blueprint $table) {
+        Schema::create('productos_pedido', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('insumo_id');
-            $table->foreign('insumo_id')->references('id')->on('insumos');
+            $table->unsignedBigInteger('pedido_id');
+            $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->integer('cantidad');
+            $table->integer('pu');
+            $table->decimal('monto',9,2);
             $table->timestamps();
         });
     }
@@ -31,10 +33,10 @@ class CreateProductoInsumosTable extends Migration
      */
     public function down()
     {
-        Schema::table('producto_insumos', function (Blueprint $table) {
-            $table->dropForeign(['insumo_id']);
+        Schema::table('productos_pedido', function (Blueprint $table) {
+            $table->dropForeign(['pedido_id']);
             $table->dropForeign(['producto_id']);            
         });
-        Schema::dropIfExists('producto_insumos');
+        Schema::dropIfExists('productos_pedido');
     }
 }

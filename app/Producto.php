@@ -12,10 +12,20 @@ class Producto extends Model
                          'descripcion', 'image', 'precio_unitario'];
 
 
-    public function producto_insumo()
+    // public function producto_insumo()
+    // {
+    //     return $this->hasMany(ProductoInsumo::class);
+    // } 
+
+    public function insumos()
     {
-        return $this->hasMany(ProductoInsumo::class,'producto_id');
-    } 
+        return $this->belongsToMany(Insumo::class,'producto_insumos');
+    }   
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }  
 
     public function getMaterial(){
         $result="";

@@ -11,20 +11,20 @@ class InsumosTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('plantas')->insert([
+        DB::table('insumos')->insert([
             'nombre'=>'Insumo 1',
             'cantidad' => '55',
             'unidad_medida' => '1'
         ]);
 
-        DB::table('plantas')->insert([
-            'nombre'=>'Insumo 1',
+        DB::table('insumos')->insert([
+            'nombre'=>'Insumo 2',
             'cantidad' => '52',
             'unidad_medida' => '1'
         ]);
 
-        DB::table('plantas')->insert([
-            'nombre'=>'Insumo 1',
+        DB::table('insumos')->insert([
+            'nombre'=>'Insumo 3',
             'cantidad' => '15',
             'unidad_medida' => '2'
         ]);                  

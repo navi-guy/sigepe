@@ -10,6 +10,10 @@ class Insumo extends Model
     protected $primaryKey = 'id';
     protected $fillable= ['id', 'nombre','unidad_medida' ,'cantidad'];
 
+    public function productos(){
+        return $this->belongsToMany(Producto::class, 'producto_insumos');
+    }
+
     public function getUnidadMedida(){
         $result="";
         switch($this->unidad_medida){

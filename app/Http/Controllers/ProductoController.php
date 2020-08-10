@@ -6,7 +6,9 @@ use CorporacionPeru\Producto;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Categoria;
 use Illuminate\Http\Request;
-use CorporacionPeru\Http\Requests\StoreProveedorRequest;
+use Illuminate\Support\Facades\Storage;
+use CorporacionPeru\Http\Requests\StoreProductoRequest;
+
 
 class ProductoController extends Controller
 {
@@ -28,7 +30,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $insumos = Insumo::all();
+        $insumos = Insumo::where('cantidad','>',0)->get();
         $categorias = Categoria::all();
         return view('productos.create.index', compact('insumos','categorias'));
     }
@@ -41,9 +43,21 @@ class ProductoController extends Controller
      */
     public function store(StoreProductoRequest $request)
     {
-        Producto::create($request->validated());
-        // some code to save image
-        return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
+        $producto = Producto::create($request->validated());
+
+        if($request->file('image')){
+            $path = Storage::disk('public')->put('img_products', $request->file('image'));
+            $producto->fill(['image'=> $path]);
+        }
+        $insumos_id = $request->insumo;
+        $qty_insumos = $request->qty;        
+        for ($i=0; $i < count($insumos_id); $i++) { 
+            $cantidad = $qty_insumos[$i];
+            $producto->insumos()->attach($insumos_id[$i],['cantidad'=> $cantidad ]);
+        }
+        $producto->save();
+
+        return  redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto creado con exito');
     }
 
     /**
@@ -65,8 +79,9 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        $insumos = Insumo::all();
-        return view('productos.create.index', compact('insumos','producto'));
+        $insumos = Insumo::where('cantidad','>',0)->get();
+        $categorias = Categoria::all();
+        return view('productos.create.index', compact('insumos','producto','categorias'));
     }
 
     /**
@@ -89,6 +104,11 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        /* add restricciones
+        Eliminar imagenes too
+        */
+        $producto->insumos()->detach();
+        $producto->delete();
+        return  back()->with('alert-type', 'success')->with('status', 'Producto eliminado con exito');
     }
 }

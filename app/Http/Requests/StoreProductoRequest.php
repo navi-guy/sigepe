@@ -24,13 +24,18 @@ class StoreProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|max: 255|unique:plantas,planta,'.$this->id,
-            'material' => 'required|numeric|gt:0',
-            'unidad_medida'=>'required|numeric|gte:0',
-            'descripcion'=>'required|max: 255',
-            'image'=>'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'precio_unitario'=>'required|numeric|gt:0',
-            'categoria_id' => 'required',
+            'nombre'          =>'required|max: 255',
+            'material'        =>'required|numeric|gt:0',
+            'unidad_medida'   =>'required|numeric|gte:0',
+            'descripcion'     =>'nullable|max: 255',
+            'image'           =>'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'precio_unitario' =>'required|numeric|gt:0',
+            'categoria_id'    =>'required',
+          //  'insumo'          =>'required|array|min:1',
+         //   'insumo.*'        =>'required|distinct',
+          //  'qty'             =>'required|array|min:1',
+          //  'qty.*'           =>'required',
+
         ];
     }
 }
