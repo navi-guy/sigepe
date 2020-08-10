@@ -120,9 +120,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li><a href="{{route('pedidos.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
           </ul>
         </li>  --}}
+
         <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i> <span>Gestionar Categorias</span></a></li>
         <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Productos Totales</span> </a></li>       
-
+        <li><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Revisar Stock</span> </a></li>       
+        {{-- <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Revisar Stock</span> </a></li>      --}}
+        
         <li id="treeview-ventas" class="treeview">
           <a href="#">
             <i class="fa fa-cart-plus"></i> <span>Pedidos /Cliente</span>
