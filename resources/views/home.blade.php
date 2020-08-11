@@ -17,9 +17,9 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>{{$array['npedido']}}</h3>
 
-                  <p>New Orders</p>
+                  <p>Número de Pedidos</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -32,9 +32,9 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <h3>{{$array['ncategoria']}}<sup style="font-size: 20px"></sup></h3>
 
-                  <p>Bounce Rate</p>
+                  <p>Número de Categorias</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -49,9 +49,9 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{$array['nusuario']}}</h3>
 
-                  <p>User Registrations</p>
+                  <p>Usuarios Registrados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -64,9 +64,9 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{$array['nproductos']}}</h3>
 
-                  <p>Unique Visitors</p>
+                  <p>Número de productos</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -75,6 +75,41 @@
               </div>
             </div>
             <!-- ./col -->
+
+            <!-- ./col -->
+            <div class="col-lg-6">
+              <!-- small box -->
+              <div class="small-box bg-pink">
+                <div class="inner">
+                  <h3>{{$array['ninsumo']}}</h3>
+
+                  <p>Número de insumos</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-tshirt"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+             <!-- ./col -->
+            <div class="col-lg-6">
+              <!-- small box -->
+              <div class="small-box bg-blue">
+                <div class="inner">
+                  <h3>{{$array['nproveedor']}}</h3>
+
+                  <p>Número de proveedores</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-steam"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+                      
+
           </div> <!-- end.row-->
         </div> <!-- end.card-body-->
       </div>
