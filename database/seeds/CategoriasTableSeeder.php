@@ -25,5 +25,25 @@ class CategoriasTableSeeder extends Seeder
             'nombre'=>'Perfiles',
             'active' => '2'
         ]);   
+
+        DB::table('categorias')->insert([
+            'nombre'=>'Productos forjados',
+            'active' => '2'
+        ]);
+
+        DB::table('categorias')->insert([
+            'nombre'=>'Válvulas',
+            'active' => '1'
+        ]);
+
+        DB::table('categorias')->insert([
+            'nombre'=>'Portaválvulas',
+            'active' => '1'
+        ]);
+
+        DB::table('categorias')->insert([
+            'nombre'=>'Productos maquinados',
+            'active' => '1'
+        ]);
     }
 }

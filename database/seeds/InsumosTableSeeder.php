@@ -28,5 +28,35 @@ class InsumosTableSeeder extends Seeder
             'cantidad' => '15',
             'unidad_medida' => '2'
         ]);                  
+
+        DB::table('insumos')->insert([
+            'nombre'=>'Latón',
+            'cantidad' => '55',
+            'unidad_medida' => '1'
+        ]);
+
+        DB::table('insumos')->insert([
+            'nombre'=>'Cobre',
+            'cantidad' => '52',
+            'unidad_medida' => '1'
+        ]);
+
+        DB::table('insumos')->insert([
+            'nombre'=>'Bronce',
+            'cantidad' => '150',
+            'unidad_medida' => '2'
+        ]); 
+
+        DB::table('insumos')->insert([
+            'nombre'=>'Acero',
+            'cantidad' => '55',
+            'unidad_medida' => '1'
+        ]);
+
+        DB::table('insumos')->insert([
+            'nombre'=>'Plástico',
+            'cantidad' => '52',
+            'unidad_medida' => '1'
+        ]);
     }
 }
