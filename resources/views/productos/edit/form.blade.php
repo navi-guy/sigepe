@@ -67,12 +67,11 @@
                       <div class="form-group">
                       <label for="tipo_proveedor">Unidad de Medida</label>
                         <select class="form-control" id="unidad_medida" name="unidad_medida">
-                          <option value="0" @if (0 == old('unidad_medida', $producto->unidad_medida))
-                          selected="selected" @endif>Unidad (u)</option>
-                          <option value="1" @if (1 == old('unidad_medida', $producto->unidad_medida))
-                          selected="selected" @endif>Medidas en Kilogramo (Kg)</option>
-                          <option value="2" @if (2 == old('unidad_medida', $producto->unidad_medida))
-                          selected="selected" @endif>Medidas en Litro (L)</option>
+                          @foreach($unidades_medida as $unidad_medida)
+                            <option value="{{$unidad_medida['id']}}" 
+                              @if ($unidad_medida['id'] == old('unidad_medida', $producto->unidad_medida)) 
+                              selected="selected" @endif>{{$unidad_medida['descripcion']}}</option>
+                          @endforeach    
                         </select>
                       </div>
                     </div>                  

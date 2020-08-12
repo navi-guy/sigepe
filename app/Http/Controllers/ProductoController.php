@@ -32,7 +32,8 @@ class ProductoController extends Controller
     {
         $insumos = Insumo::where('cantidad','>',0)->get();
         $categorias = Categoria::all();
-        return view('productos.create.index', compact('insumos','categorias'));
+        $unidades_medida = config('constants.unidades_medida');       
+        return view('productos.create.index', compact('insumos','categorias','unidades_medida'));
     }
 
     /**
@@ -93,7 +94,8 @@ class ProductoController extends Controller
         $producto = $producto->load('insumos');
         $insumos = Insumo::where('cantidad','>',0)->get();
         $categorias = Categoria::all();
-        return view('productos.edit.index', compact('insumos','producto','categorias'));
+        $unidades_medida = config('constants.unidades_medida');
+        return view('productos.edit.index', compact('insumos','producto','categorias','unidades_medida'));
     }
 
     /**

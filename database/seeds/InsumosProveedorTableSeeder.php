@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Insumos_ProveedorTableSeeder extends Seeder
+class InsumosProveedorTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
