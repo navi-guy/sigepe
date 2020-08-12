@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group @error('ruc_cli') has-error @enderror">
-                <label for="ruc_cli">RUC
+                <label for="ruc_cli">RUC del cliente
                   <span style="color: red; font-weight: bold;" >*</span>
                 </label>
                 <input id="ruc_cli" type="text" class="form-control" name="ruc_cli" placeholder="Ingrese RUC del cliente" value="{{ old('ruc_cli') }}" pattern="[0-9]{11}" title="Formato: 11 dígitos" required>

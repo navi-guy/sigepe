@@ -10,7 +10,8 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{ route('pedidos.index') }}">Pedidos</a></li>
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
+  <li><a href="#" class="text-muted">Pedidos</a></li> 
 </ol>
 @endsection
 

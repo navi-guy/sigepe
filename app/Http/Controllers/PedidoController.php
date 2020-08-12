@@ -55,7 +55,8 @@ class PedidoController extends Controller
             $cantidad = $qty_insumos[$i];
             $pu = $producto->precio_unitario;
             $monto = $cantidad*$pu;
-            $pedido->productos()->attach($producto->id,['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);
+            $pedido->productos()->attach($producto->id,
+                ['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);
         }
         $pedido->save();
         return  redirect()->action('PedidoController@index')->with('alert-type','success')->with('status','Pedido creado con exito');
@@ -69,7 +70,7 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        //
+        return view('revisarPedidos.show.index', compact('pedido'));
     }
 
     /**

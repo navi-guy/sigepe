@@ -23,7 +23,7 @@ class CreatePedidosTable extends Migration
             $table->string('ruc_cli');        
             $table->integer('estado_pedido')->default(1);
             $table->decimal('monto_bruto',9,2);
-            $table->decimal('descuento',9,2);
+            $table->decimal('descuento',9,2)->nullable();
             $table->decimal('monto_neto',9,2);
             $table->timestamps();
         });

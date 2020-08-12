@@ -3,33 +3,27 @@
 @section('title','Revisar Pedidos')
 
 @section('styles')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 @endsection
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{ route('revisarPedidos.index') }}">Revisar Pedidos</a></li>
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
+  <li><a href="#" class="text-muted">Revisar Pedidos</a></li>
 </ol>
 @endsection
 
 @section('content')
-{{-- <section class="content-header">
-    <a href="{{ route('revisarPedidos.create') }}">
-      <button class="btn bg-olive pull-left">
-      <span class="fa fa-plus"></span> &nbsp; Añadir pedido
-      </button>
-    </a> 
-    <p><br></p>
-</section> --}}
 <section class="content">
   @include('revisarPedidos.table')
+  {{-- modals --}}
+  @include('revisarPedidos.modales.aprobar')
+  @include('revisarPedidos.modales.rechazar')
+  {{-- end.modals --}}
 </section>
 @endsection
 
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script>
 $(document).ready(function() {
   $('#tabla-revisarPedidos').DataTable({
@@ -42,19 +36,20 @@ $(document).ready(function() {
           { responsivePriority: 1, targets: [0,-1] },
           { responsivePriority: 2, targets: [1,2] },
           { responsivePriority: 3, targets: 4},
-          { responsivePriority: 4, targets: [7] },
+          // { responsivePriority: 4, targets: [7] },
           { responsivePriority: 1001, targets: 2 }         
         ]
   });
+$('#modal-aprobar-pedido').on('show.bs.modal',function(event){
+    const id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido').val(id);
+  });
 
+$('#modal-rechazar-pedido').on('show.bs.modal',function(event){
+    var id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido').val(id);
+  });
+}); 
 
-});
-  function confirmarDeletePedido(){
-    if(confirm('¿Estás seguro de eliminar el pedido?'))
-      return true;
-    else
-      return false;
-    
-  }
 </script>
 @endsection

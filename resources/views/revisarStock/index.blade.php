@@ -10,28 +10,13 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{ route('revisarStock.index') }}">Revisar Stock</a></li>
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
+  <li><a href="#" class="text-muted">Revisar Stock</a></li>
 </ol>
 @endsection
 
-{{-- @section('content')
-<section class="content-header">
-      <a href="{{ route('productos.create') }}">
-      <button class="btn bg-olive pull-left">
-      <span class="fa fa-plus"></span> &nbsp; hola
-      </button>
-    </a> 
-    <p><br></p>
-
-</section> --}}
 @section('content')
 <section class="content-header">
-      {{-- <a href="{{ route('productos.create') }}">
-      <button class="btn bg-olive pull-left">
-      <span class="fa fa-plus"></span> &nbsp; Añadir Sotck
-      </button>
-    </a>  --}}
-    <p><br></p>
 
 </section>
 <section class="content">

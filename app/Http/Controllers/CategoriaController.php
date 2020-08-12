@@ -65,10 +65,10 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        // $exists = PedidoCliente::where('cliente_id', $cliente->id)->exists();
-        // if ($exists) {
-        //     return  back()->with('alert-type', 'warning')->with('status', 'Cliente tiene un saldo pendiente');
-        // }
+        $exists = Producto::where('categoria_id', $categoria->id)->exists();
+        if ($exists) {
+            return  back()->with('alert-type', 'warning')->with('status', 'Categoría tiene un producto asociado');
+        }
         $categoria->delete();
         return  back()->with('alert-type', 'success')->with('status', 'Categoria eliminada con exito');
     }

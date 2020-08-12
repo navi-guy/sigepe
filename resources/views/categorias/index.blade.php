@@ -8,8 +8,8 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
-  <li><a href="{{ route('categorias.index') }}">Categorias</a></li>
-  <li><a href="{{ route('categorias.index') }}">Registro</a></li>
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
+  <li><a href="#" class="text-muted">Categorías</a></li>
 </ol>
 @endsection
 
