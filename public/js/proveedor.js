@@ -35,8 +35,6 @@ function editarProveedor(id){
   }); 
 }
 
-
-
 $(document).ready(function() {
   
     $('#tabla-proveedores').DataTable({
@@ -44,24 +42,15 @@ $(document).ready(function() {
           "responsive": true,             
         'language': {
         'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-      }, columnDefs: [ 
-    { 
-      orderable: false, 
-      targets: [ -1 ] 
-    },
-    { 
-      searchable: false, 
-      targets: [-1] 
-    },
-    ] 
-   
+      }, columnDefs: [
+          { orderable: false, targets: -1},
+          { searchable: false, targets: [-1]},
+          { responsivePriority: 1, targets: 0 },
+          { responsivePriority: 10001, targets: 3 },
+          { responsivePriority: 10002, targets: 2 },
+          { responsivePriority: 2, targets: -1 }
+        ]
     });
 } );
 
 $("#proveedor").select2();
-
-
-$('.box').on('click',function(){
-  $('.box').removeClass('box-success');
-  $(this).addClass('box-success');
-})

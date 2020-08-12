@@ -26,16 +26,31 @@
   @include('categorias.edit')
   <!--/.end-modales-->
 </section>
-<!-- BOTONES EN views/actions/proveedor  -->
 @endsection
 @section('scripts')
-{{-- <script src="{{ asset('js/categorias.js') }}"></script>  --}}
+{{-- @if( count($errors) > 0 )
+  <script type="text/javascript">
+      $('#modal-edit-categoria').modal('show');
+  </script>
+@endif --}}
 <script>
+function confirmarDeleteCategoria(){
+  if(confirm('¿Realmente quieres eliminar esta categoría?'))
+    return true;
+  else
+    return false;
+}
 $(document).ready(function() {
   $('#tabla-categorias').DataTable({
       'language': {
-               'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          }
+               'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
+          },
+       columnDefs: [
+          { orderable: false, targets: -1},
+          { searchable: false, targets: [-1]},
+          { responsivePriority: 2, targets: 1 },
+          { responsivePriority: 1, targets: -1 }
+        ]
   });
  
   $('#modal-edit-categoria').on('show.bs.modal',function(event){
