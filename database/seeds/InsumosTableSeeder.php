@@ -12,45 +12,45 @@ class InsumosTableSeeder extends Seeder
     public function run()
     {
         DB::table('insumos')->insert([
-            'nombre'=>'Insumo 1',
+            'nombre'=>'Vigas de cobre',
             'cantidad' => '55',
             'unidad_medida' => '1'
         ]);
 
         DB::table('insumos')->insert([
-            'nombre'=>'Insumo 2',
+            'nombre'=>'viga de acero',
             'cantidad' => '52',
             'unidad_medida' => '1'
         ]);
 
         DB::table('insumos')->insert([
-            'nombre'=>'Insumo 3',
+            'nombre'=>'Alambre de cobre',
             'cantidad' => '15',
-            'unidad_medida' => '2'
+            'unidad_medida' => '3'
         ]);                  
 
         DB::table('insumos')->insert([
             'nombre'=>'Latón',
             'cantidad' => '55',
-            'unidad_medida' => '1'
+            'unidad_medida' => '3'
         ]);
 
         DB::table('insumos')->insert([
             'nombre'=>'Cobre',
             'cantidad' => '52',
-            'unidad_medida' => '1'
+            'unidad_medida' => '3'
         ]);
 
         DB::table('insumos')->insert([
             'nombre'=>'Bronce',
             'cantidad' => '150',
-            'unidad_medida' => '2'
+            'unidad_medida' => '3'
         ]); 
 
         DB::table('insumos')->insert([
             'nombre'=>'Acero',
             'cantidad' => '55',
-            'unidad_medida' => '1'
+            'unidad_medida' => '3'
         ]);
 
         DB::table('insumos')->insert([
