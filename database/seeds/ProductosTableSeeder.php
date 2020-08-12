@@ -13,8 +13,8 @@ class ProductosTableSeeder extends Seeder
     {
        DB::table('productos')->insert([
             'nombre'=>'Barra redonda para forja',
-            'material' => '1',
-            'unidad_medida'=>'Pulgadas',
+            'material' => '3',
+            'unidad_medida'=>'1',
             'descripcion' => 'Barra de aleación para uso industrial',
             'image'=>'dist/img/product_image/imagen1.jpg',
             'precio_unitario' => '100',
@@ -23,7 +23,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave metálica para auto',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte metálico para autos ',
             'image'=>'dist/img/product_image/imagen2.jpg',
@@ -33,7 +33,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave plástica para auto',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte plástico para autos',
             'image'=>'dist/img/product_image/imagen3.jpg',
@@ -43,7 +43,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave metálica para moto',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte metálico para motos',
             'image'=>'dist/img/product_image/imagen4.jpg',
@@ -53,7 +53,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave plástica para moto',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte plástico para motos',
             'image'=>'dist/img/product_image/imagen5.jpg',
@@ -63,7 +63,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave residencial metálica',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas para residencial',
             'image'=>'dist/img/product_image/imagen6.jpg',
@@ -73,7 +73,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave residencial metálica con diseño',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas con diseño para residencial',
             'image'=>'dist/img/product_image/imagen7.jpg',
@@ -83,7 +83,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave plástica para residencial',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas con soporte de plástico para residencial',
             'image'=>'dist/img/product_image/imagen8.jpg',
@@ -93,7 +93,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave con paleta forjada para residencial',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con paleta forjada para residencial',
             'image'=>'dist/img/product_image/imagen9.jpg',
@@ -103,7 +103,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave megacanal',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves megacanal de alta seguridad',
             'image'=>'dist/img/product_image/imagen10.jpg',
@@ -113,7 +113,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave tetra',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves tetra de alta seguridad',
             'image'=>'dist/img/product_image/imagen11.jpg',
@@ -123,7 +123,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'LLave transponder',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves transponder de alta tecnología',
             'image'=>'dist/img/product_image/imagen12.jpg',
@@ -143,7 +143,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'Tee',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Tubo "T" para uso industrial',
             'image'=>'dist/img/product_image/imagen14.jpg',
@@ -153,7 +153,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'Válvula PREMIUM',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Válvulas de uso industrial',
             'image'=>'dist/img/product_image/imagen15.jpg',
@@ -163,7 +163,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'Portaválvulas de acero',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Portaválvula de acero para uso industrial',
             'image'=>'dist/img/product_image/imagen16.jpg',
@@ -173,7 +173,7 @@ class ProductosTableSeeder extends Seeder
 
         DB::table('productos')->insert([
             'nombre'=>'Peritas',
-            'material' => '1',
+            'material' => '0',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Peritas para cerraduras',
             'image'=>'dist/img/product_image/imagen17.jpg',
