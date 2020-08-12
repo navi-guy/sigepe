@@ -8,6 +8,7 @@ use CorporacionPeru\Producto;
 use CorporacionPeru\Proveedor;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StorePedidoRequest;
+use CorporacionPeru\Http\Requests\UpdatePedidoRequest;
 use Carbon\Carbon;
 
 class PedidoController extends Controller
@@ -93,26 +94,26 @@ class PedidoController extends Controller
      * @param  \CorporacionPeru\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePedidoRequest $request,  $id)
+    public function update(UpdatePedidoRequest $request,  $id)
     {
-        Producto::findOrFail($id)->update($request->validated());
-        $producto = Producto::findOrFail($id);
-        if($request->file('image')){//si envia img
-            $path = Storage::disk('public')->put('img_products', $request->file('image'));
-            $producto->fill(['image'=> $path]);
+        Pedido::findOrFail($id)->update($request->validated());
+        $pedido = Pedido::findOrFail($id);
+        $productos_id = $request->product;
+        $qty_productos = $request->qty;
+         
+        $pedido_producto = [];
+        for ($i=0; $i < count($productos_id); $i++) { 
+            $producto = Producto::findOrFail($productos_id[$i]);
+            $cantidad = $qty_productos[$i];
+            $pu = $producto->precio_unitario;
+            $monto = $cantidad*$pu;
+
+            $pedido_producto += array( $productos_id[$i]
+                                        => ['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);            
         }
-        $insumos_id = $request->insumo;
-        $qty_insumos = $request->qty;
-        $producto->save();
+        $pedido->productos()->sync($pedido_producto);
         
-        $producto_insumo = [];
-        for ($i=0; $i < count($insumos_id); $i++) { 
-            $cantidad = $qty_insumos[$i];
-            $producto_insumo += array( $insumos_id[$i]  => ['cantidad'=> $cantidad]);            
-        }
-        $producto->insumos()->sync($producto_insumo);
-        
-        return redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto editado con exito');
+        return redirect()->action('PedidoController@index')->with('alert-type','success')->with('status','Pedido editado con exito');
     }
 
     /**

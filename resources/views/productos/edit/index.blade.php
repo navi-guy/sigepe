@@ -24,6 +24,7 @@
   <h3>Editar Producto</h3>
 </section>
 <section class="content">
+  @include('partials.validation-errors')
   @include('productos.edit.form')
 </section>
 @endsection
