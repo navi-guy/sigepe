@@ -13,8 +13,9 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('productos.index') }}">Productos</a></li>
-  <li><a href="{{ route('productos.create') }}">Registrar producto</a></li>
+  <li><a href="#" class="text-muted">Registrar</a></li>
 </ol>
 @endsection
 

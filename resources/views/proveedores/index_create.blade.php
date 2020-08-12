@@ -10,8 +10,9 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('proveedores.index') }}">Proveedores</a></li>
-  <li><a href="{{ route('proveedores.create') }}">Registro</a></li>
+  <li><a href="#"  class="text-muted">Registro</a></li>
 </ol>
 @endsection
 

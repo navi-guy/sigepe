@@ -12,11 +12,8 @@
                 <th>Código Pedido</th>
                 <th>Fecha emisión</th>
                 <th>Cliente</th>
-                {{-- <th>Teléfono del cliente</th> --}}
                 <th>RUC</th>
                 <th>Estado</th>
-                {{-- <th>Monto Bruto</th>
-                <th>Descuento </th> --}}
                 <th>Monto Neto</th>
                 <th>Acciones</th>
               </tr>
@@ -27,7 +24,6 @@
                   <td>{{$pedido->cod_pedido}}</td>
                   <td>{{$pedido->fecha}}</td>
                   <td>{{$pedido->nombre_cli}}</td>
-                 {{--  <td>{{$pedido->telefono_cli}}</td> --}}
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
                     @if($pedido->isUnconfirmed())
@@ -46,19 +42,14 @@
                       @endif
                     @endif                                   
                   </td>
-                  <td>{{$pedido->monto_bruto}}</td>
-                  {{-- <td>{{$pedido->descuento}}</td>
-                  <td>{{$pedido->monto_neto}}</td>                   --}}
+                  <td>{{$pedido->monto_neto}}</td>
                   <td>                      
-                    <a class="btn btn-warning btn-sm" href="{{ route('revisarPedidos.edit',$pedido->id)}}" >
-                      <span class="glyphicon glyphicon-edit"></span>
+                    <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                      <span class="fa fa-eye"></span>
                     </a>
                     @if($pedido->isUnconfirmed())
-                      <form style="display:inline" method="POST" onsubmit="return confirmarDeletePedido()" action="{{ route('revisarPedidos.destroy', $pedido->id) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                      </form>
+                      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-check"></span></button>
+                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-close"></span></button>
                     @endif
                   </td>
                 </tr>

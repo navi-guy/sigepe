@@ -10,8 +10,9 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('pedidos.index') }}">Pedidos</a></li>
-  <li><a href="{{ route('pedidos.create') }}">Registrar pedido</a></li>
+  <li><a href="#" class="text-muted">Registrar</a></li>
 </ol>
 @endsection
 
@@ -134,7 +135,7 @@ $(document).ready(function() {
 
   // calculate the total amount of the order
   function subAmount() {
-    var service_charge = 1;
+    var service_charge = 0;
     var vat_charge = 18;  // 18 % IGV
 
     var tableProductLength = $("#product_info_table tbody tr").length;

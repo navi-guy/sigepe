@@ -13,8 +13,9 @@
 
 @section('breadcrumb')
 <ol class="breadcrumb">
+  <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('productos.index') }}">Productos</a></li>
-  <li><a href="{{ route('productos.edit',$producto->id) }}">Editar producto</a></li>
+  <li><a href="#" class="text-muted">Editar</a></li>
 </ol>
 @endsection
 

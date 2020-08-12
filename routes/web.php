@@ -41,7 +41,11 @@ Route::middleware(['auth'])->group(function () {
 
     /** Revisar Pedidos */
 	Route::resource('/revisarPedidos', 'RevisarPedidosController');
-
+	Route::post('/approve_pedido', 'RevisarPedidosController@approvePedido')
+			->name('revisarPedidos.approvePedido');
+	Route::post('/reject_pedido', 'RevisarPedidosController@rejectPedido')
+			->name('revisarPedidos.rejectPedido');
+			
 	/** RevisarStock */
 	Route::resource('/revisarStock', 'RevisarStockController');
 });
