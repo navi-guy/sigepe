@@ -31,11 +31,10 @@ class StoreProductoRequest extends FormRequest
             'image'           =>'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'precio_unitario' =>'required|numeric|gt:0',
             'categoria_id'    =>'required',
-          //  'insumo'          =>'required|array|min:1',
-         //   'insumo.*'        =>'required|distinct',
-          //  'qty'             =>'required|array|min:1',
-          //  'qty.*'           =>'required',
-
+            'insumo'          =>'required|array|min:1',
+            'insumo.*'        =>'required|distinct',
+            'qty'             =>'required|array|min:1',
+            'qty.*'           =>'required',
         ];
     }
 }

@@ -10,9 +10,6 @@
                   enctype="multipart/form-data">
                   @csrf                                               
                 <div class="box-body">
-{{--                   <div class="form-group">
-                    <input type="file" class="form-control btn btn-primary" name="image">
-                  </div> --}}
                   <div class="form-group">
                     <div class="kv-avatar">
                       <div class="file-loading">
@@ -80,7 +77,11 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Insumo</th>
+                      <th style="width:50%">
+                        <div class="form-group">
+                          <label for="">Insumo</label>
+                        </div>                        
+                      </th>
                       <th style="width:10%">Cantidad</th>
                       <th style="width:10%">
                         <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
@@ -90,13 +91,24 @@
                   <tbody>
                     <tr id="row_1">
                       <td>
-                        <select class="form-control select_group product" data-row-id="row_1" id="product_1" name="insumo[]" style="width:100%;">
+                        <div class="form-group @error('insumo.0') has-error @enderror">
+                          <select class="form-control select_group product" data-row-id="row_1" id="product_1" name="insumo[]" style="width:100%;">
+                            <option value=""></option>
                           @foreach($insumos as $insumo)
-                            <option value="{{$insumo->id}}">{{$insumo->nombre}}-{{$insumo->getUnidadMedida()}}</option>
+                            <option value="{{$insumo->id}}" 
+                                selected="@if(old('insumo.0')==$insumo->id)'true'@endif">
+                                {{$insumo->nombre}}-{{$insumo->getUnidadMedida()}}
+                            </option>
                           @endforeach
-                        </select>
+                          </select> 
+                          @error('insumo.0')
+                          <span class="help-block" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                        </div>
                       </td>
-                      <td><input type="number" min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)">
+                      <td><input type="number" min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)" value="{{old('qty.0')}}">
                       </td>
                       <td><button type="button" class="btn btn-default" onclick="removeRow('1')">
                         <i class="fa fa-close"></i></button>

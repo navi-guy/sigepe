@@ -61,6 +61,17 @@ class ProductoController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getDisponibles(){
+        $productos = Producto::all();
+        return response()->json(['productos' => $productos]);
+    }
+
+
+    /**
      * Display the specified resource.
      *
      * @param  \CorporacionPeru\Producto  $producto
@@ -68,7 +79,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return $producto;
     }
 
     /**
@@ -78,10 +89,11 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Producto $producto)
-    {
+    {   
+        $producto = $producto->load('insumos');
         $insumos = Insumo::where('cantidad','>',0)->get();
         $categorias = Categoria::all();
-        return view('productos.create.index', compact('insumos','producto','categorias'));
+        return view('productos.edit.index', compact('insumos','producto','categorias'));
     }
 
     /**
@@ -91,9 +103,26 @@ class ProductoController extends Controller
      * @param  \CorporacionPeru\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProveedorRequest $request,  $id)
+    public function update(StoreProductoRequest $request,  $id)
     {
-        //
+        Producto::findOrFail($id)->update($request->validated());
+        $producto = Producto::findOrFail($id);
+        if($request->file('image')){//si envia img
+            $path = Storage::disk('public')->put('img_products', $request->file('image'));
+            $producto->fill(['image'=> $path]);
+        }
+        $insumos_id = $request->insumo;
+        $qty_insumos = $request->qty;
+        $producto->save();
+        
+        $producto_insumo = [];
+        for ($i=0; $i < count($insumos_id); $i++) { 
+            $cantidad = $qty_insumos[$i];
+            $producto_insumo += array( $insumos_id[$i]  => ['cantidad'=> $cantidad]);            
+        }
+        $producto->insumos()->sync($producto_insumo);
+        
+        return redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto editado con exito');
     }
 
     /**

@@ -20,9 +20,20 @@
 
 @section('content')
 <section class="content-header">
-  <h3>Añadir Productos</h3>
+  <h3>Añadir Producto</h3>
 </section>
 <section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="messages"></div>
+        @if($errors->any())         
+          <div class="alert alert-error alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {!! implode('', $errors->all('<div>:message</div>')) !!}           
+          </div>
+        @endif   
+    </div>
+  </div>
   @include('productos.create.register')
 </section>
 @endsection
@@ -73,12 +84,11 @@ $(document).ready(function() {
                       '<option value=""></option>';
                       $.each(data.insumos, function(index, value) {
                         console.log('value',value.nombre);
-                        html += '<option value="'+value.id+'">'+value.nombre+ '--' +getUnidadMedida(value.unidad_medida) +'</option>';             
+                        html += '<option value="'+value.id+'">'+value.nombre+ '-' +getUnidadMedida(value.unidad_medida) +'</option>';             
                       });                
                     html += '</select>'+
                   '</td>'+ 
-                  '<td><input   type="number" min="0" max="500" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
-
+                  '<td><input   type="number" min="0" max="500" name="qty[]" id="qty_'+row_id+'" class="form-control"></td>'+
                   '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
                   '</tr>';
               if(count_table_tbody_tr >= 1) {

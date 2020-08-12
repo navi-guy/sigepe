@@ -18,14 +18,14 @@
               <td>{{$categoria->id}}</td>
               <td>{{$categoria->nombre}}</td>
               <td>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#modal-edit-categoria" data-id="{{$categoria->id}}">
+                <button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit-categoria" data-id="{{$categoria->id}}">
                   <span class="glyphicon glyphicon-edit"></span>
                 </button>
                 @if($categoria->productos->isEmpty())
-                  <form style="display:inline" method="POST" action="{{ route('categorias.destroy', $categoria->id) }}">
+                  <form style="display:inline" method="POST" action="{{ route('categorias.destroy', $categoria->id) }}" onsubmit="return confirmarDeleteCategoria()">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                    <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                   </form>
                 @endif
               </td>

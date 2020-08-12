@@ -17,7 +17,12 @@ class DatabaseSeeder extends Seeder
     	DB::table('users')->truncate();
         DB::table('trabajadores')->truncate(); 
         DB::table('insumos')->truncate();
-        DB::table('categorias')->truncate();        
+        DB::table('categorias')->truncate(); 
+        DB::table('productos')->truncate(); 
+        DB::table('producto_insumos')->truncate(); 
+        DB::table('insumos_proveedor')->truncate();   
+        DB::table('productos_pedido')->truncate(); 
+        DB::table('pedidos')->truncate();
     	DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $this->call([

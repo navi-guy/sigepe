@@ -69,7 +69,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="{{asset('dist/img/iconoCorp.png')}}" class="img-circle" alt="User Image">
-
                 <p>
                   {{ Auth::user()->trabajador->nombres }}
                   <small>{{ Auth::user()->trabajador->created_at }}</small>
@@ -108,38 +107,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li><a href="{{route('home.index')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
         </li>
         <li><a href="{{route('proveedores.index')}}"><i class="fa fa-truck"></i> <span>Proveedores</span></a></li>
-{{--         <li id="treeview-compras" class="treeview">
-          <a href="#">
-            <i class="fa fa-building-o"></i> <span>Compras</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('pedidos.create')}}"><i class="fa fa-pencil"></i> Registro</a></li>
-            <li><a href="{{route('pedidos.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
-          </ul>
-        </li>  --}}
-
         <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i> <span>Gestionar Categorias</span></a></li>
         <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Productos Totales</span> </a></li>       
         <li><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Revisar Stock</span> </a></li>       
-        {{-- <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Revisar Stock</span> </a></li>      --}}
-        
-        <li id="treeview-ventas" class="treeview">
-          <a href="#">
-            <i class="fa fa-cart-plus"></i> <span>Pedidos /Cliente</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-list"></i>Ver Pedidos</a></li>
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-pencil"></i>Revisar Pedido</a></li>
-          </ul>
-        </li>
-
-
+        <li><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Pedidos/ Cliente</span> </a></li>       
         <li id="treeview-usuarios" class="treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>Usuarios del Sistema</span>

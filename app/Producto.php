@@ -12,15 +12,14 @@ class Producto extends Model
                          'descripcion', 'image', 'precio_unitario'];
 
 
-    // public function producto_insumo()
-    // {
-    //     return $this->hasMany(ProductoInsumo::class);
-    // } 
-
     public function insumos()
     {
-        return $this->belongsToMany(Insumo::class,'producto_insumos');
+        return $this->belongsToMany(Insumo::class,'producto_insumos')->withPivot('cantidad');
     }   
+
+    public function pedidos(){
+        return $this->belongsToMany(Pedido::class,'productos_pedido')->withPivot('cantidad','pu','monto');
+    }
 
     public function categoria()
     {
