@@ -31,8 +31,11 @@ class DatabaseSeeder extends Seeder
         	PlantasTableSeeder::class,
             InsumosTableSeeder::class,
             CategoriasTableSeeder::class,
-            Insumos_ProveedorTableSeeder::class,
+            InsumosProveedorTableSeeder::class,
             ProductosTableSeeder::class,
+            ProductoInsumosTableSeeder::class,
+            PedidoTableSeeder::class,
+            ProductosPedidoTableSeeder::class,
         ]);
     }
 }

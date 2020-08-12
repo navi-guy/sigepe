@@ -18,7 +18,7 @@ class InsumosTableSeeder extends Seeder
         ]);
 
         DB::table('insumos')->insert([
-            'nombre'=>'viga de acero',
+            'nombre'=>'Viga de acero',
             'cantidad' => '52',
             'unidad_medida' => '1'
         ]);

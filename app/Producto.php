@@ -45,11 +45,15 @@ class Producto extends Model
     public function getUnidadMedida(){
         $result="";
         switch($this->unidad_medida){
+           
+           case 3:
+                $result="Metros cúbicas (m3)";
+                break;
             case 2: 
-                $result="Medidas en Litro (L)";
+                $result="Pulgadas (µm)";
                 break;
             case 1: 
-                $result="Medidas en Kilogramo (Kg)";
+                $result="Toneladas (Tn)";
                 break;
             case 0:
                 $result="Unidad (u)";
