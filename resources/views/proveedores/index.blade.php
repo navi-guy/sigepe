@@ -23,7 +23,6 @@
       </button>
     </a> 
     <p><br></p>
-
 </section>
 <section class="content">
   @include('proveedores.table')
@@ -41,5 +40,13 @@
       $('#modal-edit-proveedor').modal('show');
   </script>
 @endif
+<script>
+function confirmarDeleteProveedor(){
+  if(confirm('¿Realmente quieres eliminar este proveedor?'))
+    return true;
+  else
+    return false;
+}
+</script>
 @endsection
 

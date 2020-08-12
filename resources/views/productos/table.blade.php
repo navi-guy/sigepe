@@ -29,15 +29,14 @@
                   <td>{{$producto->categoria}}</td>
                   <td>{{$producto->getMaterial()}}</td>
                   <td>{{$producto->getUnidadMedida()}}</td>
-                  <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#modal-edit-producto" data-id="{{$producto->id}}">
-                      <span class="glyphicon glyphicon-edit"></span>
-                    </button>
+                  <td>                      
+                    <a class="btn btn-warning btn-sm" href="{{ route('productos.edit',$producto->id)}}" >
+                      <span class="glyphicon glyphicon-edit"></span></a>
                    {{--  @if($producto->pedidoproductos->isEmpty()) --}}
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeleteProducto()" action="{{ route('productos.destroy', $producto->id) }}">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                        <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                       </form>
                     {{-- @endif --}}
                   </td>

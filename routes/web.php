@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
 	/* Categoria & Producto  */					
 	Route::resource('/categorias', 'CategoriaController');
 	Route::resource('/productos', 'ProductoController');
+	Route::get('/productos_disponibles','ProductoController@getDisponibles')
+			  ->name('productos.getDisponibles');
 
 	/** Insumos */
 	Route::resource('/insumos', 'InsumoController');
