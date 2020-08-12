@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/insumos_disponibles','InsumoController@getDisponibles')
 			  ->name('insumos.getDisponibles');
 
+    /** Revisar Pedidos */
+	Route::resource('/revisarPedidos', 'RevisarPedidosController');
+
 	/** RevisarStock */
 	Route::resource('/revisarStock', 'RevisarStockController');
 });
