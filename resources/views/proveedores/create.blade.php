@@ -1,6 +1,6 @@
 <div class="row">
     <!-- left column -->
-  <div class="col-md-6">
+  <div class="col-md-12">
     <form action="{{route('proveedores.store')}}" method="post">
     @csrf
       <!-- general form elements -->
@@ -81,7 +81,7 @@
   </div>
     <!--/.col (left) -->
 
-    @includeWhen(1==1,'proveedores.planta.create')
+  {{--   @includeWhen(1==1,'proveedores.planta.create') --}}
 
      <!--/.col (right) -->
 

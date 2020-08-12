@@ -18,6 +18,7 @@
 
 @section('content')
 <section class="content">
+  @include('partials.validation-errors')
   @include('pedidos.create.form')
 </section>
 @endsection
@@ -81,8 +82,8 @@ $(document).ready(function() {
   }); // /document
 
   function getTotal(row = null) {
-    if(row) {
-      var total = Number($("#rate_value_"+row).val()) * Number($("#qty_"+row).val());  // precio unitario * cantidad
+    if(row) {//num row    
+      var total = Number($("#rate_value_"+row).val()) * Number($("#qty_"+row).val()); // precio unitario * cantidad
       total = total.toFixed(2);
       console.log(total);
       $("#amount_"+row).val(total);
@@ -97,7 +98,7 @@ $(document).ready(function() {
 
   // get the product information from the server
   function getProductData(row_id)
-  {
+  {    
     var product_id = $("#product_"+row_id).val();    
     if(product_id == "") {
       $("#rate_"+row_id).val("");

@@ -4,7 +4,7 @@ namespace CorporacionPeru\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePedidoRequest extends FormRequest
+class UpdatePedidoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class StorePedidoRequest extends FormRequest
     public function rules()
     {
         return [
-            'cod_pedido'    =>'required|unique:pedidos,cod_pedido',            
+            'cod_pedido'    => ['required'],            
             'nombre_cli'    =>'required|max: 255',
             'direccion_cli' =>'required|max: 255',         
             'telefono_cli'  =>'required|numeric|gt:0',

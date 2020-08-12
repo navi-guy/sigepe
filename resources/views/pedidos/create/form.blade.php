@@ -71,7 +71,7 @@
                   <span style="color: red; font-weight: bold;" >*</span>
                 </label>
                 <input id="fecha" type="text" class="form-control" name="fecha"
-                  placeholder="Fecha y hora del pedido" value="{{ $date }}" readonly="">
+                  placeholder="Fecha del pedido" value="{{ $date }}" readonly="">
                 @error('fecha')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -111,7 +111,7 @@
                         <?php endforeach ?>
                       </select>
                     </td>
-                    <td><input type="text"  name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)">
+                    <td><input type="number" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)" min="1">
                     </td>
                     <td>
                       <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
@@ -159,7 +159,7 @@
                   <span style="color: red; font-weight: bold;" >*</span>
                 </label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" id="net_amount" name="monto_neto" readonly autocomplete="off">
+                  <input type="number" class="form-control" id="net_amount" name="monto_neto" readonly autocomplete="off" min="1">
                 </div>
               </div>
             </div>
