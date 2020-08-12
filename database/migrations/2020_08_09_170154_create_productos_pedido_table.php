@@ -20,7 +20,7 @@ class CreateProductosPedidoTable extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->integer('cantidad');
-            $table->integer('pu');
+            $table->decimal('pu');
             $table->decimal('monto',9,2);
             $table->timestamps();
         });
