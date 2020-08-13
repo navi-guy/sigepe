@@ -48,4 +48,7 @@ Route::middleware(['auth'])->group(function () {
 			
 	/** RevisarStock */
 	Route::resource('/revisarStock', 'RevisarStockController');
+
+	 /** Seguir Pedidos */
+	 Route::resource('/seguirPedidos', 'SeguirPedidosController');
 });
