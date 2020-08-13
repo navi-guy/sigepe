@@ -37,7 +37,7 @@ class ProductosPedidoTableSeeder extends Seeder
 
         DB::table('productos_pedido')->insert([
             'pedido_id'=>'4',
-            'producto_id' => '14',
+            'producto_id' => '13',
             'cantidad' => '100',
             'pu' => '20.9',
             'monto' => '2090'
@@ -45,6 +45,14 @@ class ProductosPedidoTableSeeder extends Seeder
 
         DB::table('productos_pedido')->insert([
             'pedido_id'=>'5',
+            'producto_id' => '14',
+            'cantidad' => '100',
+            'pu' => '40.9',
+            'monto' => '4090'
+        ]);
+
+        DB::table('productos_pedido')->insert([
+            'pedido_id'=>'6',
             'producto_id' => '15',
             'cantidad' => '100',
             'pu' => '40.9',

@@ -111,7 +111,7 @@
                         <?php endforeach ?>
                       </select>
                     </td>
-                    <td><input type="number" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)" min="1">
+                    <td><input type="number" name="qty[]" id="qty_1" class="form-control" required onchange="getTotal(1)" min="1">
                     </td>
                     <td>
                       <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
