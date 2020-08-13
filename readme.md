@@ -44,6 +44,10 @@ DB_PASSWORD=
 _8. Ejecutar el siguiente comando, este comando creará las tablas en la base de datos(migrate) e insertará datos iniciales a las tablas(seed)._
 ```
 php artisan migrate:fresh --seed
+```
+Nota:
+Si te aparece un error sobre una clase que existe y no la encuentra. Puedes ejecutar el siguiente comando, que actualiza la información del class loader.
+```
 composer dump-autoload
 ```
 _9. Ejecutar el siguiente comando, que creará una key en el archivo .env_
