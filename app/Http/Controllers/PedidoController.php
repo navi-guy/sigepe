@@ -20,7 +20,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::all();   
+        $pedidos = Pedido::orderBy('id','DESC')->get();    
         return view('pedidos.index',compact('pedidos'));
     }
 

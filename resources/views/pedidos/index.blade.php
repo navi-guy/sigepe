@@ -36,7 +36,7 @@ $(document).ready(function() {
   $('#tabla-pedidos').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          },
+          },"order": [[ 0, "desc" ]],
         columnDefs: [
           { orderable: false, targets: -1},
           { searchable: false, targets: [-1]},

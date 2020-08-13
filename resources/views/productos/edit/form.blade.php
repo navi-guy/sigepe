@@ -81,7 +81,7 @@
                       <div class="form-group">
                         <label for="descripcion">Descripción
                         </label>
-                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto (opcional)" autocomplete="off" style="resize: none;">
+                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;">
                           {{$producto->descripcion}}
                         </textarea>
                       </div>

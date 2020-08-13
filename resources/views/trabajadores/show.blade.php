@@ -12,7 +12,7 @@
             <!-- general form elements -->
             <div class="box box-success">
               <div class="box-header with-border">
-                <h2 class="box-title">Ver Trabajador</h3>
+                <h2 class="box-title">Ver Trabajador</h2>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
