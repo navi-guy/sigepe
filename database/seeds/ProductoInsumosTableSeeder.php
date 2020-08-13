@@ -101,6 +101,24 @@ class ProductoInsumosTableSeeder extends Seeder
         ]);
 
         DB::table('producto_insumos')->insert([
+            'insumo_id'=>'7',
+            'producto_id' => '10',
+            'cantidad' => '1'
+        ]);
+
+        DB::table('producto_insumos')->insert([
+            'insumo_id'=>'7',
+            'producto_id' => '11',
+            'cantidad' => '1'
+        ]);
+
+        DB::table('producto_insumos')->insert([
+            'insumo_id'=>'7',
+            'producto_id' => '12',
+            'cantidad' => '1'
+        ]);
+
+        DB::table('producto_insumos')->insert([
             'insumo_id'=>'1',
             'producto_id' => '13',
             'cantidad' => '1'
