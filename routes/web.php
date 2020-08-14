@@ -20,13 +20,12 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/trabajadores', 'TrabajadorController');
 	Route::resource('/users', 'UserController');
 
-	/* Proveedor & planta */	
+	/* Proveedor & insumos asignados */	
 	Route::resource('/proveedores', 'ProveedorController');
 	Route::resource('/planta', 'PlantaController');
-
+	Route::resource('/asignacion', 'ProveedorInsumoController');
 	/* Pedido Proveedor  */					
 	Route::resource('/pedidos', 'PedidoController');
-	Route::get('/procesar/{id}', 'PedidoController@confirmarPedido')->name('pedidos.confirmarPedido');
 
 	/* Categoria & Producto  */					
 	Route::resource('/categorias', 'CategoriaController');

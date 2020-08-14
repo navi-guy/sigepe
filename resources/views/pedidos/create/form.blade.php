@@ -13,7 +13,7 @@
             <div class="col-md-6">
               <div class="form-group @error('nombre_cli') has-error @enderror">
                 <label for="nombre_cli">Nombre completo del cliente 
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory">*</span>
                 </label>
                 <input id="nombre_cli" type="text" class="form-control" name="nombre_cli" 
                 placeholder="Ingrese el nombre del cliente" value="{{ old('nombre_cli') }}" required>
@@ -27,7 +27,7 @@
             <div class="col-md-6">
               <div class="form-group @error('direccion_cli') has-error @enderror">
                 <label for="direccion_cli">Dirección del cliente
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <input id="direccion_cli" type="text" class="form-control" name="direccion_cli" placeholder="Ingrese la dirección del cliente" value="{{ old('direccion_cli') }}" required>
                 @error('direccion_cli')
@@ -42,7 +42,7 @@
             <div class="col-md-4">
               <div class="form-group @error('telefono_cli') has-error @enderror">
                 <label for="telefono_cli">Teléfono del cliente 
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <input id="telefono_cli" type="text" class="form-control" name="telefono_cli" placeholder="Ingrese su el teléfono del cliente" value="{{ old('telefono_cli') }}">
                 @error('telefono_cli')
@@ -55,7 +55,7 @@
             <div class="col-md-4">
               <div class="form-group @error('ruc_cli') has-error @enderror">
                 <label for="ruc_cli">RUC del cliente
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <input id="ruc_cli" type="text" class="form-control" name="ruc_cli" placeholder="Ingrese RUC del cliente" value="{{ old('ruc_cli') }}" pattern="[0-9]{11}" title="Formato: 11 dígitos" required>
                 @error('ruc_cli')
@@ -68,7 +68,7 @@
             <div class="col-md-4">
               <div class="form-group @error('fecha') has-error @enderror">
                 <label for="fecha">Fecha 
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <input id="fecha" type="text" class="form-control" name="fecha"
                   placeholder="Fecha del pedido" value="{{ $date }}" readonly="">
@@ -86,16 +86,16 @@
                 <thead>
                   <tr>
                     <th style="width:50%">Producto
-                      <span style="color: red; font-weight: bold;" >*</span>
+                      <span class="mandatory" >*</span>
                     </th>
                     <th style="width:10%">Cantidad
-                      <span style="color: red; font-weight: bold;" >*</span>
+                      <span class="mandatory" >*</span>
                     </th>
                     <th style="width:10%">Precio Unitario
-                      <span style="color: red; font-weight: bold;" >*</span>
+                      <span class="mandatory" >*</span>
                     </th>
                     <th style="width:20%">Monto
-                      <span style="color: red; font-weight: bold;" >*</span>
+                      <span class="mandatory" >*</span>
                     </th>
                     <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                   </tr>
@@ -129,7 +129,7 @@
             <div class="col-md-6 col-xs-12 pull-right">
               <div class="form-group">
                 <label for="gross_amount" class="col-sm-5">Monto bruto
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <div class="col-sm-7">
                   <input type="text" class="form-control" id="gross_amount" name="monto_bruto" disabled autocomplete="off">
@@ -139,7 +139,7 @@
               <p>&nbsp;</p>
               <div class="form-group">
                 <label for="vat_charge" class="col-sm-5">IGV 18%
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory">*</span>
                 </label>
                 <div class="col-sm-7">
                   <input type="text" class="form-control" id="vat_charge" disabled autocomplete="off">
@@ -156,7 +156,7 @@
               <p>&nbsp;</p>
               <div class="form-group">
                 <label for="net_amount" class="col-sm-5">Importe neto
-                  <span style="color: red; font-weight: bold;" >*</span>
+                  <span class="mandatory" >*</span>
                 </label>
                 <div class="col-sm-7">
                   <input type="number" class="form-control" id="net_amount" name="monto_neto" readonly autocomplete="off" min="1">
@@ -165,7 +165,7 @@
             </div>
           </div> <!--- end.row -->  
           <div>
-            <p>Los campos marcados con (<span style="color: red; font-weight: bold;" >*</span>) son obligatorios.</p>
+            <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">

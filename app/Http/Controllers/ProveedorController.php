@@ -4,6 +4,7 @@ namespace CorporacionPeru\Http\Controllers;
 use Illuminate\Http\Request;
 use CorporacionPeru\Planta;
 use CorporacionPeru\Proveedor;
+use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StoreProveedorRequest;
 use CorporacionPeru\Http\Requests\UpdateProveedorRequest;
@@ -31,8 +32,75 @@ class ProveedorController extends Controller
     { 
 
         $proveedores=Proveedor::orderBy('id','asc')->get();
-        return view('proveedores.index_create',compact('proveedores'));
+        $insumos = Insumo::all();
+        return view('proveedores.create.index',compact('proveedores','insumos'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Proveedor  $proveedor
+     * @return \Illuminate\Http\Response
+     */
+    public function getInsumosSinAsignar($id)
+    {
+        $proveedor = Proveedor::findOrFail($id);
+        $array_ids_insumo = $proveedor->insumos->pluck('id');
+        $insumos_sin_asignar = Insumo::whereNotIn('id',$array_ids_insumo)->get();
+        return $insumos_sin_asignar;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Proveedor  $proveedor
+     * @return \Illuminate\Http\Response
+     */
+    public function getInsumosAsignados($proveedor_id)
+    {
+        $proveedor = Proveedor::findOrFail($proveedor_id);
+        return view('proveedores.insumos.index',compact('proveedor'));
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Proveedor  $proveedor
+     * @return \Illuminate\Http\Response
+     */
+    public function asignarInsumo(Request $request)
+    {
+        $proveedor = Proveedor::findOrFail($proveedor_id);
+    
+    }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Proveedor  $proveedor
+     * @return \Illuminate\Http\Response
+     */
+    public function updateAsignacion(Request $request)
+    {
+        return $request;
+        $asignacion = ProveedoInsumo::findOrFail($request->id_asignacion);
+        $proveedor = Proveedor::findOrFail($proveedor_id);
+    
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Proveedor  $proveedor
+     * @return \Illuminate\Http\Response
+     */
+    public function desAsignarInsumo($id)
+    {
+       $proveedor = Proveedor::findOrFail($proveedor_id);
+    
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -111,15 +179,5 @@ class ProveedorController extends Controller
         }
        
     }
-
-    public function datatable(){
-            $plantas = Proveedor::query();
-
-        return datatables()->of($plantas)
-                ->addColumn('btn','actions/proveedor')          
-                ->rawColumns(['btn'])
-                ->toJson();
-    }
-
 
 }
