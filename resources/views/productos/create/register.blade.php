@@ -20,7 +20,7 @@
                   <div class="row">
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
-                        <label for="product_name">Nombre del producto</label>
+                        <label for="product_name">Nombre del producto <span class="mandatory">*</span></label>
                         <input type="text" class="form-control" id="product_name" name="nombre" placeholder="Nombre del producto" required/>
                       </div>
                     </div>
@@ -28,12 +28,12 @@
                   <div class="row">
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                        <label for="product_name">Precio del producto</label>
+                        <label for="product_name">Precio del producto <span class="mandatory">*</span></label>
                         <input type="number" min="1" max="999999" step="0.01" class="form-control" id="precio" name="precio_unitario" placeholder="Precio" required/>
                       </div>
                     </div>
                     <div class="col-md-6 col-xs-6">
-                      <label for="tipo_proveedor">Material del Producto</label>
+                      <label for="tipo_proveedor">Material del Producto <span class="mandatory">*</span></label>
                       <select class="form-control" id="material" name="material" required>
                         <option value="1">Material de Laton</option>
                         <option value="2">Material de Acero</option>
@@ -44,7 +44,7 @@
                   <div class="row">
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                        <label for="category">Categoría</label>
+                        <label for="category">Categoría <span class="mandatory">*</span></label>
                         <select class="form-control" name="categoria_id" id="categoria_select">
                           @foreach($categorias as $categoria)
                             <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                      <label for="tipo_proveedor">Unidad de Medida</label>
+                      <label for="tipo_proveedor">Unidad de Medida <span class="mandatory">*</span></label>
                         <select class="form-control" id="unidad_medida" name="unidad_medida">
                           @foreach($unidades_medida as $unidad_medida)
                             <option value="{{$unidad_medida['id']}}">{{$unidad_medida['descripcion']}}</option>
@@ -66,8 +66,7 @@
                   <div class="row">
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
-                        <label for="descripcion">Descripción
-                        </label>
+                        <label for="descripcion">Descripción</label>
                         <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;"></textarea>
                       </div>
                     </div>
@@ -78,11 +77,9 @@
                   <thead>
                     <tr>
                       <th style="width:50%">
-                        <div class="form-group">
-                          <label for="">Insumo</label>
-                        </div>                        
+                          <label for="">Insumo <span class="mandatory">*</span></label>                                        
                       </th>
-                      <th style="width:10%">Cantidad</th>
+                      <th style="width:10%">Cantidad <span class="mandatory">*</span></th>
                       <th style="width:10%">
                         <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
                       </th>
@@ -97,7 +94,7 @@
                           @foreach($insumos as $insumo)
                             <option value="{{$insumo->id}}" 
                                 @if(old('insumo.0')==$insumo->id)selected="selected"@endif>
-                                {{$insumo->nombre}}-{{$insumo->getUnidadMedida()}}
+                                {{$insumo->nombre}} - {{$insumo->getUnidadMedida()}}
                             </option>
                           @endforeach
                           </select> 
@@ -108,19 +105,20 @@
                           @enderror
                         </div>
                       </td>
-                      <td><input type="number" min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)" value="{{old('qty.0')}}">
+                      <td><input type="number" min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_1" class="form-control" required value="{{old('qty.0')}}">
                       </td>
                       <td><button type="button" class="btn btn-default" onclick="removeRow('1')">
                         <i class="fa fa-close"></i></button>
                       </td>
                     </tr>
                   </tbody>
-                </table>              
+                </table>            
                 <div class="box-footer">
+                  <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
                   <button type="submit" class="btn btn-success pull-right"><span class="fa fa-save"></span>&nbsp; Añadir producto</button>
-                  <a href="{{ route('productos.index') }}" class="btn btn-primary">Atrás</a>
+                  <a href="{{ route('productos.index') }}" class="btn btn-default"><span class="fa fa-arrow-left"></span> Atrás</a>
                 </div>
-              </form>
+              </form>              
             </div>
           </div>
           <!-- /.box-body -->

@@ -19,7 +19,7 @@
 <section class="content-header">
       <a href="{{ route('proveedores.create') }}">
       <button class="btn bg-olive pull-left">
-      <span class="fa fa-plus"></span> &nbsp; AÑADIR PROVEEDOR
+      <span class="fa fa-plus"></span> &nbsp; AÑADIR PROVEEDOR &nbsp;|&nbsp;  ASIGNAR INSUMO
       </button>
     </a> 
     <p><br></p>

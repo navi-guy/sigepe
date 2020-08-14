@@ -26,7 +26,7 @@
                   <div class="row">
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
-                        <label for="product_name">Nombre del producto</label>
+                        <label for="product_name">Nombre del producto <span class="mandatory">*</span></label>
                         <input type="text" class="form-control" id="product_name" name="nombre" placeholder="Nombre del producto" value="{{$producto->nombre}}" required/>
                       </div>
                     </div>
@@ -34,13 +34,13 @@
                   <div class="row">
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                        <label for="product_name">Precio del producto</label>
+                        <label for="product_name">Precio del producto <span class="mandatory">*</span></label>
                         <input type="number" min="1" max="999999" step="0.01" class="form-control" id="precio" value="{{$producto->precio_unitario}}"
                          name="precio_unitario" placeholder="Precio" required/>
                       </div>
                     </div>
                     <div class="col-md-6 col-xs-6">
-                      <label for="tipo_proveedor">Material del Producto</label>
+                      <label for="tipo_proveedor">Material del Producto <span class="mandatory">*</span></label>
                       <select class="form-control" id="material" name="material" required>
                         <option value="1" @if (1 == old('material', $producto->material))
                           selected="selected" @endif>Material de Laton</option>
@@ -54,7 +54,7 @@
                   <div class="row">
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                        <label for="category">Categoría</label>
+                        <label for="category">Categoría <span class="mandatory">*</span></label>
                         <select class="form-control" name="categoria_id" id="categoria_select">
                           <!-- setear desde js -->
                           @foreach($categorias as $categoria)
@@ -65,8 +65,8 @@
                     </div>
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
-                      <label for="tipo_proveedor">Unidad de Medida</label>
-                        <select class="form-control" id="unidad_medida" name="unidad_medida">
+                      <label for="tipo_proveedor">Unidad de Medida <span class="mandatory">*</span></label>
+                        <select class="form-control" id="unidad_medida" name="unidad_medida" >
                           @foreach($unidades_medida as $unidad_medida)
                             <option value="{{$unidad_medida['id']}}" 
                               @if ($unidad_medida['id'] == old('unidad_medida', $producto->unidad_medida)) 
@@ -79,11 +79,8 @@
                   <div class="row">
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
-                        <label for="descripcion">Descripción
-                        </label>
-                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;">
-                          {{$producto->descripcion}}
-                        </textarea>
+                        <label for="descripcion">Descripción</label>
+                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;">{{$producto->descripcion}}</textarea>
                       </div>
                     </div>
                   </div>
@@ -92,8 +89,8 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Insumo</th>
-                      <th style="width:10%">Cantidad</th>
+                      <th style="width:50%">Insumo <span class="mandatory">*</span></th>
+                      <th style="width:10%">Cantidad <span class="mandatory">*</span></th>
                       <th style="width:10%">
                         <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
                       </th>
@@ -120,9 +117,10 @@
                   </tbody>
                 </table>              
                 <div class="box-footer">
+                  <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
                   <button type="submit" class="btn btn-success pull-right"><span class="fa fa-save"></span>
                     &nbsp; Guardar Cambios</button>
-                  <a href="{{ route('productos.index') }}" class="btn btn-primary">Atrás</a>
+                  <a href="{{ route('productos.index') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Atrás</a>
                 </div>
               </form>
             </div>

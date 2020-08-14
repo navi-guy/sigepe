@@ -19,6 +19,11 @@ class Proveedor extends Model
     	return $this->hasMany(Planta::class,'proveedor_id');
     } 
 
+    public function insumos()
+    {
+        return $this->belongsToMany(Insumo::class,'insumos_proveedor')->withPivot('id','precio_compra');
+    }
+
     public function getTipo(){
         $result="";
         switch($this->tipo){
