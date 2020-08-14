@@ -7,8 +7,14 @@
 <link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 <link rel="stylesheet" href="{{asset('fileinput/fileinput.min.css')}}">
-<link rel="stylesheet" href="{{asset('dropzone/dist/basic.css')}}">
-<link rel="stylesheet" href="{{asset('dropzone/dist/dropzone.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('dropzone/dist/basic.css')}}">
+<link rel="stylesheet" href="{{asset('dropzone/dist/dropzone.css')}}"> --}}
+<style  rel="stylesheet" type="text/css">
+  .mandatory {
+    color: red;
+    font-weight: bold;
+  }
+</style>
 @endsection
 
 @section('breadcrumb')
@@ -31,7 +37,7 @@
 
 @section('scripts')
 <script src="{{ asset('fileinput/fileinput.min.js') }}"></script>
-<script src="{{ asset('dropzone/dist/dropzone.js') }}"></script>
+{{-- <script src="{{ asset('dropzone/dist/dropzone.js') }}"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -74,7 +80,7 @@ $(document).ready(function() {
                   '<select class="form-control select_group product" data-row-id="'+row_id+'" id="product_'+row_id+'" name="insumo[]" style="width:100%;" onchange="getProductData('+row_id+')">'+
                       '<option value=""></option>';
                       $.each(data.insumos, function(index, value) {
-                        console.log('value',value.nombre);
+                        //console.log('value',value.nombre);
                         html += '<option value="'+value.id+'">'+value.nombre+ '-' +getUnidadMedida(value.unidad_medida) +'</option>';             
                       });                
                     html += '</select>'+
@@ -108,7 +114,7 @@ function getProductData(row_id)
         url: `../insumos/${insumo_id}`,
         dataType: 'json',
         success: (data) => {
-          console.log(data);          
+          //console.log(data);          
           $("#qty_"+row_id).val(1);
           $("#qty_value_"+row_id).val(1);
         },
@@ -125,19 +131,23 @@ function removeRow(tr_id)
 }
 
 function getUnidadMedida(u_medida){
-  let result="";
-    switch(u_medida){    
-        case 2: 
-            result="Medidas en Litro (L)";
-            break;
-        case 1: 
-            result="Medidas en Kilogramo (Kg)";
-            break;
-        case 0:
-            result="Unidad (u)";
-            break;
-    }
-    return result;   
+  result="";
+  switch(u_medida){
+     
+     case 3:
+          result="Metros cúbicas (m3)";
+          break;
+      case 2: 
+          result="Pulgadas (µm)";
+          break;
+      case 1: 
+          result="Toneladas (Tn)";
+          break;
+      case 0:
+          result="Unidad (u)";
+          break;
+  }
+  return result;   
 }
 
 

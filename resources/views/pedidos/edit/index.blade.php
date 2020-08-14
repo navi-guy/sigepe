@@ -6,6 +6,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
+<style  rel="stylesheet" type="text/css">
+  .mandatory {
+    color: red;
+    font-weight: bold;
+  }
+</style>
 @endsection
 
 @section('breadcrumb')

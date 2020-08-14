@@ -29,10 +29,10 @@
                   <td>{{$proveedor->direccion}}</td>
                   <td>{{$proveedor->getTipo()}}</td>
                   <td>
-                  {{--   <a class="btn btn-info btn-xs" href="{{ route('planta.show',$proveedor->id) }}">
+                    <a class="btn btn-info btn-xs" href="{{ route('asignacion.show',$proveedor->id) }}">
                       <span class="fa fa-pencil"> </span> &nbsp;
                       Gestion Insumos   
-                    </a> --}}
+                    </a>
                     <button class='btn btn-xs btn-warning' 
                       onclick="editarProveedor('<?php echo $proveedor->id; ?>')">
                       <span class='glyphicon glyphicon-edit'> </span>

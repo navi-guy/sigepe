@@ -48,7 +48,6 @@ $(document).ready(function() {
         ]
   });
 
-
 });
   function confirmarDeleteProducto(){
     if(confirm('¿Estás seguro de eliminar producto?'))

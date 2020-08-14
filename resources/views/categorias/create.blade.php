@@ -22,7 +22,7 @@
           <div class="col-md-12">
             <div class="form-group pull-right" >
               <button type="submit" class="btn btn-success">
-                <i class="fa fa-save"></i> &nbsp;
+                <i class="fa fa-plus"></i> &nbsp;
                   Agregar nueva categoría
               </button>
             </div>
