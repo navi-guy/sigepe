@@ -2,7 +2,7 @@
     <div class="col-xs-12">
       <div class="box box-success">
         <div class="box-header">
-          <h3 class="box-title">SEGUIMIENTO DE <b>PEDIDOS</b></h3>
+          <h3 class="box-title">EJECUCIÓN DE <b>PEDIDOS</b></h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -27,19 +27,25 @@
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
                     @if($pedido->isAprobed())
-                      <label for="" class="label label-success">
+                      {{-- <label for="" class="label label-success"> --}}
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}"><span class="">
                       {{$pedido->getEstado()}}
-                      </label> 
+                    </span></button>
+                      {{-- </label>  --}}
                     @else 
                       @if($pedido->isEsperaInsumos())
-                        <label for="" class="label label-info">
+                      <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="">
+                        {{-- <label for="" class="label label-info"> --}}
                           {{$pedido->getEstado()}}
-                        </label> 
+                        {{-- </label>  --}}
+                      </span></button>
                       @else
                           @if($pedido->isEjecucion())
-                          <label for="" class="label label-primary">
+                          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-terminar-pedido" data-id="{{$pedido->id}}"><span class="">
+                          {{-- <label for="" class="label label-primary"> --}}
                             {{$pedido->getEstado()}}
-                          </label> 
+                          {{-- </label>  --}}
+                        </span></button>
                         @else
                            @if($pedido->isTerminado())
                               <label for="" class="label label-default">
@@ -55,10 +61,10 @@
                     <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
                       <span class="fa fa-eye"></span>
                     </a>
-                    @if($pedido->isUnconfirmed())
-                      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-check"></span></button>
-                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-close"></span></button>
-                    @endif
+                    {{-- @if($pedido->isUnconfirmed()) --}}
+                      {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-check"></span></button> --}}
+                      {{-- <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-close"></span></button>
+                    @endif --}}
                   </td>
                 </tr>
               @endforeach

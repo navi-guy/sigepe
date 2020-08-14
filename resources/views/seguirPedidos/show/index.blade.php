@@ -11,14 +11,14 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
-  <li><a href="{{ route('revisarPedidos.index') }}">Revisar Pedidos</a></li>
+  <li><a href="{{ route('seguirPedidos.index') }}">Ejecutar Pedidos</a></li>
   <li><a href="#" class="text-muted">Visualizar</a></li>
 </ol>
 @endsection
 
 @section('content')
 <section class="content-header">
-    <a href="{{ route('revisarPedidos.index') }}">
+    <a href="{{ route('seguirPedidos.index') }}">
       <button class="btn btn-default pull-right">
       <span class="fa fa-arrow-left"></span> &nbsp; Atrás
       </button>
@@ -26,7 +26,7 @@
     <p><br></p>
 </section>
 <section class="content">
-  @include('revisarPedidos.show.form')
+  @include('seguirPedidos.show.form')
 </section>
 @endsection
 

@@ -50,4 +50,11 @@ Route::middleware(['auth'])->group(function () {
 
 	 /** Seguir Pedidos */
 	 Route::resource('/seguirPedidos', 'SeguirPedidosController');
+	 Route::post('/ejecutar_pedido', 'SeguirPedidosController@ejecutarPedido')
+	 ->name('seguirPedidos.ejecutarPedido');
+	 Route::post('/aprobar_pedido', 'SeguirPedidosController@approvePedido')
+	 ->name('seguirPedidos.approvePedido');
+	 Route::post('/terminar_pedido', 'SeguirPedidosController@terminarPedido')
+	 ->name('seguirPedidos.terminarPedido');
+
 });

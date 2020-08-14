@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Revisar Pedidos')
+@section('title','Ejecutar Pedidos')
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -9,7 +9,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
-  <li><a href="#" class="text-muted">Revisar Pedidos</a></li>
+  <li><a href="#" class="text-muted">Ejecutar Pedidos</a></li>
 </ol>
 @endsection
 
@@ -17,8 +17,9 @@
 <section class="content">
   @include('seguirPedidos.table')
   {{-- modals --}}
-  @include('seguirPedidos.modales.aprobar')
-  @include('seguirPedidos.modales.rechazar')
+   @include('seguirPedidos.modales.aprobar')
+   @include('seguirPedidos.modales.terminar')  
+   @include('seguirPedidos.modales.ejecutar') 
   {{-- end.modals --}}
 </section>
 @endsection
@@ -40,15 +41,26 @@ $(document).ready(function() {
           { responsivePriority: 1001, targets: 2 }         
         ]
   });
+  
 $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
     const id= $(event.relatedTarget).data('id');
     $(event.currentTarget).find('#id_pedido').val(id);
   });
 
-$('#modal-rechazar-pedido').on('show.bs.modal',function(event){
+// $('#modal-rechazar-pedido').on('show.bs.modal',function(event){
+//     var id= $(event.relatedTarget).data('id');
+//     $(event.currentTarget).find('#id_pedido').val(id);
+//   });
+  $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
     $(event.currentTarget).find('#id_pedido').val(id);
   });
+
+  $('#modal-terminar-pedido').on('show.bs.modal',function(event){
+    var id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido').val(id);
+  });
+
 }); 
 
 </script>

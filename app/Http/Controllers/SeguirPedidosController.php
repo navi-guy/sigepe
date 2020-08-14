@@ -39,7 +39,7 @@ class SeguirPedidosController extends Controller
         $pedido->estado_pedido = 3; 
         $pedido->save();   
         $pedidos = Pedido::all();  
-        return view('revisarPedidos.index',compact('pedidos'))->with('alert-type','warning')->with('status','Pedido rechazado');
+        return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','warning')->with('status','Pedido rechazado');
     }
 
 
@@ -55,7 +55,29 @@ class SeguirPedidosController extends Controller
         $pedido->estado_pedido = 2; 
         $pedido->save();   
         $pedidos = Pedido::all();   
-        return view('revisarPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
+        return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
     }
 
+    public function ejecutarPedido(Request $request)
+   
+    {      
+               
+         $id = $request->id_pedido;
+         $pedido = Pedido::findOrFail($id);
+         $pedido->estado_pedido = 5; 
+         $pedido->save();   
+         $pedidos = Pedido::all();   
+         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
+    }
+    public function terminarPedido(Request $request)
+   
+    {      
+               
+         $id = $request->id_pedido;
+         $pedido = Pedido::findOrFail($id);
+         $pedido->estado_pedido = 6; 
+         $pedido->save();   
+         $pedidos = Pedido::all();   
+         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
+    }
 }
