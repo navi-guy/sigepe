@@ -58,7 +58,7 @@ $(document).ready(function () {
        // console.log(data);
         $select_insumo.html('');
         inicializarSelect2($select_insumo, 'Seleccione el insumo a asignar', data.insumos);
-        if (data.insumos.length > 1) {
+        if (data.insumos.length >= 1) {
           const id_insumo = $select_insumo.val();
           handleInsumosChanges(id_insumo);
           $datos_asignacion.prop('disabled', false);
