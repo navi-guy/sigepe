@@ -26,19 +26,27 @@
                   <td>{{$pedido->nombre_cli}}</td>
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isUnconfirmed())
-                      <label for="" class="label label-warning">
+                    @if($pedido->isAprobed())
+                      <label for="" class="label label-success">
                       {{$pedido->getEstado()}}
                       </label> 
                     @else 
-                      @if($pedido->isAprobed())
-                        <label for="" class="label label-success">
+                      @if($pedido->isEsperaInsumos())
+                        <label for="" class="label label-info">
                           {{$pedido->getEstado()}}
                         </label> 
                       @else
-                        <label for="" class="label label-danger">
-                          {{$pedido->getEstado()}}
-                        </label> 
+                          @if($pedido->isEjecucion())
+                          <label for="" class="label label-primary">
+                            {{$pedido->getEstado()}}
+                          </label> 
+                        @else
+                           @if($pedido->isTerminado())
+                              <label for="" class="label label-default">
+                              {{$pedido->getEstado()}}
+                            </label> 
+                            @endif  
+                        @endif
                       @endif
                     @endif                                   
                   </td>

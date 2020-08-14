@@ -41,14 +41,24 @@ class Pedido extends Model
     public function getEstado(){
         $result="";
         switch($this->estado_pedido){
-            case 3: 
-                $result="Rechazado";
-                break;
-            case 2: 
-                $result="Aprobado";
-                break;
-            case 1:
+                       
+          case 1:
                 $result="En espera";
+                break;
+          case 2: 
+                 $result="Aprobado";
+                 break;
+          case 3: 
+                 $result="Rechazado";
+                 break;
+         case 4: 
+                 $result="Esperando insumos";
+                 break;
+         case 5: 
+                $result="En Ejecución";
+                break;
+         case 6: 
+                $result="Terminado";
                 break;
         }
         return $result;
@@ -64,5 +74,17 @@ class Pedido extends Model
 
     public function isRejected(){
         return $this->estado_pedido==3;
-    }       				
+    }  
+    
+    public function isEsperaInsumos(){
+        return $this->estado_pedido==4;
+    }  
+    
+    public function isEjecucion(){
+        return $this->estado_pedido==5;
+    }
+
+    public function isTerminado(){
+        return $this->estado_pedido==6;
+    }     
 }
