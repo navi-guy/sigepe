@@ -19,9 +19,11 @@ class SeguirPedidosController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::all();   
-        // $pedidos = Pedido::where('estado_pedido', );  
-        return view('seguirPedidos.index',compact('pedidos'));
+        //return  $pedidos = Pedido::all();   
+        
+        //  $pedidos = Pedido::where('estado_pedido','>','1' )->get();   
+            $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
+          return view('seguirPedidos.index',compact('pedidos'));
     }
 
   

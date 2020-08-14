@@ -19,7 +19,9 @@ class RevisarPedidosController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::all();   
+        // $pedidos = Pedido::all();   
+        $pedidos = Pedido::where('estado_pedido', '<', '5')->get(); 
+        
         return view('revisarPedidos.index',compact('pedidos'));
     }
 

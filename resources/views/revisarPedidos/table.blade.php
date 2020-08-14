@@ -36,9 +36,17 @@
                           {{$pedido->getEstado()}}
                         </label> 
                       @else
-                        <label for="" class="label label-danger">
-                          {{$pedido->getEstado()}}
-                        </label> 
+                          @if($pedido->isEsperaInsumos())
+                          <label for="" class="label label-info">
+                            {{$pedido->getEstado()}}
+                          </label> 
+                        @else 
+                              @if($pedido->isRejected())
+                              <label for="" class="label label-danger">
+                                {{$pedido->getEstado()}}
+                              </label> 
+                              @endif
+                        @endif
                       @endif
                     @endif                                   
                   </td>
