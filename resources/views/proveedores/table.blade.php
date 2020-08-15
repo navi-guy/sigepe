@@ -1,10 +1,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">LISTA DE <b>PROVEEDORES</b></h3>
-        </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-proveedores" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
             <thead>
@@ -31,7 +27,7 @@
                   <td>
                     <a class="btn btn-info btn-xs" href="{{ route('asignacion.show',$proveedor->id) }}">
                       <span class="fa fa-pencil"> </span> &nbsp;
-                      Gestion Insumos   
+                      Editar insumos
                     </a>
                     <button class='btn btn-xs btn-warning' 
                       onclick="editarProveedor('<?php echo $proveedor->id; ?>')">
