@@ -42,7 +42,7 @@
                 {{-- <button data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}">
                   Solicitar insumo
                 </button> --}}
-                <button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}">
+                <button class="btn btn-xs btn-info" data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}"> <span class="fa fa-hand-o-up"></span> &nbsp;
                   Solicitar insumo
                 </button>
               </td>

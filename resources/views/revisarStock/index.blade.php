@@ -32,47 +32,6 @@
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script>
-/*
-$(document).ready(function() {
- $('#tabla-productos').DataTable({
-      'language': {
-               'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          }
-  });
-
-  function confirmarDeleteProducto(){
-    if(confirm('¿Estás seguro de eliminar producto?'))
-      return true;
-    else
-      return false;
-  }
-});*/
-
-//$(document).ready(function() {
-//  $('#tabla-stock').DataTable();
-
-
- /*
-  $('#modal-edit-categoria').on('show.bs.modal',function(event){
-    var id= $(event.relatedTarget).data('id');
-    console.log(id);
-    $.ajax({
-      type: 'GET',
-      url:`./categorias/${id}/edit`,
-      dataType : 'json',
-
-      success: (data)=>{
-        console.log(data);
-        document.getElementById('nombre-edit').value = data.categoria.nombre;
-        document.getElementById('id-edit').value = data.categoria.id;
-      },
-      error: (error)=>{
-        toastr.error('Ocurrio al cargar los datos', 'Error Alert', {timeOut: 2000});
-      }
-    }); 
-  });*/
-//});
-
 $(document).ready(function() {
   var table = $('#tabla-stock').DataTable({
     'language': {
@@ -80,41 +39,82 @@ $(document).ready(function() {
     }
   });
 
-  // // Start edit record
-  // table.on('click', '.solicitar', function() {
-  //   $tr = $(this).closest('tr');
-
-  //   if ($($tr).hasClass('child')) {
-  //     $tr = $tr.prev('.parent');
-  //   }
-
-  //   var data = table.row($tr).data();
-  //   console.log(data);
-
-  //   $('#idInsumo').val(data[0]);
-
-  //   $('#insumoProveedorForm').attr('action', '/insumos/' + data[0]);
-  //   $('#insumoProveedorModal').modal('show');
-  // });
-});
 
   $('#insumoProveedorModal').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
-    console.log(id);
     $.ajax({
       type: 'GET',
       url:`./insumos/${id}`,
       dataType : 'json',
-
       success: (data)=>{
         console.log(data);
-        document.getElementById('nombre-edit').value = data.categoria.nombre;
-        document.getElementById('id-edit').value = data.categoria.id;
+        //llenamos datos del insumo
+        document.getElementById('nombre-modal').value = data.insumo.nombre;
+        document.getElementById('unidad_medida-modal').value = getUnidadMedida(data.insumo.unidad_medida);
+        document.getElementById('cantidad-modal').value = data.insumo.cantidad;
+        document.getElementById('id_insumo-modal').value = data.insumo.id;
+        
+        //llenamos la tabla (de manera dinamica :'v)
+        let html = "";
+        html += '<table id="tabla-proveedor" class="table table-bordered table-striped">';
+        html +=    '<thead>';
+        html +=       '<tr>';
+        html +=          '<th>Razon Social Proveedor</th>';
+        html +=          '<th>Ruc</th>';
+        html +=          '<th>Precio Insumo</th>';
+        html +=          '<th>Cantidad por unidad</th>';        
+        html +=          '<th>Seleccionar</th>';   
+        html +=        '</tr>';
+        html +=     '</thead>';
+        html +=     '<tbody>';
+        data.insumo.proveedores.forEach(function(proveedor) {
+          let keys = Object.keys(proveedor);
+          console.log(proveedor);
+          let prueba = 'futuro proveedoror para saber si hay deuda con el proveedor';
+          if( proveedor != null ){ 
+            html +='<tr>';
+            html +='<td>'+proveedor['razon_social']+'</td>';
+            html +='<td>'+proveedor['ruc']+'</td>';
+            html +='<td>S/. '+proveedor.pivot['precio_compra']+'</td>';
+            html +='<td> <input name="cantidad[]" class="form-control" type="number" min="1"> </td>';
+            html +='<td> <input type="checkbox" name="proveedor_id[]" value="'+proveedor['id']+'"></td>';
+            html +='</tr>';   
+          }
+        });  
+        html +=     '</tbody>';
+        html += '</table>';
+        $(".show-proveedores").html(html);
+        $('#tabla-proveedor').DataTable({
+          'language': {
+            'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+          }
+      });
       },
       error: (error)=>{
         toastr.error('Ocurrio al cargar los datos', 'Error Alert', {timeOut: 2000});
       }
     }); 
   });
+});
+
+function getUnidadMedida(u_medida){
+  result="";
+  switch(u_medida){
+     
+     case 3:
+          result="Metros cúbicas (m3)";
+          break;
+      case 2: 
+          result="Pulgadas (µm)";
+          break;
+      case 1: 
+          result="Toneladas (Tn)";
+          break;
+      case 0:
+          result="Unidad (u)";
+          break;
+  }
+  return result;   
+}
 </script>
 @endsection

@@ -28,10 +28,10 @@ class RevisarStockController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoriaRequest $request)
+    public function store(Request $request)
     {
-        Categoria::create($request->validated());
-        return back()->with('alert-type', 'success')->with('status', 'Categoria Registrada con exito');
+        return $request;
+        return "lo que se hace con la solicitud de insumos."; 
     }
 
     /**
