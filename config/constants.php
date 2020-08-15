@@ -26,5 +26,10 @@ return [
           ['id'=>2 , 'descripcion' => 'Pulgadas (µm)'],
           ['id'=>3 , 'descripcion' => 'Metros cúbicas(m3)'],         
         ],
+        'menu' => [
+          "Proveedores",
+          "Categorías",
+          "Stock de insumos"
+        ]
 
 ];
