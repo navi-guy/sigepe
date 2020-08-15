@@ -56,7 +56,7 @@ class InsumoController extends Controller
      */
     public function show(Insumo $insumo)
     {
-        return $insumo;
+        return $insumo->proveedores;
     }
 
     /**

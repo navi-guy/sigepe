@@ -21,6 +21,7 @@
 </section>
 <section class="content">
   @include('revisarStock.table')
+  @include('revisarStock.insumo_proveedor')
 </section>
 @endsection
 {{-- <section class="content">
@@ -47,12 +48,10 @@ $(document).ready(function() {
   }
 });*/
 
-$(document).ready(function() {
-  $('#tabla-stock').DataTable({
-      'language': {
-               'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          }
-  });
+//$(document).ready(function() {
+//  $('#tabla-stock').DataTable();
+
+
  /*
   $('#modal-edit-categoria').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
@@ -72,6 +71,31 @@ $(document).ready(function() {
       }
     }); 
   });*/
+//});
+
+$(document).ready(function() {
+  var table = $('#tabla-stock').DataTable({
+    'language': {
+      'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+    }
+  });
+
+  // // Start edit record
+  // table.on('click', '.solicitar', function() {
+  //   $tr = $(this).closest('tr');
+
+  //   if ($($tr).hasClass('child')) {
+  //     $tr = $tr.prev('.parent');
+  //   }
+
+  //   var data = table.row($tr).data();
+  //   console.log(data);
+
+  //   $('#idInsumo').val(data[0]);
+
+  //   $('#insumoProveedorForm').attr('action', '/insumos/' + data[0]);
+  //   $('#insumoProveedorModal').modal('show');
+  // });
 });
 </script>
 @endsection

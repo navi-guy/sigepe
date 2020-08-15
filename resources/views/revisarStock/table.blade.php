@@ -11,7 +11,7 @@
             <th>Nombre  </th>
             <th>Unidad de Medida </th>
             <th>Cantidad </th>
-            {{-- <th>Acciones</th> --}}
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +38,14 @@
                   </form>
                 @endif
               </td> --}}
+              <td>
+                {{-- <button data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}">
+                  Solicitar insumo
+                </button> --}}
+                <button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}">
+                  Solicitar insumo
+                </button>
+              </td>
             </tr>
           @endforeach
         </tbody>
