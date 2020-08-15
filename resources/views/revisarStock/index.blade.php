@@ -97,5 +97,24 @@ $(document).ready(function() {
   //   $('#insumoProveedorModal').modal('show');
   // });
 });
+
+  $('#insumoProveedorModal').on('show.bs.modal',function(event){
+    var id= $(event.relatedTarget).data('id');
+    console.log(id);
+    $.ajax({
+      type: 'GET',
+      url:`./insumos/${id}`,
+      dataType : 'json',
+
+      success: (data)=>{
+        console.log(data);
+        document.getElementById('nombre-edit').value = data.categoria.nombre;
+        document.getElementById('id-edit').value = data.categoria.id;
+      },
+      error: (error)=>{
+        toastr.error('Ocurrio al cargar los datos', 'Error Alert', {timeOut: 2000});
+      }
+    }); 
+  });
 </script>
 @endsection
