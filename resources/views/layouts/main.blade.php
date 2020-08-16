@@ -1,34 +1,21 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SIGEPE | @yield('title')</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" nombres="viewport">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('iconoCorp.ico') }}">
   <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('adminlte/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('adminlte/Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-green.min.css') }}">
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-   <!-- DATATABLES -->
-  <link href="//cdn.datatables.net/responsive/2.1.1/css/dataTables.responsive.css"/>
-  <!-- Responsive tables-->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
   <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
   @yield('styles')
+  <style>body {font-family: 'Roboto', sans-serif;font-size: 14px;}</style>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
@@ -111,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
           <ul class="treeview-menu" style="display: none;">
             <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Proveedores</a></li>
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Registrar insumos comprados</a></li>
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Insumos/Proveedores</a></li>
           </ul>
         </li> 
 
@@ -160,7 +147,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color: white !important">
     <!-- Content Header (Page header) -->
       @yield('breadcrumb')
     <!-- Main content -->
@@ -185,22 +172,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="{{ asset('adminlte/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('adminlte/jquery/jquery.min.js') }}" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
-
-<!--  JS entidades -->
-
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
 <script>
@@ -229,8 +206,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 @yield('scripts')
 @include('partials.session-status')
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 </body>
 </html>

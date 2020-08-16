@@ -20,7 +20,7 @@
                   <div class="row">
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
-                        <label for="product_name">Nombre del producto <span class="mandatory">*</span></label>
+                        <label for="product_name">Nombre <span class="mandatory">*</span></label>
                         <input type="text" class="form-control" id="product_name" name="nombre" placeholder="Nombre del producto" required/>
                       </div>
                     </div>
@@ -115,7 +115,7 @@
                 </table>            
                 <div class="box-footer">
                   <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
-                  <button type="submit" class="btn btn-success pull-right"><span class="fa fa-save"></span>&nbsp; Añadir producto</button>
+                  <button type="submit" class="btn btn-success pull-right"><span class="fa fa-save"></span>&nbsp; Guardar producto</button>
                   <a href="{{ route('productos.index') }}" class="btn btn-default"><span class="fa fa-arrow-left"></span> Atrás</a>
                 </div>
               </form>              

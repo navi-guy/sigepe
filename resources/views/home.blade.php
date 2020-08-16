@@ -2,7 +2,7 @@
 @section('title','Dashboard')
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="#" class="text-muted">Inicio</a></li>
 </ol>
 @endsection

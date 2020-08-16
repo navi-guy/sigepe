@@ -3,16 +3,15 @@
     <form action="{{route('pedidos.store')}}" method="post">
     @csrf
       <input type="hidden" name="cod_pedido" value="{{$cod_pedido}}">
-      <!-- general form elements -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Añadir nuevo&nbsp;<b>Pedido</b>&nbsp;|&nbsp;{{$cod_pedido}}</h3>
-        </div><!-- /.box-header -->
+          <h3 class="box-title">{{$cod_pedido}}</h3>
+        </div>
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group @error('nombre_cli') has-error @enderror">
-                <label for="nombre_cli">Nombre completo del cliente 
+                <label for="nombre_cli">Cliente
                   <span class="mandatory">*</span>
                 </label>
                 <input id="nombre_cli" type="text" class="form-control" name="nombre_cli" 
