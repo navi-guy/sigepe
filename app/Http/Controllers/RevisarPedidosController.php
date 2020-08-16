@@ -37,7 +37,8 @@ class RevisarPedidosController extends Controller
         $pedido = Pedido::findOrFail($id);
         $pedido->estado_pedido = 3; 
         $pedido->save();   
-        $pedidos = Pedido::all();  
+        // $pedidos = Pedido::all();  
+        $pedidos = Pedido::where('estado_pedido', '<', '5')->get(); 
         return view('revisarPedidos.index',compact('pedidos'))->with('alert-type','warning')->with('status','Pedido rechazado');
     }
 
@@ -53,23 +54,10 @@ class RevisarPedidosController extends Controller
         $pedido = Pedido::findOrFail($id);
         $pedido->estado_pedido = 2; 
         $pedido->save();   
-        $pedidos = Pedido::all();   
+        // $pedidos = Pedido::all(); 
+        $pedidos = Pedido::where('estado_pedido', '<', '5')->get();   
         return view('revisarPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
     }
 
-    
-    public function ejecutarPedido(Request $request)
-   
-    {      
-          print("a");
-          return "a";
-       
-        
-        // $id = $request->id_pedido;
-        // $pedido = Pedido::findOrFail($id);
-        // $pedido->estado_pedido = 5; 
-        // $pedido->save();   
-        // $pedidos = Pedido::all();   
-        // return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
-    }
+ 
 }

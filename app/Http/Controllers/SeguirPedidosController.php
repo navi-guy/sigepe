@@ -54,7 +54,8 @@ class SeguirPedidosController extends Controller
         $pedido = Pedido::findOrFail($id);
         $pedido->estado_pedido = 2; 
         $pedido->save();   
-        $pedidos = Pedido::all();   
+        // $pedidos = Pedido::all();   
+        $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
     }
 
@@ -66,7 +67,8 @@ class SeguirPedidosController extends Controller
          $pedido = Pedido::findOrFail($id);
          $pedido->estado_pedido = 5; 
          $pedido->save();   
-         $pedidos = Pedido::all();   
+        //  $pedidos = Pedido::all();   
+         $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
          return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
     }
     public function terminarPedido(Request $request)
@@ -77,7 +79,8 @@ class SeguirPedidosController extends Controller
          $pedido = Pedido::findOrFail($id);
          $pedido->estado_pedido = 6; 
          $pedido->save();   
-         $pedidos = Pedido::all();   
+        //  $pedidos = Pedido::all();   
+         $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
          return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
     }
 }
