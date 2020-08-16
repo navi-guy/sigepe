@@ -9,7 +9,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="#" class="text-muted">Revisar Stock</a></li>
 </ol>
@@ -51,7 +51,7 @@ $(document).ready(function() {
   $('#tabla-stock').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          }
+          }, info: false
   });
  /*
   $('#modal-edit-categoria').on('show.bs.modal',function(event){

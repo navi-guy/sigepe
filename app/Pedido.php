@@ -67,6 +67,11 @@ class Pedido extends Model
     public function isUnconfirmed(){
         return $this->estado_pedido==1;
     }  
+
+    public function isFinished(){
+        return $this->estado_pedido==6;
+    }  
+    
     
     public function isAprobed(){
         return $this->estado_pedido==2;

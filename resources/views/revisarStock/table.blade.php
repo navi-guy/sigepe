@@ -1,8 +1,5 @@
 <div class="col-md-12">
   <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Stock de Insumos</h3>
-    </div><!-- /.box-header -->
     <div class="box-body">
       <table id="tabla-stock" class="table table-bordered table-striped">
         <thead>

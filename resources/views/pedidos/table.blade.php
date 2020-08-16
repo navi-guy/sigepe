@@ -1,9 +1,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">Gestionar <b>PEDIDOS</b></h3>
-        </div>
         <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-pedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
@@ -40,9 +37,15 @@
                           {{$pedido->getEstado()}}
                         </label> 
                       @else
-                        <label for="" class="label label-danger">
+                        @if($pedido->isFinished())
+                        <label for="" class="label label-success">
                           {{$pedido->getEstado()}}
                         </label> 
+                      @else
+                        <label for="" class="label label-info">
+                          {{$pedido->getEstado()}}
+                        </label> 
+                        @endIf
                       @endif
                     @endif                                   
                   </td>
@@ -51,7 +54,7 @@
                   <td>{{$pedido->monto_neto}}</td>                  
                   <td>                      
                     <a class="btn btn-warning btn-sm" href="{{ route('pedidos.edit',$pedido->id)}}" >
-                      <span class="glyphicon glyphicon-edit"></span>
+                      <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     @if($pedido->isUnconfirmed())
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeletePedido()" action="{{ route('pedidos.destroy', $pedido->id) }}">
