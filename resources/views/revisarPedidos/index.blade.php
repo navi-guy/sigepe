@@ -29,7 +29,7 @@ $(document).ready(function() {
   $('#tabla-revisarPedidos').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          },
+          }, info: false,
         columnDefs: [
           { orderable: false, targets: -1},
           { searchable: false, targets: [-1]},
@@ -40,9 +40,10 @@ $(document).ready(function() {
           { responsivePriority: 1001, targets: 2 }         
         ]
   });
-$('#modal-aprobar-pedido').on('show.bs.modal',function(event){
+$('#modal_aprobar_pedido').on('show.bs.modal',function(event){
+    console.log('Aprobar pedido: Mensaje de confirmación de aprobación de pedido.');
     const id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id);
+    $(event.currentTarget).find('#id_pedido_por_aprobar').val(id);
   });
 
 $('#modal-rechazar-pedido').on('show.bs.modal',function(event){

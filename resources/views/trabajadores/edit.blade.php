@@ -89,7 +89,7 @@
             </div><!-- /.box -->
           </div><!--/.col (right) -->
         </div> 
-        <input id="id-edit" type="hidden" name="id">
+        <input type="hidden" name="id">
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary pull-left">Guardar cambios</button>
