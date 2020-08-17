@@ -33,12 +33,12 @@ class RevisarPedidosController extends Controller
      */
     public function rejectPedido(Request $request)
     {
-        $id = $request->id_pedido;
+        $id = $request->id_pedido_rechazar;
         $pedido = Pedido::findOrFail($id);
         $pedido->estado_pedido = 3;
         $pedido->save();
-        $pedidos = Pedido::all();
-        return view('revisarPedidos.index', compact('pedidos'))->with('alert-type', 'warning')->with('status', 'Pedido rechazado');
+        return redirect()->action('RevisarPedidosController@index'
+                )->with('alert-type','error')->with('status','Pedido rechazado');
     }
 
 

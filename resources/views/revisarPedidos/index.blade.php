@@ -48,7 +48,7 @@ $('#modal_aprobar_pedido').on('show.bs.modal',function(event){
 
 $('#modal-rechazar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id);
+    $(event.currentTarget).find('#id_pedido_rechazar').val(id);
   });
 }); 
 

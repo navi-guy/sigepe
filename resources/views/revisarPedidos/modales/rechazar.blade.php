@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-sm">
         <form action="{{ route('revisarPedidos.rejectPedido') }}" method="post" class="modal-content">
             @csrf
-            <input type="hidden" name="id_pedido">
+            <input type="hidden" name="id_pedido_rechazar" id="id_pedido_rechazar">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
