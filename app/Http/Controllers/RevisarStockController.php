@@ -30,7 +30,20 @@ class RevisarStockController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        //return $request;
+/*
+        $ret = $request;
+
+        $ped
+
+        foreach ($request->proveedor_id as $id) {
+
+            # code...
+        }
+*/
+        return $ret;
+    //  return $request;
+
         return "lo que se hace con la solicitud de insumos."; 
     }
 

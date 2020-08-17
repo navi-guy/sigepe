@@ -55,6 +55,7 @@ $(document).ready(function() {
         document.getElementById('id_insumo-modal').value = data.insumo.id;
         
         //llenamos la tabla (de manera dinamica :'v)
+        let prov = "";
         let html = "";
         html += '<table id="tabla-proveedor" class="table table-bordered table-striped">';
         html +=    '<thead>';
@@ -63,7 +64,7 @@ $(document).ready(function() {
         html +=          '<th>Ruc</th>';
         html +=          '<th>Precio Insumo</th>';
         html +=          '<th>Cantidad por unidad</th>';        
-        html +=          '<th>Seleccionar</th>';   
+        /*html +=          '<th>Seleccionar</th>';*/
         html +=        '</tr>';
         html +=     '</thead>';
         html +=     '<tbody>';
@@ -71,13 +72,16 @@ $(document).ready(function() {
           let keys = Object.keys(proveedor);
           console.log(proveedor);
           let prueba = 'futuro proveedoror para saber si hay deuda con el proveedor';
-          if( proveedor != null ){ 
+          if( proveedor != null ) {
+            prov = proveedor['id'];
+            console.log(prov);
             html +='<tr>';
+            html +='<input name="proveedor_id[]" value='+prov+' class="form-control" type="hidden">';
             html +='<td>'+proveedor['razon_social']+'</td>';
             html +='<td>'+proveedor['ruc']+'</td>';
             html +='<td>S/. '+proveedor.pivot['precio_compra']+'</td>';
-            html +='<td> <input name="cantidad[]" class="form-control" type="number" min="1"> </td>';
-            html +='<td> <input type="checkbox" name="proveedor_id[]" value="'+proveedor['id']+'"></td>';
+            html +='<td> <input name="cantidad[]" class="form-control" type="number" value=0 min="0"> </td>';
+            /*html +='<td> <input type="checkbox" name="proveedor_id[]" value="'+proveedor['id']+'"></td>';*/
             html +='</tr>';   
           }
         });  
