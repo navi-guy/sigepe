@@ -27,25 +27,29 @@
                  {{--  <td>{{$pedido->telefono_cli}}</td> --}}
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isUnconfirmed())
-                      <label for="" class="label label-warning">
-                      {{$pedido->getEstado()}}
-                      </label> 
+                    @if($pedido->isAprobed())
+                        <button class="btn btn-sm btn-block" style="background-color: #00a65a; color: white; text-align: left">
+                          <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
                     @else 
-                      @if($pedido->isAprobed())
-                        <label for="" class="label label-success">
+                      @if($pedido->isEsperaInsumos())
+                      <button class="btn btn-warning btn-sm btn-block"><span class="">
                           {{$pedido->getEstado()}}
-                        </label> 
+                      </span></button>
                       @else
-                        @if($pedido->isFinished())
-                        <label for="" class="label label-success">
-                          {{$pedido->getEstado()}}
-                        </label> 
-                      @else
-                        <label for="" class="label label-info">
-                          {{$pedido->getEstado()}}
-                        </label> 
-                        @endIf
+                          @if($pedido->isEjecucion())
+                          <button class="btn btn-sm btn-block" style="background-color: #00add8; color:White; text-align: left">
+                            <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
+                        @else
+                           @if($pedido->isTerminado())
+                              <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
+                                <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @else
+                            <button class="btn btn-sm btn-block" style="text-align: left">
+                              <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @endif  
+                        @endif
                       @endif
                     @endif                                   
                   </td>

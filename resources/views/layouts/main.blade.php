@@ -15,9 +15,10 @@
   <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
   @yield('styles')
-  <style>body {font-family: 'Roboto', sans-serif;font-size: 14px;}</style>
+  <style>body {font-family: 'Roboto', sans-serif;font-size: 14px;} li{padding: 6px 0px 6px 0px}</style>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
+
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -118,7 +119,7 @@
         <li><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
         <li id="treeview-revision-pedidos" class="treeview">
           <a href="#">
-            <i class="fa fa-first-order "></i> <span>Revisión de pedidos</span>
+            <i class="fa fa-first-order"></i> <span>Revisión de pedidos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

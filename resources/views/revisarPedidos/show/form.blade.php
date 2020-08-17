@@ -2,7 +2,12 @@
   <div class="col-md-12">
     <div class="box box-success">
       <div class="box-header with-border">
-        <h3 class="box-title">Visulizar&nbsp;<b>Pedido</b>&nbsp;|&nbsp;{{$pedido->cod_pedido}}</h3>
+        <h3 class="box-title">{{$pedido->cod_pedido}}</h3>
+            <a href="{{ route('revisarPedidos.index') }}">
+      <button class="btn btn-success pull-right">
+        <span class="fa fa-arrow-left"></span> &nbsp; Volver a la evaluación de pedidos
+      </button>
+    </a> 
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="row">

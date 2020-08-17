@@ -7,7 +7,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
         <h4 class="modal-title">Editar datos del proveedor</h4>
-        <input id="id-edit" type="hidden" name="id">
+        <input type="hidden" name="id">
       </div>
       <div class="modal-body">
         <div class="row">
