@@ -82,20 +82,4 @@ class RevisarPedidosController extends Controller
         return redirect()->action('RevisarPedidosController@index'
                 )->with('alert-type','success')->with('status','Pedido aprobado');
     }
-
-
-    public function ejecutarPedido(Request $request)
-
-    {
-        print("a");
-        return "a";
-
-
-        // $id = $request->id_pedido;
-        // $pedido = Pedido::findOrFail($id);
-        // $pedido->estado_pedido = 5; 
-        // $pedido->save();   
-        // $pedidos = Pedido::all();   
-        // return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
-    }
 }
