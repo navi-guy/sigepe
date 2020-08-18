@@ -7,7 +7,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="#" class="text-muted">Categorías</a></li>
 </ol>
@@ -15,13 +15,16 @@
 
 @section('content')
 <section class="content-header">
-    <h3>Gestionar Categorias</h3>
+  <a data-toggle="modal" data-target="#modal-create-categoria">
+  <button class="btn bg-olive pull-left">
+  <span class="fa fa-plus"></span> &nbsp; Nueva Categoría
+  </button>
+</a> 
+<p><br></p>
 </section>
 <section class="content">
-  <div class="row">
     @include('categorias.create')
-    @include('categorias.table')
-  </div>   
+    @include('categorias.table')   
   <!-- Modales-->
   @include('categorias.edit')
   <!--/.end-modales-->
@@ -45,6 +48,7 @@ $(document).ready(function() {
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
           },
+          info: false,
        columnDefs: [
           { orderable: false, targets: -1},
           { searchable: false, targets: [-1]},

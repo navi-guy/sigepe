@@ -7,8 +7,6 @@
 <link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 <link rel="stylesheet" href="{{asset('fileinput/fileinput.min.css')}}">
-{{-- <link rel="stylesheet" href="{{asset('dropzone/dist/basic.css')}}">
-<link rel="stylesheet" href="{{asset('dropzone/dist/dropzone.css')}}"> --}}
 <style  rel="stylesheet" type="text/css">
   .mandatory {
     color: red;
@@ -18,7 +16,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('productos.index') }}">Productos</a></li>
   <li><a href="#" class="text-muted">Registrar</a></li>
@@ -26,9 +24,6 @@
 @endsection
 
 @section('content')
-<section class="content-header">
-  <h3>Añadir Producto</h3>
-</section>
 <section class="content">
   @include('partials.validation-errors')
   @include('productos.create.register')

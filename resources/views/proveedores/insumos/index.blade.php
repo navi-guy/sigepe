@@ -11,7 +11,7 @@
 </style>
 @endsection
 @section('breadcrumb')
-<ol class="breadcrumb"> 
+<ol class="breadcrumb" style="background-color: white !important"> 
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('proveedores.index') }}">Proveedores</a></li>
   <li><a href="#"  class="text-muted">Insumos asignados</a></li>

@@ -1,10 +1,5 @@
-  <div class="row">
-    <div class="col-xs-12">
+
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">Gestionar <b>PRODUCTOS</b></h3>
-        </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-productos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
             <thead>
@@ -33,7 +28,7 @@
                   <td>{{$producto->getUnidadMedida()}}</td>
                   <td>                      
                     <a class="btn btn-warning btn-sm" href="{{ route('productos.edit',$producto->id)}}" >
-                      <span class="glyphicon glyphicon-edit"></span></a>
+                      <span class="glyphicon glyphicon-pencil"></span></a>
                     @if($producto->pedidos->isEmpty())
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeleteProducto()" action="{{ route('productos.destroy', $producto->id) }}">
                         @csrf
@@ -48,6 +43,4 @@
     
           </table>
         </div>
-      </div> <!-- end box -->
-    </div>
-  </div><!-- end row -->
+      </div>

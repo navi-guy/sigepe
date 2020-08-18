@@ -1,9 +1,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">Gestionar <b>PEDIDOS</b></h3>
-        </div>
         <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-pedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
@@ -30,19 +27,29 @@
                  {{--  <td>{{$pedido->telefono_cli}}</td> --}}
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isUnconfirmed())
-                      <label for="" class="label label-warning">
-                      {{$pedido->getEstado()}}
-                      </label> 
+                    @if($pedido->isAprobed())
+                        <button class="btn btn-sm btn-block" style="background-color: #00a65a; color: white; text-align: left">
+                          <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
                     @else 
-                      @if($pedido->isAprobed())
-                        <label for="" class="label label-success">
+                      @if($pedido->isEsperaInsumos())
+                      <button class="btn btn-warning btn-sm btn-block"><span class="">
                           {{$pedido->getEstado()}}
-                        </label> 
+                      </span></button>
                       @else
-                        <label for="" class="label label-danger">
-                          {{$pedido->getEstado()}}
-                        </label> 
+                          @if($pedido->isEjecucion())
+                          <button class="btn btn-sm btn-block" style="background-color: #00add8; color:White; text-align: left">
+                            <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
+                        @else
+                           @if($pedido->isTerminado())
+                              <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
+                                <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @else
+                            <button class="btn btn-sm btn-block" style="text-align: left">
+                              <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @endif  
+                        @endif
                       @endif
                     @endif                                   
                   </td>
@@ -51,7 +58,7 @@
                   <td>{{$pedido->monto_neto}}</td>                  
                   <td>                      
                     <a class="btn btn-warning btn-sm" href="{{ route('pedidos.edit',$pedido->id)}}" >
-                      <span class="glyphicon glyphicon-edit"></span>
+                      <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     @if($pedido->isUnconfirmed())
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeletePedido()" action="{{ route('pedidos.destroy', $pedido->id) }}">

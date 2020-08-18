@@ -7,7 +7,7 @@
       <input type="hidden" name="cod_pedido" value="{{$pedido->cod_pedido}}">
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Editar &nbsp;<b>Pedido</b>&nbsp;|&nbsp;{{$pedido->cod_pedido}}</h3>
+         {{$pedido->cod_pedido}}</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
           <div class="row">

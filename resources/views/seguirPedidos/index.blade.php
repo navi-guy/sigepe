@@ -7,7 +7,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="#" class="text-muted">Ejecutar Pedidos</a></li>
 </ol>
@@ -43,8 +43,8 @@ $(document).ready(function() {
   });
   
 $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
-    const id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id);
+ /*    const id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido').val(id); */
   });
 
 // $('#modal-rechazar-pedido').on('show.bs.modal',function(event){

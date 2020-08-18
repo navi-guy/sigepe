@@ -2,7 +2,7 @@
 @section('title','Dashboard')
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="#" class="text-muted">Inicio</a></li>
 </ol>
 @endsection
@@ -27,7 +27,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>{{$array['npedido']}}</h3>
-                  <p>Número de Pedidos</p>
+                  <p>Pedidos totales</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-shopping-cart"></i>
@@ -70,7 +70,7 @@
               <div class="small-box bg-purple">
                 <div class="inner">
                   <h3>{{$array['nproveedor']}}</h3>
-                  <p>Número de proveedores</p>
+                  <p>Proveedores de la empresa</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-truck"></i>
@@ -84,7 +84,7 @@
               <div class="small-box bg-primary">
                 <div class="inner">
                   <h3>{{$array['nproductos']}}</h3>
-                  <p>Número de productos</p>
+                  <p>Productos en stock</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-tags"></i>
@@ -99,7 +99,7 @@
               <div class="small-box bg-gray">
                 <div class="inner">
                   <h3>{{$array['ninsumo']}}</h3>
-                  <p>Número de insumos</p>
+                  <p>Insumos en stock</p>
                 </div>
                 <div class="icon">
                   <i class="glyphicon glyphicon-cog"></i>

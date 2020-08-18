@@ -61,16 +61,12 @@
                     <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
                       <span class="fa fa-eye"></span>
                     </a>
-                    {{-- @if($pedido->isUnconfirmed()) --}}
-                      {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-check"></span></button> --}}
-                      {{-- <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-close"></span></button>
-                    @endif --}}
                   </td>
                 </tr>
               @endforeach
             </tbody>    
           </table>
         </div>
-      </div> <!-- end box -->
+      </div>
     </div>
-  </div><!-- end row -->
+  </div>

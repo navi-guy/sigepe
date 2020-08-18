@@ -1,10 +1,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">REVISIÓN DE <b>PEDIDOS</b></h3>
-        </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-revisarPedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
             <thead>
@@ -26,39 +22,49 @@
                   <td>{{$pedido->nombre_cli}}</td>
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isUnconfirmed())
-                      <label for="" class="label label-warning">
-                      {{$pedido->getEstado()}}
-                      </label> 
+                    @if($pedido->isAprobed())
+                        <button class="btn btn-sm btn-block" style="background-color: #00a65a; color: white; text-align: left">
+                          <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
                     @else 
-                      @if($pedido->isAprobed())
-                        <label for="" class="label label-success">
+                      @if($pedido->isEsperaInsumos())
+                      <button class="btn btn-warning btn-sm btn-block"><span class="">
                           {{$pedido->getEstado()}}
-                        </label> 
+                      </span></button>
                       @else
-                          @if($pedido->isEsperaInsumos())
-                          <label for="" class="label label-info">
-                            {{$pedido->getEstado()}}
-                          </label> 
-                        @else 
-                              @if($pedido->isRejected())
-                              <label for="" class="label label-danger">
-                                {{$pedido->getEstado()}}
-                              </label> 
-                              @endif
+                          @if($pedido->isEjecucion())
+                          <button class="btn btn-sm btn-block" style="background-color: #00add8; color:White; text-align: left">
+                            <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
+                        @else
+                           @if($pedido->isTerminado())
+                              <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
+                                <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @else
+                            <button class="btn btn-sm btn-block" style="text-align: left">
+                              <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @endif  
                         @endif
                       @endif
-                    @endif                                   
+                    @endif                                  
                   </td>
                   <td>{{$pedido->monto_neto}}</td>
                   <td>                      
-                    <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
-                      <span class="fa fa-eye"></span>
-                    </a>
-                    @if($pedido->isUnconfirmed())
-                      <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-check"></span></button>
-                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}"><span class="fa fa-close"></span></button>
+                    @if($pedido->isUnconfirmed() || $pedido->isEsperaInsumos())
+                      @if($pedido->isUnconfirmed())
+                      <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_aprobar_pedido" data-id="{{$pedido->id}}">
+                        <span class="fa fa-check-square-o"></span> Aprobar</button>
+                        @endif
+                        @if($pedido->isEsperaInsumos())
+                      <a class="btn btn-primary btn-sm" href="{{ route('pedidos.show',$pedido->id)}}">
+                        <span class="fa fa-check-square-o"></span> Solicitar insumos</button>
+                        @endif
+                      <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}">
+                        <span class="fa fa-close"></span> Rechazar</button>
                     @endif
+                    <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                      <span class="fa fa-eye"></span> Ver detalle
+                    </a>
                   </td>
                 </tr>
               @endforeach

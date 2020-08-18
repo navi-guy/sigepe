@@ -1,39 +1,24 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SIGEPE | @yield('title')</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" nombres="viewport">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('iconoCorp.ico') }}">
   <link rel="stylesheet" href="{{ asset('adminlte/bootstrap/css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('adminlte/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('adminlte/Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-green.min.css') }}">
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-   <!-- DATATABLES -->
-  <link href="//cdn.datatables.net/responsive/2.1.1/css/dataTables.responsive.css"/>
-  <!-- Responsive tables-->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
   <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
   @yield('styles')
+  <style>body {font-family: 'Roboto', sans-serif;font-size: 14px;} li{padding: 6px 0px 6px 0px}</style>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
+
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -100,29 +85,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <section class="sidebar">
       <br>
 
-      <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-       {{--  <li class="header">MENU</li> --}}
-        <!-- Optionally, you can add icons to the links -->
+
         <li><a href="{{route('home.index')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
         </li>
-        <li><a href="{{route('proveedores.index')}}"><i class="fa fa-truck"></i> <span>Proveedores</span></a></li>
-        <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i> <span>Gestionar Categorias</span></a></li>
-        <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i><span>Productos Totales</span> </a></li>       
-        <li><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Revisar Stock</span> </a></li>       
-        <li><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Pedidos/ Cliente</span> </a></li>   
-        <li><a href="{{route('revisarPedidos.index')}}"><i class="fa fa-check-square"></i><span>Revisar Pedidos</span> </a></li>      
-        <li><a href="{{route('seguirPedidos.index')}}"><i class="fa fa-check-square"></i><span>Ejecutar Pedidos</span> </a></li>      
-
-        <li id="treeview-usuarios" class="treeview">
+        
+        <li id="treeview-proveedores" class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i> <span>Usuarios del Sistema</span>
+            <i class="fa fa-truck"></i> <span>Proveedores</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Gestion</a></li>
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Proveedores</a></li>
+            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Insumos/Proveedores</a></li>
+          </ul>
+        </li> 
+
+        <li id="treeview-productos" class="treeview">
+          <a href="#">
+            <i class="fa fa-archive"></i> <span>Stock de productos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
+            <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i>Productos</a></li>
+          </ul>
+        </li>      
+        <li><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>       
+        <li><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
+        <li id="treeview-revision-pedidos" class="treeview">
+          <a href="#">
+            <i class="fa fa-first-order"></i> <span>Revisión de pedidos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('revisarPedidos.index')}}"><i class="fa fa-check-square"></i>Evaluación de pedidos</a></li>
+            <li><a href="{{route('seguirPedidos.index')}}"><i class="fa fa-check-square"></i>Ejecución de Pedidos</a></li>
+          </ul>
+        </li> 
+        <li id="treeview-usuarios" class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Usuarios</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Roles de usuario</a></li>
+            <li><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Usuarios</a></li>
           </ul>
         </li>        
       </ul>
@@ -132,7 +148,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color: white !important">
     <!-- Content Header (Page header) -->
       @yield('breadcrumb')
     <!-- Main content -->
@@ -148,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <strong>Versión</strong> 1.0.0 Beta
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <a href="#">SIGEPE</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="#">SIGEPE</a></strong>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
@@ -157,22 +173,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="{{ asset('adminlte/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('adminlte/jquery/jquery.min.js') }}" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
-
-<!--  JS entidades -->
-
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
 <script>
@@ -201,8 +207,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 @yield('scripts')
 @include('partials.session-status')
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 </body>
 </html>

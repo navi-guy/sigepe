@@ -9,7 +9,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="#"  class="text-muted">Proveedores</a></li>
 </ol>
@@ -19,7 +19,7 @@
 <section class="content-header">
       <a href="{{ route('proveedores.create') }}">
       <button class="btn bg-olive pull-left">
-      <span class="fa fa-plus"></span> &nbsp; AÑADIR PROVEEDOR &nbsp;|&nbsp;  ASIGNAR INSUMO
+      <span class="fa fa-plus"></span> &nbsp; Nuevo proveedor
       </button>
     </a> 
     <p><br></p>

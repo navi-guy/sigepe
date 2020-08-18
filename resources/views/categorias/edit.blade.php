@@ -29,7 +29,7 @@
             </div><!-- /.box -->
           </div><!--/.col (left) -->
         </div> 
-        <input id="id-edit" type="hidden" name="id">
+        <input type="hidden" name="id">
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success pull-left">Guardar cambios</button>

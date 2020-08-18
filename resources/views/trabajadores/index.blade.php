@@ -7,7 +7,7 @@
 @endsection
 
 @section('breadcrumb')
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white !important">
   <li><a href="#">Trabajadores</a></li>
   <li><a href="#">Gestion</a></li>
 </ol>
