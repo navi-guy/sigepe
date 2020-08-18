@@ -9,7 +9,8 @@ class ProveedorInsumo extends Model
 {
     protected $table = 'insumos_proveedor';
     protected $primaryKey = 'id';
-    protected $fillable= ['id','insumo_id','proveedor_id','precio_compra'];
+    protected $fillable= ['id','insumo_id','proveedor_id','precio_compra', 'cantidad', 'estado'];
+    /*protected $fillable= ['id','insumo_id','proveedor_id','precio_compra'];*/
 
 
     public function proveedores()
