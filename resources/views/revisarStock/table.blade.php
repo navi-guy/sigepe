@@ -10,6 +10,8 @@
             <th>COD</th>
             <th>Nombre  </th>
             <th>Unidad de Medida </th>
+            <th>Estado pedido </th>
+            <th>Solicitado</th>
             <th>Cantidad </th>
             <th>Acciones</th>
           </tr>
@@ -24,7 +26,14 @@
                 <span style="font-size: 105%; font-weight: bold; " >{{$insumo->nombre}}</span>
               </td>
               <td>{{$insumo->getUnidadMedida()}}</td>
-              
+              <td>
+                @if($insumo->estado == 1)
+                  <label>En espera</label>
+                @else
+                  <label>Solicitado</label>
+                @endif
+              </td>
+              <td>{{ $insumo->solicitado }}</td>
               <td>{{$insumo->cantidad}}</td>
               {{-- <td>
                 <button class="btn btn-warning" data-toggle="modal" data-target="#modal-edit-categoria" data-id="{{$categoria->id}}">

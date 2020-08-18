@@ -20,7 +20,7 @@ class CreateInsumosProveedorTable extends Migration
             $table->unsignedBigInteger('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('proveedores');
             $table->decimal('precio_compra',9,2);
-            $table->integer('cantidad')->nullable();
+            $table->integer('cantidad')->nullable()->default(0);
             $table->integer('estado')->default(1);
             $table->timestamps();
         });
