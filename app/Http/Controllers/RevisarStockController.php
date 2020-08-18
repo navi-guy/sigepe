@@ -4,6 +4,7 @@ namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Categoria;
+use CorporacionPeru\ProveedorInsumo;
 use Illuminate\Http\Request;
 use CorporacionPeru\Http\Requests\StoreCategoriaRequest;
 
@@ -17,9 +18,12 @@ class RevisarStockController extends Controller
     public function index()
     {
         //   $categorias = Categoria::orderBy('id', 'DESC')->get();
-          $insumos = Insumo::orderBy('id', 'DESC')->get();
+        //$insumos = Insumo::orderBy('id', 'DESC')->get();
+
+        $insumos = Insumo::groupBy('insumos.id')->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', 'insumos.id')->selectRaw('insumos.id, insumos.nombre, insumos.cantidad, insumos.unidad_medida, insumos_proveedor.insumo_id, MAX(insumos_proveedor.estado) AS estado, SUM(insumos_proveedor.cantidad) AS solicitado')->orderBy('insumos.id', 'DESC')->get();
 
         return view('revisarStock.index', compact('insumos'));
+        //return $insumos;
     }
 
     /**
@@ -28,10 +32,53 @@ class RevisarStockController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoriaRequest $request)
+    public function store(Request $request)
     {
-        Categoria::create($request->validated());
-        return back()->with('alert-type', 'success')->with('status', 'Categoria Registrada con exito');
+        //return $request;
+
+        //$ret = ProveedorInsumo::find($request->input('id_insumo'), '*');
+
+        // En $ret almacenaremos todos los registros de tal forma que
+        // el id_insumo es el que llega con $request
+        //$retorno = ProveedorInsumo::where('insumo_id', '=', $request->input('id_insumo'))->get('id');
+        
+        // Lo que hay en la BD
+        $idInsProv = ProveedorInsumo::where('insumo_id', '=', $request->input('id_insumo'))->select('id', 'cantidad')->get();
+        // Para recorrer las cantidades pedidas
+        $i = 0;
+
+        echo "IDRequest: ".$idInsProv."\n\n";
+
+        foreach ($idInsProv as $idr) {
+            echo "Fila actual: ".$idr."\n";
+            echo "ID actual: ".$idr->id."\n";
+            echo "Cant request: ".$request->cantidad[$i]."\n";
+            $cant = $request->cantidad[$i];
+
+            if ($cant != 0) {
+                $row = ProveedorInsumo::find($idr->id);
+
+                echo "Antes    : ".$row."\n";
+
+                $row->cantidad += $cant;
+
+                $row->estado = 2;
+                $row->save();
+
+                echo "Guardardo: ".$row."\n\n";
+            }
+
+            $i += 1;
+        }
+
+        // $request->proveedor_id[x] es lo mismo que $request->input('proveedor_id')[x]
+        // $request->input('*') devuelve un arreglo con los valores de request (sin claves)
+
+        // return $request->input('*');
+    //  return $request;
+
+        // return "lo que se hace con la solicitud de insumos.";
+        return  back()->with('alert-type', 'success')->with('status', 'Solicitud agregada con éxito');
     }
 
     /**

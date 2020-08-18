@@ -56,7 +56,7 @@ $(document).ready(function() {
           { responsivePriority: 1, targets: -1 }
         ]
   });
- 
+
   $('#modal-edit-categoria').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
     console.log(id);

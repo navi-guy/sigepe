@@ -56,7 +56,9 @@ class InsumoController extends Controller
      */
     public function show(Insumo $insumo)
     {
-        return $insumo;
+      
+        $insumo = $insumo->load('proveedores');
+        return response()->json(['insumo' => $insumo]);
     }
 
     /**
