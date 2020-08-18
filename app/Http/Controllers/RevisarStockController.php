@@ -60,11 +60,7 @@ class RevisarStockController extends Controller
 
                 echo "Antes    : ".$row."\n";
 
-                if (is_null($row->cantidad)) {
-                    $row->cantidad = $cant;
-                } else {
-                    $row->cantidad += $cant;
-                }
+                $row->cantidad += $cant;
 
                 $row->estado = 2;
                 $row->save();
