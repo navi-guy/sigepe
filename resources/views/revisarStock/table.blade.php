@@ -10,9 +10,8 @@
             <th>COD</th>
             <th>Nombre  </th>
             <th>Unidad de Medida </th>
-            <th>Estado pedido </th>
-            <th>Solicitado</th>
-            <th>Cantidad </th>
+            <th>Stock insumo </th>
+            <th>Estado solicitud </th>      
             <th>Acciones</th>
           </tr>
         </thead>
@@ -26,31 +25,16 @@
                 <span style="font-size: 105%; font-weight: bold; " >{{$insumo->nombre}}</span>
               </td>
               <td>{{$insumo->getUnidadMedida()}}</td>
+              <td>{{$insumo->cantidad}}</td>
               <td>
-                @if($insumo->estado == 1)
-                  <label>En espera</label>
-                @else
-                  <label>Solicitado</label>
+                @if($insumo->estado == 2 )
+                  <label class="label label-warning">Solicitado</label>
+                 ({{$insumo->solicitado}} unidades)
+                 @else
+                 <label class="label label-default">Sin solicitud</label>
                 @endif
               </td>
-              <td>{{ $insumo->solicitado }}</td>
-              <td>{{$insumo->cantidad}}</td>
-              {{-- <td>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#modal-edit-categoria" data-id="{{$categoria->id}}">
-                  <span class="glyphicon glyphicon-edit"></span>
-                </button>
-                @if($categoria->productos->isEmpty())
-                  <form style="display:inline" method="POST" action="{{ route('categorias.destroy', $categoria->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-                  </form>
-                @endif
-              </td> --}}
               <td>
-                {{-- <button data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}">
-                  Solicitar insumo
-                </button> --}}
                 <button class="btn btn-xs btn-info" data-toggle="modal" data-target="#insumoProveedorModal" data-id="{{$insumo->id}}"> <span class="fa fa-hand-o-up"></span> &nbsp;
                   Solicitar insumo
                 </button>
