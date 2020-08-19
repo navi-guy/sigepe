@@ -56,10 +56,10 @@
                         <span class="fa fa-check-square-o"></span> Aprobar</button>
                         @endif
                         @if($pedido->isEsperaInsumos())
-                      <a class="btn btn-primary btn-sm" href="{{ route('pedidos.show',$pedido->id)}}">
+                      <button class="btn btn-primary btn-sm" href="{{ route('pedidos.show',$pedido->id)}}">
                         <span class="fa fa-check-square-o"></span> Solicitar insumos</button>
                         @endif
-                      <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}">
+                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-rechazar-pedido" data-id="{{$pedido->id}}">
                         <span class="fa fa-close"></span> Rechazar</button>
                     @endif
                     <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >

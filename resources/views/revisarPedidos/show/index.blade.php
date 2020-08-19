@@ -1,10 +1,8 @@
 @extends('layouts.main')
 
-@section('title','Pedidos')
+@section('title','Visualizar Pedido')
 
 @section('styles')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 @endsection
 

@@ -26,6 +26,10 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
+// sidebar
+ // removeActiveSideBarButtons();
+  $('#sidebar-btn-stock-insumos').addClass("active");  
+//end sidebar
   var table = $('#tabla-stock').DataTable({
     "order": [[ 3 , "asc" ]], 
     'language': {

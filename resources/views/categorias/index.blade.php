@@ -44,22 +44,12 @@ function confirmarDeleteCategoria(){
     return false;
 }
 
-//sidebar
-$('#categorias').on('click',function(event){
-
-//  $('#treeview-productos').removeClass("active");
-  $('#stock-insumos').removeClass("active");
-  $('#registrar-pedidos').removeClass("active");
-  $('#treeview-usuarios').removeClass("active");
-  $('#treeview-revision-pedidos').removeClass("active"); 
-  $('#treeview-proveedores').removeClass("active");
-  $('#treeview-productos').addClass("active");
-  $('#treeview-productos').addClass("menu-open");
-  $('#categorias').addClass("active");
-  
-})
-
 $(document).ready(function() {
+//sidebar
+  $('#treeview-productos').addClass("active").addClass("menu-open");
+  document.getElementById('treeview-menu-productos').style.display = 'block';
+  $('#sidebar-btn-categorias').addClass("active");  
+//end sidebar
   $('#tabla-categorias').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',

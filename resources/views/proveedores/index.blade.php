@@ -3,8 +3,6 @@
 @section('title','Proveedores')
 
 @section('styles')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 @endsection
 
@@ -33,7 +31,6 @@
 <!-- BOTONES EN views/actions/proveedor  -->
 @endsection
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script src="{{ asset('js/proveedor.js') }}"></script> 
 @if( count($errors) > 0 )
   <script type="text/javascript">
@@ -41,6 +38,14 @@
   </script>
 @endif
 <script>
+
+$(document).ready(function() {
+//sidebar
+  $('#treeview-proveedores').addClass("active").addClass("menu-open");
+  document.getElementById('treeview-menu-proveedores').style.display = 'block';
+  $('#sidebar-btn-proveedores').addClass("active");  
+//end sidebar
+});
 function confirmarDeleteProveedor(){
   if(confirm('¿Realmente quieres eliminar este proveedor?'))
     return true;

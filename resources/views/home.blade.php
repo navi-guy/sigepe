@@ -115,3 +115,9 @@
   </div>
 </div>
 @endsection
+
+@section('scripts')
+<script>
+  $('#sidebar-btn-panel-control').addClass("active");
+</script>
+@endsection

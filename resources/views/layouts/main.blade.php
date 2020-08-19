@@ -87,7 +87,7 @@
 
       <ul class="sidebar-menu" data-widget="tree">
 
-        <li><a href="{{route('home.index')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
+        <li id="sidebar-btn-panel-control"><a href="{{route('home.index')}}"><i class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
         </li>
         
         <li id="treeview-proveedores" class="treeview">
@@ -97,9 +97,9 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Proveedores</a></li>
-            <li><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Insumos/Proveedores</a></li>
+          <ul class="treeview-menu" id="treeview-menu-proveedores" style="display: none;">
+            <li id="sidebar-btn-proveedores"><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Proveedores</a></li>
+            <li id="sidebar-btn-insumos-proveedores"><a href="{{route('proveedores.index')}}"><i class="fa fa-cubes"></i>Insumos/Proveedores</a></li>
           </ul>
         </li> 
 
@@ -110,23 +110,23 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li id="categorias"><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
-            <li id="productos"><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i>Productos</a></li>
+          <ul id="treeview-menu-productos" class="treeview-menu" >
+            <li id="sidebar-btn-categorias"><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
+            <li id="sidebar-btn-productos"><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i>Productos</a></li>
           </ul>
         </li>      
-        <li id="stock-insumos"><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>       
-        <li id="registrar-pedidos"><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
-        <li id="treeview-revision-pedidos" class="treeview">
+        <li id="sidebar-btn-stock-insumos"><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>       
+        <li id="sidebar-btn-registrar-pedidos"><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
+        <li id="treeview-revisar-pedidos" class="treeview">
           <a href="#">
             <i class="fa fa-first-order"></i> <span>Revisión de pedidos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('revisarPedidos.index')}}"><i class="fa fa-check-square"></i>Evaluación de pedidos</a></li>
-            <li><a href="{{route('seguirPedidos.index')}}"><i class="fa fa-check-square"></i>Ejecución de Pedidos</a></li>
+          <ul class="treeview-menu" id="treeview-menu-revisar-pedidos" style="display: none;">
+            <li id="sidebar-btn-evaluar-pedidos"><a href="{{route('revisarPedidos.index')}}"><i class="fa fa-check-square"></i>Evaluación de pedidos</a></li>
+            <li id="sidebar-btn-ejecutar-pedidos"><a href="{{route('seguirPedidos.index')}}"><i class="fa fa-cogs"></i>Ejecución de Pedidos</a></li>
           </ul>
         </li> 
         <li id="treeview-usuarios" class="treeview">
@@ -137,8 +137,8 @@
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Roles de usuario</a></li>
-            <li><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Usuarios</a></li>
+            <li  id="sidebar-btn-roles-usuarios"><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Roles de usuario</a></li>
+            <li  id="sidebar-btn-usuarios"><a href="{{route('trabajadores.index')}}"><i class="fa fa fa-user"></i>Usuarios</a></li>
           </ul>
         </li>        
       </ul>
@@ -203,7 +203,17 @@
  $('.box').on('click',function(){
   $('.box').removeClass('box-success');
   $(this).addClass('box-success');
-})
+  })
+function removeActiveSideBarButtons(){
+  $('#sidebar-btn-panel-control').removeClass("active");
+  $('#treeview-proveedores').removeClass("active");
+  $('#treeview-productos').removeClass("active");
+  $('#stock-insumos').removeClass("active");
+  $('#registrar-pedidos').removeClass("active");
+  $('#treeview-revision-pedidos').removeClass("active"); 
+  $('#treeview-usuarios').removeClass("active");
+}
+
 </script>
 @yield('scripts')
 @include('partials.session-status')

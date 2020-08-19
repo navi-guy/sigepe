@@ -33,6 +33,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script>
 $(document).ready(function() {
+  $('#sidebar-btn-registrar-pedidos').addClass("active");
   $('#tabla-pedidos').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
