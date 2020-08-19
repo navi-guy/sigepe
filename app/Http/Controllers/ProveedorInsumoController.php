@@ -19,9 +19,8 @@ class ProveedorInsumoController extends Controller
      */
     public function store(StoreProveedorInsumoRequest $request)
     {
-        return $request;
-        Proveedor::create($request->validated());
-        return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
+        ProveedorInsumo::create($request->validated());
+        return  back()->with('alert-type','success')->with('status','Asignación creada con exito');
      
     }
 

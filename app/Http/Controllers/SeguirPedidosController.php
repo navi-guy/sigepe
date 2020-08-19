@@ -4,11 +4,7 @@ namespace CorporacionPeru\Http\Controllers;
 
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
-use CorporacionPeru\Producto;
-use CorporacionPeru\Proveedor;
-use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StorePedidoRequest;
-use Carbon\Carbon;
 
 class SeguirPedidosController extends Controller
 {
@@ -19,11 +15,9 @@ class SeguirPedidosController extends Controller
      */
     public function index()
     {
-        //return  $pedidos = Pedido::all();   
+        $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
         
-        //  $pedidos = Pedido::where('estado_pedido','>','1' )->get();   
-            $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
-          return view('seguirPedidos.index',compact('pedidos'));
+        return view('seguirPedidos.index',compact('pedidos'));
     }
 
   
@@ -59,8 +53,8 @@ class SeguirPedidosController extends Controller
         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
     }
 
+
     public function ejecutarPedido(Request $request)
-   
     {      
                
          $id = $request->id_pedido;
@@ -71,6 +65,8 @@ class SeguirPedidosController extends Controller
          $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
          return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
     }
+
+    
     public function terminarPedido(Request $request)
    
     {      

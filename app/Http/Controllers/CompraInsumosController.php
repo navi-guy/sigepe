@@ -2,14 +2,17 @@
 
 namespace CorporacionPeru\Http\Controllers;
 
+use CorporacionPeru\Insumo;
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
 use CorporacionPeru\Producto;
+use CorporacionPeru\ProductoPedido;
+use CorporacionPeru\ProductoInsumos;
 
 class RevisarPedidosController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar todos los insumos con solicitudes
      *
      * @return \Illuminate\Http\Response
      */

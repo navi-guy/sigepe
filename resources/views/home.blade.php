@@ -32,7 +32,7 @@
                 <div class="icon">
                   <i class="fa fa-shopping-cart"></i>
                 </div>
-                <a href="{{route('pedidos.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('pedidos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -46,7 +46,7 @@
                 <div class="icon">
                   <i class="fa fa-tasks"></i>
                 </div>
-                <a href="{{route('categorias.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('categorias.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-md-4">
@@ -59,7 +59,7 @@
                 <div class="icon">
                   <i class="fa fa-users"></i>
                 </div>
-                <a href="{{route('trabajadores.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('trabajadores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
                 <div class="icon">
                   <i class="fa fa-truck"></i>
                 </div>
-                <a href="{{route('proveedores.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('proveedores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -89,7 +89,7 @@
                 <div class="icon">
                   <i class="fa fa-tags"></i>
                 </div>
-                <a href="{{route('productos.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('productos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -104,7 +104,7 @@
                 <div class="icon">
                   <i class="glyphicon glyphicon-cog"></i>
                 </div>
-                <a href="{{route('revisarStock.index')}}" class="small-box-footer">Más información<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('revisarStock.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->

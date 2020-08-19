@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('trabajadores')->insert([
             'dni'=>'08372118',
-            'nombres' => 'SIGESPRO',
-            'apellido_paterno' => 'SIGESPRO',
-            'apellido_materno' => 'SIGESPRO',
+            'nombres' => 'SIGEPE',
+            'apellido_paterno' => 'SIGEPE',
+            'apellido_materno' => 'SIGEPE',
             'telefono' => '2534035'
         ]);
 

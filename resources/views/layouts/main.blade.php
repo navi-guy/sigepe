@@ -105,18 +105,18 @@
 
         <li id="treeview-productos" class="treeview">
           <a href="#">
-            <i class="fa fa-archive"></i> <span>Stock de productos</span>
+            <i class="fa fa-archive"></i> <span>Productos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
-            <li><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i>Productos</a></li>
+            <li id="categorias"><a href="{{route('categorias.index')}}"><i class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
+            <li id="productos"><a href="{{route('productos.index')}}"><i class="glyphicon glyphicon-tag"></i>Productos</a></li>
           </ul>
         </li>      
-        <li><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>       
-        <li><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
+        <li id="stock-insumos"><a href="{{route('revisarStock.index')}}"><i class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>       
+        <li id="registrar-pedidos"><a href="{{route('pedidos.index')}}"><i class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>   
         <li id="treeview-revision-pedidos" class="treeview">
           <a href="#">
             <i class="fa fa-first-order"></i> <span>Revisión de pedidos</span>

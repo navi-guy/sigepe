@@ -13,12 +13,6 @@ class Proveedor extends Model
                          'direccion', 'tipo'];
 
 
-    public function plantas()
-    {
-    	//return $this->hasMany('App\PlantaModel', 'id_empleado');
-    	return $this->hasMany(Planta::class,'proveedor_id');
-    } 
-
     public function insumos()
     {
         return $this->belongsToMany(Insumo::class,'insumos_proveedor')->withPivot('id','precio_compra');

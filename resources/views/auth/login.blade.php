@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIGESPRO | {{ __('Login') }}</title>
+    <title>SIGEPE | {{ __('Login') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('iconoCorp.ico') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap 3.3.5 -->
@@ -17,10 +18,12 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
     
-   {{--  <link rel="stylesheet" href="{{ asset('dist/css/main.css')}}"> --}}
+    <link rel="stylesheet" href="{{ asset('dist/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('dist/css/util.css')}}">
+
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/iCheck/square/blue.css')}}">
-
+    <style>body {font-family: 'Roboto', sans-serif;font-size: 16px;} li{padding: 6px 0px 6px 0px}</style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,14 +32,15 @@
     <![endif]-->
   </head>
   <body class="hold-transition login-page" style=
-     "background:url('dist/img/background/background.jpg'); 
+     "background:url('dist/img/background/background2.jpg'); 
       background-position: center;
         background-repeat: no-repeat;
         background-size: cover;">
     <div class="login-box" >
-      <div class="login-box-body" style="border-radius: 1em!important;">
+      <div class="login-box-body" style="border-radius: 1em!important; width: 120%; %;">
         <div align="center">
-           <p class="login-box-msg"  style="font-size: 180%;margin-bottom: 10px;">{{ __('Gestor de producción') }}</p>
+           <p class="login-box-msg"  style="font-size: 200%;
+           font-weight: thin; color: black;">Sistema de Gestión de Pedidos</p>
         <img src="{{ asset('dist/img/icons/key.png')}}" style="width: 20%; height: auto;" />
         </div>
         <br>
@@ -62,15 +66,10 @@
             </span>
             @enderror
           </div>
-         
+          <br>
           <div class="row">
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block">{{ __('Iniciar sesión') }}</button>
-              @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Olvidaste tu contraseña?') }}
-                </a>
-              @endif
+              <button type="submit" class="btn bg-navy btn-lg btn-block" >{{ __('Iniciar sesión') }}</button>
             </div><!-- /.col -->
           </div>
         </form>

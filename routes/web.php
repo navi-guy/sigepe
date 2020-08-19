@@ -22,8 +22,8 @@ Route::middleware(['auth'])->group(function () {
 
 	/* Proveedor & insumos asignados */	
 	Route::resource('/proveedores', 'ProveedorController');
-	Route::resource('/planta', 'PlantaController');
 	Route::resource('/asignacion', 'ProveedorInsumoController');
+
 	/* Pedido Proveedor  */					
 	Route::resource('/pedidos', 'PedidoController');
 

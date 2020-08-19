@@ -3,6 +3,7 @@
 namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Categoria;
+use CorporacionPeru\Producto;
 use Illuminate\Http\Request;
 use CorporacionPeru\Http\Requests\StoreCategoriaRequest;
 
