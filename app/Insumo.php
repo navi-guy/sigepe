@@ -18,6 +18,11 @@ class Insumo extends Model
         return $this->belongsToMany(Proveedor::class, 'insumos_proveedor')->withPivot('precio_compra');;
     }
 
+    public function proveedorInsumo(){
+        return $this->hasMany(ProveedorInsumo::class, 'insumo_id');
+    }
+
+
     public function getUnidadMedida(){
         $result="";
         switch($this->unidad_medida){

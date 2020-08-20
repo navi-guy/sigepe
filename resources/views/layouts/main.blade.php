@@ -99,7 +99,7 @@
           </a>
           <ul class="treeview-menu" id="treeview-menu-proveedores" style="display: none;">
             <li id="sidebar-btn-proveedores"><a href="{{route('proveedores.index')}}"><i class="fa fa-th-large"></i>Proveedores</a></li>
-            <li id="sidebar-btn-insumos-proveedores"><a href="{{route('proveedores.index')}}"><i class="fa fa-cubes"></i>Insumos/Proveedores</a></li>
+            <li id="sidebar-btn-insumos-proveedores"><a href="{{route('comprar_insumos.index')}}"><i class="fa fa-cubes"></i>Insumos/Proveedores</a></li>
           </ul>
         </li> 
 

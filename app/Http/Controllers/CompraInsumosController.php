@@ -6,10 +6,8 @@ use CorporacionPeru\Insumo;
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
 use CorporacionPeru\Producto;
-use CorporacionPeru\ProductoPedido;
-use CorporacionPeru\ProductoInsumos;
 
-class RevisarPedidosController extends Controller
+class CompraInsumosController extends Controller
 {
     /**
      * Mostrar todos los insumos con solicitudes
@@ -17,12 +15,25 @@ class RevisarPedidosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // $pedidos = Pedido::all();   
-        $pedidos = Pedido::where('estado_pedido', '=', '1')
-            ->orWhere('estado_pedido', '=', '4')->get();
+    {   
+        $insumos = Insumo::groupBy('insumos.id','proveedores.id')
+                    ->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', 'insumos.id')
+                    ->join('proveedores', 'insumos_proveedor.proveedor_id', '=', 'proveedores.id')
+                    ->selectRaw('insumos.id, insumos.nombre, insumos.cantidad,
+                             insumos.unidad_medida, insumos_proveedor.insumo_id, proveedores.razon_social,
+                             MAX(insumos_proveedor.estado) AS estado, insumos_proveedor.precio_compra,
+                             SUM(insumos_proveedor.cantidad) AS solicitado')
+                    ->where('estado','=','2')
+                    ->orderBy('insumos.id', 'DESC')
+                    ->get();
 
-        return view('revisarPedidos.index', compact('pedidos'));
+        // $insumos = Insumo::all()->load('proveedorInsumo');
+        // return $insumos;
+        // $insumos->load(['proveedorInsumo' => function($query){
+        //          $query->where('estado','=','2');
+        // }]);
+
+        return view('comprarInsumos.index', compact('insumos'));
     }
 
 

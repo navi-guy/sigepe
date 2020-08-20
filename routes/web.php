@@ -16,16 +16,19 @@ Route::redirect('/', 'login', 301);
 Route::middleware(['auth'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home.index');
 
-	/* Trabajadores*/
+	/* Trabajadores and users*/
 	Route::resource('/trabajadores', 'TrabajadorController');
 	Route::resource('/users', 'UserController');
 
-	/* Proveedor & insumos asignados */	
+	/* Proveedor & insumos asignados y registro compra insumos */	
 	Route::resource('/proveedores', 'ProveedorController');
 	Route::resource('/asignacion', 'ProveedorInsumoController');
+	Route::resource('/comprar_insumos', 'CompraInsumosController');
 
-	/* Pedido Proveedor  */					
-	Route::resource('/pedidos', 'PedidoController');
+	/** Insumos */
+	Route::resource('/insumos', 'InsumoController');
+	Route::get('/insumos_disponibles','InsumoController@getDisponibles')
+			  ->name('insumos.getDisponibles');
 
 	/* Categoria & Producto  */					
 	Route::resource('/categorias', 'CategoriaController');
@@ -33,10 +36,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/productos_disponibles','ProductoController@getDisponibles')
 			  ->name('productos.getDisponibles');
 
-	/** Insumos */
-	Route::resource('/insumos', 'InsumoController');
-	Route::get('/insumos_disponibles','InsumoController@getDisponibles')
-			  ->name('insumos.getDisponibles');
+	/* Pedido Cliente  */					
+	Route::resource('/pedidos', 'PedidoController');
 
     /** Revisar Pedidos */
 	Route::resource('/revisarPedidos', 'RevisarPedidosController');
