@@ -3,6 +3,7 @@
     <form action="{{route('categorias.update',0)}}" method="post" class="modal-content">
       @csrf
       @method('PUT')
+      <input type="hidden" id="id-edit" name="id">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
@@ -29,7 +30,6 @@
             </div><!-- /.box -->
           </div><!--/.col (left) -->
         </div> 
-        <input type="hidden" name="id">
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success pull-left">Guardar cambios</button>

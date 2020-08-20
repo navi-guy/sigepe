@@ -45,12 +45,12 @@ class ProductoController extends Controller
     public function store(StoreProductoRequest $request)
     {
         $producto = Producto::create($request->validated());
-        saveImageOnStorage($request, $producto);
+        $this->saveImageOnStorage($request, $producto);
         $insumos_id = $request->insumo;
         $qty_insumos = $request->qty;
         for ($i=0; $i < count($insumos_id); $i++) {
             $cantidad = $qty_insumos[$i];
-            $producto->insumos()->attach($insumos_id[$i], getKeyValueCantidad($cantidad));
+            $producto->insumos()->attach($insumos_id[$i], $this->getKeyValueCantidad($cantidad));
         }
         $producto->save();
 
@@ -105,7 +105,7 @@ class ProductoController extends Controller
     {
         Producto::findOrFail($id)->update($request->validated());
         $producto = Producto::findOrFail($id);
-        saveImageOnStorage($request, $producto);
+        $this->saveImageOnStorage($request, $producto);
         $insumos_id = $request->insumo;
         $qty_insumos = $request->qty;
         $producto->save();
@@ -113,7 +113,7 @@ class ProductoController extends Controller
         $producto_insumo = [];
         for ($i=0; $i < count($insumos_id); $i++) {
             $cantidad = $qty_insumos[$i];
-            $producto_insumo += array( $insumos_id[$i]  => getKeyValueCantidad($cantidad));
+            $producto_insumo += array( $insumos_id[$i]  => $this->getKeyValueCantidad($cantidad));
         }
         $producto->insumos()->sync($producto_insumo);
 

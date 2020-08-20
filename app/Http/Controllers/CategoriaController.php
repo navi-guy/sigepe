@@ -52,11 +52,11 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(StoreCategoriaRequest $request)
-    {
+    { 
         $id = $request->id;
         Categoria::findOrFail($id)->update($request->validated());
         Notification::setAlertSession(Notification::SUCCESS,'Categoria editada con exito');
-        return  back();
+        return back();
     }
 
     /**
@@ -71,10 +71,10 @@ class CategoriaController extends Controller
         $exists = Producto::where('categoria_id', $categoria->id)->exists();
         if ($exists) {
             Notification::setAlertSession(Notification::WARNING,'Categoría tiene un producto asociado');
-            return  back();
+            return back();
         }
         $categoria->delete();
         Notification::setAlertSession(Notification::SUCCESS,'Categoría eliminada con exito');
-        return  back();
+        return back();
     }
 }
