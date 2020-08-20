@@ -40,7 +40,6 @@
                   </span>
                 @enderror
               </div>
-
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!--/.col (left) -->
@@ -51,15 +50,6 @@
                 <h3 class="box-title">Datos secundarios</h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-{{--                 <div class="form-group @error('email') has-error @enderror">
-                  <label for="email">Email</label>
-                  <input id="email-edit" type="email" class="form-control" name="email" placeholder="proveedor@ejemplo.com" value="{{ old('email') }}">
-                  @error('email')
-                    <span class="help-block" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>   --}}
                 <div class="form-group @error('direccion') has-error @enderror">
                   <label for="direccion">Dirección</label>
                   <input id="direccion-edit" type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}">

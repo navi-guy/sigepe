@@ -23,7 +23,7 @@
           
         </div>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="form-group @error('insumo_id') has-error @enderror">
               <label for="insumo_id">Insumo <span class="mandatory">*</span></label>
               <select name="insumo_id" id="insumo_id" class="form-control" required="">
@@ -36,7 +36,7 @@
               @enderror
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <div class="form-group">
                 <label for="insumo_id">Unidad de Medida<span class="mandatory">*</span></label>
                 <input type="text" id="unidad_medida" class="form-control" name="unidad_medida" readonly="" required="">
@@ -47,7 +47,7 @@
           <div class="col-md-12">
             <div class="form-group @error('precio_compra') has-error @enderror" id="datos-asignacion">
               <label for="precio_compra">Precio del insumo por cada Unidad de Medida <span class="mandatory">*</span></label>
-              <input id="precio_compra" type="number" class="form-control" name="precio_compra" placeholder="Ingrese el precio del proveedor al que vende el insumo" value="{{ old('precio_compra') }}" required="" min="1" disabled="true">
+              <input id="precio_compra" type="number" class="form-control" name="precio_compra" placeholder="Ingrese el precio del proveedor al que vende el insumo" value="{{ old('precio_compra') }}" required="" min="1" step="0.01" disabled="true">
               @error('precio_compra')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>

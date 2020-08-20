@@ -27,6 +27,11 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
+ //sidebar
+  $('#treeview-revisar-pedidos').addClass("active").addClass("menu-open");
+  document.getElementById('treeview-menu-revisar-pedidos').style.display = 'block';
+  $('#sidebar-btn-ejecutar-pedidos').addClass("active");  
+//end sidebar 
   $('#tabla-seguirPedidos').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'

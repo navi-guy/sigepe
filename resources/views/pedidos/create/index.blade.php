@@ -33,7 +33,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
+    $('#sidebar-btn-registrar-pedidos').addClass("active");
     $(".select_group").select2();
     $("#mainOrdersNav").addClass('active');
     $("#addOrderNav").addClass('active');

@@ -3,15 +3,17 @@
 namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Categoria;
-use Illuminate\Http\Request;
+use CorporacionPeru\Producto;
+use CorporacionPeru\Notification;
+use Illuminate\Http\JsonResponse;
 use CorporacionPeru\Http\Requests\StoreCategoriaRequest;
 
 class CategoriaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra la vista de categorías.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -20,22 +22,23 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena una categoría en la base de datos.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreCategoriaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreCategoriaRequest $request)
     {
         Categoria::create($request->validated());
-        return back()->with('alert-type', 'success')->with('status', 'Categoria Registrada con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Categoria Registrada con exito');
+        return back();
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Retorna una categoría en JSON.
      *
-     * @param  \CorporacionPeru\Categoria  $categoria
-     * @return \Illuminate\Http\Response
+     * @param  Categoria  $categoria
+     * @return JsonResponse
      */
     public function edit(Categoria $categoria)
     {
@@ -43,33 +46,35 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza la categoría especificada en la base de datos.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \CorporacionPeru\Categoria  $categoria
-     * @return \Illuminate\Http\Response
+     * @param  StoreCategoriaRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(StoreCategoriaRequest $request, $id)
+    public function update(StoreCategoriaRequest $request)
     {
-        //
         $id = $request->id;
         Categoria::findOrFail($id)->update($request->validated());
-        return  back()->with('alert-type', 'success')->with('status', 'Categoria editada con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Categoria editada con exito');
+        return  back();
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remueve la categoría especificada de la base de datos.
      *
-     * @param  \CorporacionPeru\Categoria  $categoria
-     * @return \Illuminate\Http\Response
+     * @param \CorporacionPeru\Categoria $categoria
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Categoria $categoria)
     {
         $exists = Producto::where('categoria_id', $categoria->id)->exists();
         if ($exists) {
-            return  back()->with('alert-type', 'warning')->with('status', 'Categoría tiene un producto asociado');
+            Notification::setAlertSession(Notification::WARNING,'Categoría tiene un producto asociado');
+            return  back();
         }
         $categoria->delete();
-        return  back()->with('alert-type', 'success')->with('status', 'Categoria eliminada con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Categoría eliminada con exito');
+        return  back();
     }
 }

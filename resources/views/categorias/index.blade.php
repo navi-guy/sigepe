@@ -43,7 +43,13 @@ function confirmarDeleteCategoria(){
   else
     return false;
 }
+
 $(document).ready(function() {
+//sidebar
+  $('#treeview-productos').addClass("active").addClass("menu-open");
+  document.getElementById('treeview-menu-productos').style.display = 'block';
+  $('#sidebar-btn-categorias').addClass("active");  
+//end sidebar
   $('#tabla-categorias').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',

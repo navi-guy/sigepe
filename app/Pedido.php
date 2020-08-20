@@ -72,7 +72,6 @@ class Pedido extends Model
         return $this->estado_pedido==6;
     }  
     
-    
     public function isAprobed(){
         return $this->estado_pedido==2;
     }

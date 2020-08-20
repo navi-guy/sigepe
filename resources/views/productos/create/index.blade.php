@@ -34,9 +34,14 @@
 <script src="{{ asset('fileinput/fileinput.min.js') }}"></script>
 {{-- <script src="{{ asset('dropzone/dist/dropzone.js') }}"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
-<script>
+<script>  
 $(document).ready(function() {
- var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
+  //sidebar
+  $('#treeview-productos').addClass("active").addClass("menu-open");
+  document.getElementById('treeview-menu-productos').style.display = 'block';
+  $('#sidebar-btn-productos').addClass("active");  
+  //end sidebar
+  var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
         'onclick="alert(\'Call your custom code here.\')">' +
         '<i class="glyphicon glyphicon-tag"></i>' +
         '</button>'; 

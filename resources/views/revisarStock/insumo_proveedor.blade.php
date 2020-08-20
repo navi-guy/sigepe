@@ -3,10 +3,11 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Proveedores que proveen xd </h3>
+        <h3 class="modal-title" id="exampleModalLabel">Proveedores del insumo seleccionado
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        </h3>
       </div>
       <form action="{{route('revisarStock.store')}}" method="POST" id="insumoProveedorForm">
         @csrf
@@ -37,7 +38,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">
             <span class="fa fa-close"></span>&nbsp;Cerrar</button>
-          <button type="submit" class="btn btn-success"><span class="fa fa-send"></span>&nbsp;Solicitar</button>
+          <button type="submit" class="btn btn-info"><span class="fa fa-send"></span>&nbsp;Solicitar</button>
         </div>
       </form>
     </div>
