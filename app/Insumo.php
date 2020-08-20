@@ -22,6 +22,16 @@ class Insumo extends Model
         return $this->hasMany(ProveedorInsumo::class, 'insumo_id');
     }
 
+    /**
+     * Scope a query to only include insumos disponibles
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeDisponibles($query)
+    {
+        return $query->where('cantidad', '>', 0);
+    }
 
     public function getUnidadMedida(){
         $result="";

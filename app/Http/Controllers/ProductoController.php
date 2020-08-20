@@ -19,7 +19,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::orderBy('id','DESC')->get();       
+        $productos = Producto::orderBy('id','DESC')->get();
         return view('productos.index',compact('productos'));
     }
 
@@ -30,9 +30,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $insumos = Insumo::where('cantidad','>',0)->get();
+        $insumos = Insumo::disponibles()->get();
         $categorias = Categoria::all();
-        $unidades_medida = config('constants.unidades_medida');       
+        $unidades_medida = config('constants.unidades_medida');
         return view('productos.create.index', compact('insumos','categorias','unidades_medida'));
     }
 
@@ -45,16 +45,12 @@ class ProductoController extends Controller
     public function store(StoreProductoRequest $request)
     {
         $producto = Producto::create($request->validated());
-
-        if($request->file('image')){
-            $path = Storage::disk('public')->put('img_products', $request->file('image'));
-            $producto->fill(['image'=> $path]);
-        }
+        saveImageOnStorage($request, $producto);
         $insumos_id = $request->insumo;
-        $qty_insumos = $request->qty;        
-        for ($i=0; $i < count($insumos_id); $i++) { 
+        $qty_insumos = $request->qty;
+        for ($i=0; $i < count($insumos_id); $i++) {
             $cantidad = $qty_insumos[$i];
-            $producto->insumos()->attach($insumos_id[$i],['cantidad'=> $cantidad ]);
+            $producto->insumos()->attach($insumos_id[$i], getKeyValueCantidad($cantidad));
         }
         $producto->save();
 
@@ -90,9 +86,9 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Producto $producto)
-    {   
+    {
         $producto = $producto->load('insumos');
-        $insumos = Insumo::where('cantidad','>',0)->get();
+        $insumos = Insumo::disponibles()->get();
         $categorias = Categoria::all();
         $unidades_medida = config('constants.unidades_medida');
         return view('productos.edit.index', compact('insumos','producto','categorias','unidades_medida'));
@@ -109,21 +105,18 @@ class ProductoController extends Controller
     {
         Producto::findOrFail($id)->update($request->validated());
         $producto = Producto::findOrFail($id);
-        if($request->file('image')){//si envia img
-            $path = Storage::disk('public')->put('img_products', $request->file('image'));
-            $producto->fill(['image'=> $path]);
-        }
+        saveImageOnStorage($request, $producto);
         $insumos_id = $request->insumo;
         $qty_insumos = $request->qty;
         $producto->save();
-        
+
         $producto_insumo = [];
-        for ($i=0; $i < count($insumos_id); $i++) { 
+        for ($i=0; $i < count($insumos_id); $i++) {
             $cantidad = $qty_insumos[$i];
-            $producto_insumo += array( $insumos_id[$i]  => ['cantidad'=> $cantidad]);            
+            $producto_insumo += array( $insumos_id[$i]  => getKeyValueCantidad($cantidad));
         }
         $producto->insumos()->sync($producto_insumo);
-        
+
         return redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto editado con exito');
     }
 
@@ -142,4 +135,25 @@ class ProductoController extends Controller
         $producto->delete();
         return  back()->with('alert-type', 'success')->with('status', 'Producto eliminado con exito');
     }
+
+    public function getKeyValueCantidad($value){
+        $key = 'cantidad';
+        return [$key => $value];
+    }
+
+    /**
+     * Guarda imagen en la carpeta public y asocia la ruta de
+     * la imagen al producto especificado.
+     * @param $request
+     * @param $producto
+     * @return void
+     */
+    public function saveImageOnStorage($request, $producto){
+        $image_requested = $request->file(Producto::IMAGE);
+        if($image_requested){//si envia img
+            $path = Storage::disk('public')->put('img_products', $image_requested);
+            $producto->fill([ Producto::IMAGE => $path]);
+        }
+    }
+
 }
