@@ -8,7 +8,7 @@
             <th>Nombre  </th>
             <th>Unidad de Medida </th>
             <th>Stock insumo </th>
-            <th>Estado solicitud </th>      
+            <th>Estado</th>      
             <th>Acciones</th>
           </tr>
         </thead>

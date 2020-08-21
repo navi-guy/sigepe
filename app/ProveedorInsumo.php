@@ -21,5 +21,6 @@ class ProveedorInsumo extends Model
     {
         return $this->belongsToMany(Insumo::class);
     }
+
 }
 
