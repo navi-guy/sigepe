@@ -33,8 +33,32 @@ class Insumo extends Model
         return $query->where('cantidad', '>', 0);
     }
 
+   
+    public function getMontoSolicitud(){
+        $monto = $this->solicitado*$this->precio_compra;
+        return round($monto,2);
+    }
+
+    public function getEstadoSolicitud(){
+
+        switch($this->estado){
+            case 3: 
+                $result="Aprobado";
+                break;
+            case 2: 
+                $result="Pendiente";
+                break;
+            case 1:
+                $result="Sin Solicitud";
+                break;
+            default:
+                $result="";
+        }
+        return $result;
+    }
+
     public function getUnidadMedida(){
-        $result="";
+
         switch($this->unidad_medida){
            
            case 3:
@@ -49,6 +73,8 @@ class Insumo extends Model
             case 0:
                 $result="Unidad (u)";
                 break;
+            default:
+                $result="";
         }
         return $result;
     }

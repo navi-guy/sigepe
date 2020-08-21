@@ -27,7 +27,8 @@
     <!-- Logo -->
     <a href="#" class="logo" style="font-size: 15px; background-color: #171717!important;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>S</b>P</span>
+      <img class="logo-mini img-circle" src="{{asset('dist/img/iconoCorp.png')}}" width="50px">
+    {{--   <span class="logo-mini"><b>S</b>P</span> --}}
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b style="font-size: 20px;">SIGEPE</b></span>
     </a>
@@ -76,7 +77,8 @@
         </ul>
       </div>
     </nav>
-    <div class="bg-orange" style="font-size: 5px; background-color: #3d9970!important;" align="right"> <label> </label></div>
+    <div style="font-size: 4px; background-color: #3d9970!important;" align="right"><label></label>
+    </div>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar" style="font-size: 15px; background-color: #171717!important;">

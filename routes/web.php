@@ -24,6 +24,13 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/proveedores', 'ProveedorController');
 	Route::resource('/asignacion', 'ProveedorInsumoController');
 	Route::resource('/comprar_insumos', 'CompraInsumosController');
+	Route::post('/approve_insumo', 'CompraInsumosController@approveSolicitud')
+			->name('comprarInsumos.approveSolicitud');
+	Route::post('/reject_insumo', 'CompraInsumosController@rejectSolicitud')
+			->name('comprarInsumos.rejectSolicitud');
+	Route::post('/registrar_compra', 'CompraInsumosController@registrarCompra')
+			->name('comprarInsumos.registrarCompra');
+			
 
 	/** Insumos */
 	Route::resource('/insumos', 'InsumoController');
