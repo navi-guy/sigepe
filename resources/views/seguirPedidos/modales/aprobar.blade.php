@@ -7,7 +7,6 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
         <h4 class="modal-title">Aprobar pedido</h4>
-        <input type="hidden" name="id">
       </div>
       <div class="modal-body">
         <div>

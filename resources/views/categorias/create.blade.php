@@ -13,7 +13,7 @@
             <div class="col-md-12">
               <div class="form-group @error('nombre') has-error @enderror">
                 <input id="nombre" type="text" class="form-control" value="{{old("nombre")}}"
-                        name="nombre" placeholder="nombre" required>
+                        name="nombre" placeholder="Nombre de la categoría" required>
                 @error('nombre')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>

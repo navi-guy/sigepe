@@ -3,11 +3,11 @@
      <form action="{{route('proveedores.update',0)}}" method="post" class="modal-content">
       @csrf
       @method('PUT')
+      <input type="hidden" name="id" id="id-edit">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
         <h4 class="modal-title">Editar datos del proveedor</h4>
-        <input type="hidden" name="id">
       </div>
       <div class="modal-body">
         <div class="row">
@@ -30,7 +30,6 @@
                     </span>
                   @enderror
                 </div>
-
               <div class="form-group @error('ruc') has-error @enderror">
                 <label for="ruc">RUC*</label>
                 <input id="ruc-edit" type="text" class="form-control" name="ruc" placeholder="Ingrese su RUC" value="{{ old('ruc') }}" pattern="[0-9]{11}" title="Formato: 11 dígitos" required>

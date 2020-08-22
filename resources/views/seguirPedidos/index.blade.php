@@ -42,20 +42,15 @@ $(document).ready(function() {
           { responsivePriority: 1, targets: [0,-1] },
           { responsivePriority: 2, targets: [1,2] },
           { responsivePriority: 3, targets: 4},
-          // { responsivePriority: 4, targets: [7] },
           { responsivePriority: 1001, targets: 2 }         
         ]
   });
   
-$('#modal-aprobar-pedido').on('show.bs.modal',function(event){
+  $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
  /*    const id= $(event.relatedTarget).data('id');
     $(event.currentTarget).find('#id_pedido').val(id); */
   });
 
-// $('#modal-rechazar-pedido').on('show.bs.modal',function(event){
-//     var id= $(event.relatedTarget).data('id');
-//     $(event.currentTarget).find('#id_pedido').val(id);
-//   });
   $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
     $(event.currentTarget).find('#id_pedido').val(id);

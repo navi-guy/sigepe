@@ -4,7 +4,6 @@ namespace CorporacionPeru\Http\Controllers;
 
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
-use CorporacionPeru\Http\Requests\StorePedidoRequest;
 
 class SeguirPedidosController extends Controller
 {
@@ -50,33 +49,27 @@ class SeguirPedidosController extends Controller
         $pedido->save();   
         // $pedidos = Pedido::all();   
         $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
-        return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido aprobado');
+        return redirect()->action('SeguirPedidosController@index'
+                )->with('alert-type','success')->with('status','Pedido aprobado');
     }
 
 
     public function ejecutarPedido(Request $request)
-    {      
-               
-         $id = $request->id_pedido;
-         $pedido = Pedido::findOrFail($id);
-         $pedido->estado_pedido = 5; 
-         $pedido->save();   
-        //  $pedidos = Pedido::all();   
-         $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
-         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
+    {           
+        $id = $request->id_pedido;
+        $pedido = Pedido::findOrFail($id);
+        $pedido->estado_pedido = 5; 
+        $pedido->save();   
+        return redirect()->action('SeguirPedidosController@index')->with('alert-type','success')->with('status','Pedido ejecutado');
     }
 
     
     public function terminarPedido(Request $request)
-   
-    {      
-               
+    {            
          $id = $request->id_pedido;
          $pedido = Pedido::findOrFail($id);
          $pedido->estado_pedido = 6; 
          $pedido->save();   
-        //  $pedidos = Pedido::all();   
-         $pedidos = Pedido::where('estado_pedido', '>', '3')->orWhere('estado_pedido', '=', '2')->get(); 
-         return view('seguirPedidos.index',compact('pedidos'))->with('alert-type','success')->with('status','Pedido ejecutado');
+         return redirect()->action('SeguirPedidosController@index')->with('alert-type','success')->with('status','Pedido ejecutado');
     }
 }

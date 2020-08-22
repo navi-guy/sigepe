@@ -9,7 +9,6 @@
                 <th>Código Pedido</th>
                 <th>Fecha emisión</th>
                 <th>Cliente</th>
-                {{-- <th>Teléfono del cliente</th> --}}
                 <th>RUC</th>
                 <th>Estado</th>
                 <th>Monto Bruto</th>
@@ -24,49 +23,64 @@
                   <td>{{$pedido->cod_pedido}}</td>
                   <td>{{$pedido->fecha}}</td>
                   <td>{{$pedido->nombre_cli}}</td>
-                 {{--  <td>{{$pedido->telefono_cli}}</td> --}}
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isAprobed())
-                        <button class="btn btn-sm btn-block" style="background-color: #00a65a; color: white; text-align: left">
-                          <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
-                    @else 
-                      @if($pedido->isEsperaInsumos())
-                      <button class="btn btn-warning btn-sm btn-block"><span class="">
-                          {{$pedido->getEstado()}}
-                      </span></button>
-                      @else
-                          @if($pedido->isEjecucion())
-                          <button class="btn btn-sm btn-block" style="background-color: #00add8; color:White; text-align: left">
-                            <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}</button>
-                        @else
-                           @if($pedido->isTerminado())
-                              <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
-                                <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
-                            </button>
-                            @else
+                    @switch($pedido->estado_pedido)
+                        @case(1)<!-- En espera -->
                             <button class="btn btn-sm btn-block" style="text-align: left">
                               <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
                             </button>
-                            @endif  
-                        @endif
-                      @endif
-                    @endif                                   
+                            @break
+
+                        @case(2)<!-- Aprobado -->
+                            <button class="btn btn-sm btn-block" style="background-color: #00a65a; color: white; text-align: left">
+                              <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                            </button>
+                            @break
+                        @case(3)<!-- Rechazado -->
+                             <button class="btn btn-sm btn-block" style="background-color: #f4c2ce; color: white; text-align: left">
+                                <span class="fa fa-close" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                              </button>
+                            @break
+                        @case(4)<!-- Esperando insumos -->
+                              <button class="btn btn-warning btn-sm btn-block"><span class="">
+                                  {{$pedido->getEstado()}}
+                              </span></button>
+                            @break
+                        @case(5)<!-- En Ejecución -->
+                              <button class="btn btn-sm btn-block" style="background-color: #00add8; color:White; text-align: left">
+                                <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                              </button>
+                            @break
+
+                        @case(5)<!-- Terminado -->
+                              <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
+                                <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                              </button>
+                            @break
+                        @default
+                            <span>Error xd</span>
+                    @endswitch                               
                   </td>
                   <td>{{$pedido->monto_bruto}}</td>
                   <td>{{$pedido->descuento}}</td>
                   <td>{{$pedido->monto_neto}}</td>                  
-                  <td>                      
-                    <a class="btn btn-warning btn-sm" href="{{ route('pedidos.edit',$pedido->id)}}" >
-                      <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
+                  <td>  
                     @if($pedido->isUnconfirmed())
+                      <a class="btn btn-warning btn-sm" href="{{ route('pedidos.edit',$pedido->id)}}" >
+                        <span class="glyphicon glyphicon-pencil"></span>
+                      </a>
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeletePedido()" action="{{ route('pedidos.destroy', $pedido->id) }}">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                       </form>
+                      @else
+                        <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                        <span class="fa fa-eye"></span> Ver detalle
+                    </a>
                     @endif
+
                   </td>
                 </tr>
               @endforeach
