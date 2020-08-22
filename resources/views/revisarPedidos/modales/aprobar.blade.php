@@ -23,8 +23,9 @@
             </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary pull-right">Aprobar pedido</button>
-        <button type="" class="btn btn-default pull-right" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary pull-right"> <span class="fa fa-check"></span>
+        Aprobar pedido</button>
+        <button type="" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
       </div>
     </form>
   </div><!-- /.modal-dialog -->

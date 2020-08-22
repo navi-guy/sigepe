@@ -3,12 +3,11 @@
     <form action="{{route('seguirPedidos.terminarPedido')}}" method="post" class="modal-content">
    
       @csrf
-      <input type="hidden" id="id_pedido">
+      <input type="hidden" id="id_pedido" name="id_pedido">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
         <h4 class="modal-title">Confirmar Término de Pedido</h4>
-        <input type="hidden" name="id">
       </div>
       <div class="modal-body">
         <div class="row">

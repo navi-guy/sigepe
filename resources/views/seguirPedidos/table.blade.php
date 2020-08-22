@@ -27,24 +27,18 @@
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
                     @if($pedido->isAprobed())
-                      {{-- <label for="" class="label label-success"> --}}
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}"><span class="">
                       {{$pedido->getEstado()}}
                     </span></button>
-                      {{-- </label>  --}}
                     @else 
                       @if($pedido->isEsperaInsumos())
                       <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="">
-                        {{-- <label for="" class="label label-info"> --}}
                           {{$pedido->getEstado()}}
-                        {{-- </label>  --}}
                       </span></button>
                       @else
                           @if($pedido->isEjecucion())
                           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-terminar-pedido" data-id="{{$pedido->id}}"><span class="">
-                          {{-- <label for="" class="label label-primary"> --}}
                             {{$pedido->getEstado()}}
-                          {{-- </label>  --}}
                         </span></button>
                         @else
                            @if($pedido->isTerminado())

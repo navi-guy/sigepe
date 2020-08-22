@@ -26,7 +26,6 @@ class StoreProveedorRequest extends FormRequest
         return [
             'razon_social' => 'required|max: 255',
             'ruc'          => 'required|digits: 11|unique:proveedores,ruc,'.$this->id,
-            //'email'        => 'nullable|email|unique:proveedores,email,'.$this->id,
             'direccion'    => 'nullable|max: 255',
             'tipo'         => 'nullable|numeric|gt:0'      
             ];
