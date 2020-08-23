@@ -53,7 +53,7 @@
                               </button>
                             @break
 
-                        @case(5)<!-- Terminado -->
+                        @case(6)<!-- Terminado -->
                               <button class="btn btn-primary btn-sm btn-block" style="background-color: #2d7caa; color: white; text-align: left">
                                 <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
                               </button>

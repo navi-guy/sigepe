@@ -1,8 +1,8 @@
-<div class="modal  fade" id="modal_aprobar_pedido" role="dialog">
-  <div class="modal-dialog modal-sm" >
+<div class="modal  fade" id="modal-aprobar-pedido" role="dialog">
+  <div class="modal-dialog" >
     <form action="{{route('seguirPedidos.approvePedido')}}" method="post" class="modal-content">
       @csrf
-      <input type="hidden" name="id_pedido">
+      <input type="hidden" name="id_pedido" id="id_pedido">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>
