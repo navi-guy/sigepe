@@ -19,7 +19,9 @@
                 <br/><br/>
                 2. Se aprueba el pedido del cliente si hay insumos suficientes.
               <br/><br/>
-                3. Se muestra la opción de esperar insumos si no hay insumos suficientes.</span>
+                3. Se muestra la opción de esperar insumos si no hay insumos suficientes.
+              <br/><br/>
+               <strong> 4. Se descontarán los insumos que se usarán en el pedido.</span>
             </div>
       </div>
       <div class="modal-footer">

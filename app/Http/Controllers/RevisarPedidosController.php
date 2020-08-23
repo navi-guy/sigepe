@@ -2,6 +2,7 @@
 
 namespace CorporacionPeru\Http\Controllers;
 
+use CorporacionPeru\Insumo;
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
 use CorporacionPeru\Producto;
@@ -73,10 +74,16 @@ class RevisarPedidosController extends Controller
                 }
             }
         }
+        foreach($insumos as $key => $insumoCantidad) {
+            $insumo = Insumo::findOrFail($key);
+            $insumo->cantidad = $insumo->cantidad - $insumoCantidad;
+            $insumo->save();
+        }
         $pedidoUpdate = Pedido::findOrFail($pedido_id);
         $pedidoUpdate->estado_pedido = 2;
         $pedidoUpdate->save();
         return redirect()->action('RevisarPedidosController@index'
                 )->with('alert-type','success')->with('status','Pedido aprobado');
+            
     }
 }
