@@ -3,7 +3,7 @@
     <form action="{{route('seguirPedidos.ejecutarPedido')}}" method="post" class="modal-content">
    
       @csrf
-      <input type="hidden" name="id_pedido" id="id_pedido">
+      <input type="hidden" name="id_pedido_ejecutar" id="id_pedido_ejecutar">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span></button>

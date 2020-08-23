@@ -1,8 +1,5 @@
-<div class="col-md-12">
+<div>
   <div class="box">
-    <div class="box-header">
-      <h4>Lista de solicitudes de insumos</h4>
-    </div>
     <div class="box-body">
       <table id="tabla-insumos-solicitados" class="table table-bordered table-striped">
         <thead>

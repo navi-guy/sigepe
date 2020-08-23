@@ -24,14 +24,6 @@
 
 @section('content')
 <section class="content-header">
-  <div>
-      <h3> Registrar proveedor 
-      <a href="{{route('proveedores.index')}}">
-      <button class="btn bg-olive pull-right">
-       <span class="fa fa-list"></span> &nbsp; IR PROVEEDORES 
-      </button>
-    </a> </h3>
-  </div>
 </section>
 <section class="content">
   <div class="row">

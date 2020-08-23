@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Comprar Insumos')
+@section('title','Solicitudes de insumos')
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -10,7 +10,7 @@
 <ol class="breadcrumb" style="background-color: white !important">
   <li><a href="{{ route('home.index') }}">Inicio</a></li>
   <li><a href="{{ route('proveedores.index') }}">Proveedores</a></li>
-  <li><a href="#" class="text-muted">Comprar Insumos</a></li>
+  <li><a href="#" class="text-muted">Solicitudes de insumos</a></li>
 </ol>
 @endsection
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
     // "order": [[ 3 , "asc" ]],
     'language': {
       'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-    }
+    }, info: false
   });
 
 $('#modal-aprobar-solicitud').on('show.bs.modal',function(event){

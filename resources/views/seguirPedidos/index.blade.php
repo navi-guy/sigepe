@@ -17,7 +17,6 @@
 <section class="content">
   @include('seguirPedidos.table')
   {{-- modals --}}
-   @include('seguirPedidos.modales.aprobar')
    @include('seguirPedidos.modales.terminar')  
    @include('seguirPedidos.modales.ejecutar') 
   {{-- end.modals --}}
@@ -35,7 +34,7 @@ $(document).ready(function() {
   $('#tabla-seguirPedidos').DataTable({
       'language': {
                'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-          },
+          }, info: false,
         columnDefs: [
           { orderable: false, targets: -1},
           { searchable: false, targets: [-1]},
@@ -53,7 +52,7 @@ $(document).ready(function() {
 
   $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id);
+    $(event.currentTarget).find('#id_pedido_ejecutar').val(id);
   });
 
   $('#modal-terminar-pedido').on('show.bs.modal',function(event){

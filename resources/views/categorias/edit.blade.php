@@ -14,7 +14,7 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="box box-success">
+            <div>
               <div class="box-body">
                 <div class="form-group @error('nombre') has-error @enderror">
                   <label for="nombre-edit">Nombre de la categoría</label>
