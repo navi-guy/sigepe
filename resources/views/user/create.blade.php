@@ -34,8 +34,10 @@
                   <label for="role_id">Rol</label>
                   <select id="role_id" class="form-control" name="role_id">
                     <option value="1">Administrador</option>
-                    <option value="2">Secretaria</option>
-                    <option value="3">Saca tu Gaaa</option>
+                    <option value="2">Jefe de Compras</option>
+                    <option value="3">Jefe de Producción</option>
+                    <option value="4">Operario de Producción</option>
+                    <option value="5">Atención al cliente</option>
                   </select>
                 </div>
                 <input id="trabajador_id" type="hidden" name="trabajador_id">
