@@ -31,7 +31,7 @@ $(document).ready(function() {
     "order": [[ 3 , "asc" ]], 
     'language': {
       'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-    }
+    }, info: false
   });
 
 

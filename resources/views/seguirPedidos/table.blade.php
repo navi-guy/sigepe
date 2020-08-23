@@ -1,10 +1,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-success">
-        <div class="box-header">
-          <h3 class="box-title">EJECUCIÓN DE <b>PEDIDOS</b></h3>
-        </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <table id="tabla-seguirPedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
             <thead>
