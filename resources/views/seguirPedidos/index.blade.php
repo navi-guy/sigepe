@@ -47,8 +47,8 @@ $(document).ready(function() {
   });
   
   $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
- /*    const id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id); */
+     const id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido').val(id); 
   });
 
   $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
