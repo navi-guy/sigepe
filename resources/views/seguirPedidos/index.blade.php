@@ -19,6 +19,7 @@
   {{-- modals --}}
    @include('seguirPedidos.modales.terminar')  
    @include('seguirPedidos.modales.ejecutar') 
+   @include('seguirPedidos.modales.aprobar') 
   {{-- end.modals --}}
 </section>
 @endsection
@@ -45,10 +46,18 @@ $(document).ready(function() {
         ]
   });
   
-  $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
-     const id= $(event.relatedTarget).data('id');
-    $(event.currentTarget).find('#id_pedido').val(id); 
+  // $('#modal-aprobar-pedido').on('show.bs.modal',function(event){
+  //    const id= $(event.relatedTarget).data('id');
+  //   $(event.currentTarget).find('#id_pedido_aprobar').val(id); 
+  // });
+
+  $('#modal_aprobar_pedido').on('show.bs.modal',function(event){
+    console.log('Aprobar pedido: Mensaje de confirmación de aprobación de pedido.');
+    const id= $(event.relatedTarget).data('id');
+    $(event.currentTarget).find('#id_pedido_por_aprobar').val(id);
   });
+
+
 
   $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');

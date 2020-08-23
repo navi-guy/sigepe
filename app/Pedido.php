@@ -65,7 +65,30 @@ class Pedido extends Model
         }
         return $result;
     }
+    public function getSiguienteEstado(){
+        
+        switch($this->estado_pedido){
+        
 
+        case 1: 
+                 $result="Aprobar";
+                 break;
+        case 2: 
+                 $result="Ejecutar";
+                 break;
+        
+        case 4: 
+                $result="Aprobar";
+                break;
+        case 5: 
+                $result="Terminar";
+                break;
+        default:
+                $result=""; 
+        }
+        return $result;
+    }
+    
     public function isUnconfirmed(){
         return $this->estado_pedido==1;
     }  

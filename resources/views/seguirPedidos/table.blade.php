@@ -26,7 +26,48 @@
                   <td>{{$pedido->nombre_cli}}</td>
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @if($pedido->isAprobed())
+                    @switch($pedido->estado_pedido)
+                    @case(1)<!-- En espera -->
+                   
+                        <button class="btn btn-sm  " style="text-align: left">
+                          <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                        </button>
+                        @break
+                  
+                    @case(2)<!-- Aprobado -->
+                        <button class="btn btn-sm  " style="background-color: #00a65a; color: white; text-align: left">
+                          <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                        </button>
+                        @break
+                    @case(3)<!-- Rechazado -->
+                         <button class="btn btn-sm  " style="background-color: #f4c2ce; color: white; text-align: left">
+                            <span class="fa fa-close" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                          </button>
+                        @break
+                    @case(4)<!-- Esperando insumos -->
+                          <button class="btn btn-warning btn-sm  "><span class="">
+                              {{$pedido->getEstado()}}
+                          </span></button>
+                        @break
+                    @case(5)<!-- En Ejecución -->
+                          <button class="btn btn-sm  " style="background-color: #00add8; color:White; text-align: left">
+                            <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                          </button>
+                        @break
+
+                    @case(6)<!-- Terminado -->
+                          <button class="btn btn-primary btn-sm  " style="background-color: #2d7caa; color: white; text-align: left">
+                            <span class="fa fa-slack" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getEstado()}}
+                          </button>
+                        @break
+                    @default
+                        <span>Error xd</span>
+                @endswitch  
+
+
+
+
+                    {{-- @if($pedido->isAprobed())
                         <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}"><span class="">
                       {{$pedido->getEstado()}}
                     </span></button>
@@ -48,13 +89,45 @@
                             @endif  
                         @endif
                       @endif
-                    @endif                                   
+                    @endif                                    --}}
                   </td>
                   <td>{{$pedido->monto_neto}}</td>
                   <td>                      
-                    <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                    {{-- <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
                       <span class="fa fa-eye"></span>
-                    </a>
+                    </a> --}}
+
+
+                    <div class="row"> 
+                      <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                        <span class="fa fa-eye"></span> Ver detalle
+                      </a>
+  
+                      @switch($pedido->estado_pedido)
+  
+                      @case(2)<!-- Aprobado -->
+                          <button class="btn btn-sm  " style="background-color:  #00add8;  color: white; text-align: left" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}" >
+                            <span class="fa fa-check" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getSiguienteEstado()}}
+                          </button>
+                          @break
+                      @case(4)<!-- Esperando insumos -->
+                            <button class="btn btn-warning btn-sm  " style="background-color:  #00a65a;   color: white; text-align: left" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}" >
+                              <span class="fa fa-clock-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getSiguienteEstado()}}
+                              </button>
+                          @break
+                      @case(5)<!-- En Ejecución -->
+                            <button class="btn btn-sm" style="background-color: #2d7caa; color:White; text-align: left"  data-toggle="modal" data-target="#modal-terminar-pedido" data-id="{{$pedido->id}}">
+                              <span class="fa fa-pause-circle-o" style="font-size: 14px !important"></span>&nbsp;&nbsp; {{$pedido->getSiguienteEstado()}}
+                            </button>
+                          @break
+                      @case(6)<!-- Terminado -->
+                           
+                          @break
+                      @default
+                          <span>Error xd</span>
+                  @endswitch  
+                </div>
+
                   </td>
                 </tr>
               @endforeach
