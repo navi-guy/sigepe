@@ -1,4 +1,4 @@
-<div class="col-md-12">
+
   <div class="box">
     <div class="box-body">
       <table id="tabla-stock" class="table table-bordered table-striped">
@@ -41,5 +41,4 @@
         </tbody>
       </table>
     </div>
-  </div> <!-- end box -->
-</div>
+  </div>

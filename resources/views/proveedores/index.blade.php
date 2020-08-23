@@ -54,7 +54,7 @@ $(document).ready(function() {
         "responsive": true,             
       'language': {
       'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
-    }, columnDefs: [
+    }, info: false, columnDefs: [
         { orderable: false, targets: -1},
         { searchable: false, targets: [-1]},
         { responsivePriority: 1, targets: 0 },

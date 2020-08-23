@@ -56,7 +56,7 @@ class SeguirPedidosController extends Controller
 
     public function ejecutarPedido(Request $request)
     {           
-        $id = $request->id_pedido;
+        $id = $request->id_pedido_ejecutar;
         $pedido = Pedido::findOrFail($id);
         $pedido->estado_pedido = 5; 
         $pedido->save();   

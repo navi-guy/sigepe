@@ -11,48 +11,34 @@
   <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-green.min.css') }}">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-  <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" href="{{ asset('adminlte/datatable/DataTables-1.10.21/css/datatables.bootstrap.min.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('adminlte/datatable/Responsive-2.2.5/css/responsive.bootstrap.min.css') }}"/>
   @yield('styles')
+  @toastr_css
   <style>body {font-family: 'Roboto', sans-serif;font-size: 14px;} li{padding: 6px 0px 6px 0px}</style>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 
 <div class="wrapper">
-
-  <!-- Main Header -->
   <header class="main-header">
 
-    <!-- Logo -->
     <a href="#" class="logo" style="font-size: 15px; background-color: #171717!important;">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
       <img class="logo-mini img-circle" src="{{asset('dist/img/iconoCorp.png')}}" width="50px">
-    {{--   <span class="logo-mini"><b>S</b>P</span> --}}
-      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b style="font-size: 20px;">SIGEPE</b></span>
     </a>
 
-    <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation" style="font-size: 15px; background-color: #171717!important;">
-      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-         <!-- User Account Menu -->
           <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
               <img src="{{asset('dist/img/iconoCorp.png')}}" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the usernombres on small devices so only the image appears. -->
               <span class="hidden-xs">{{ Auth::user()->trabajador->nombres }}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="{{asset('dist/img/iconoCorp.png')}}" class="img-circle" alt="User Image">
                 <p>
@@ -60,7 +46,6 @@
                   <small>{{ Auth::user()->trabajador->created_at }}</small>
                 </p>
               </li>
-              <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Home</a>
@@ -80,10 +65,8 @@
     <div style="font-size: 4px; background-color: #3d9970!important;" align="right"><label></label>
     </div>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar" style="font-size: 15px; background-color: #171717!important;">
 
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <br>
 
@@ -144,45 +127,43 @@
           </ul>
         </li>        
       </ul>
-      <!-- /.sidebar-menu -->
+
     </section>
-    <!-- /.sidebar -->
+
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="background-color: white !important">
-    <!-- Content Header (Page header) -->
-      @yield('breadcrumb')
-    <!-- Main content -->
-      @yield('content')
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
+  <div class="content-wrapper" style="background-color: white !important">
+
+      @yield('breadcrumb')
+
+      @yield('content')
+
+  </div>
+
+
+
   <footer class="main-footer">
-    <!-- To the right -->
+
     <div class="pull-right hidden-xs">
       <strong>Versión</strong> 1.0.0 Beta
     </div>
-    <!-- Default to the left -->
     <strong>Copyright &copy; 2020 <a href="#">SIGEPE</a></strong>
   </footer>
 
-  <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
 <script src="{{ asset('adminlte/jquery/jquery.min.js') }}" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="{{ asset('adminlte/jquery/jquery-ui.min.js') }}" ></script>
+@toastr_js
 <script src="{{ asset('adminlte/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
+<script src="{{ asset('adminlte/datatable/DataTables-1.10.21/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('adminlte/datatable/DataTables-1.10.21/js/datatables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('adminlte/datatable/Responsive-2.2.5/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('adminlte/datatable/Responsive-2.2.5/js/responsive.bootstrap.min.js') }}"></script>
+
 <script>
  $.datepicker.regional['es'] = {
   closeText: 'Cerrar',

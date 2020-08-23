@@ -168,10 +168,10 @@
           </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default pull-left">
+          <a class="btn btn-default pull-left" href="{{ route('pedidos.index') }}">
             <i class="fa fa-arrow-left"></i>
             Atrás
-          </button>
+          </a>
           <button type="submit" class="btn pull-right btn-success">
             <i class="fa fa-save"> </i>
               Registrar nuevo pedido

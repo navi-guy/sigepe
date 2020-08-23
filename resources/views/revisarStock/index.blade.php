@@ -14,9 +14,6 @@
 @endsection
 
 @section('content')
-<section class="content-header">
-
-</section>
 <section class="content">
   @include('revisarStock.table')
   @include('revisarStock.insumo_proveedor')

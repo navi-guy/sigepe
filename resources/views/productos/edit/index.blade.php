@@ -26,9 +26,6 @@
 @endsection
 
 @section('content')
-<section class="content-header">
-  <h3>Editar Producto</h3>
-</section>
 <section class="content">
   @include('partials.validation-errors')
   @include('productos.edit.form')
