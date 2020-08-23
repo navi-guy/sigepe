@@ -4,6 +4,9 @@ namespace CorporacionPeru\Http\Controllers;
 
 use Illuminate\Http\Request;
 use CorporacionPeru\Pedido;
+use CorporacionPeru\Insumo;
+
+use CorporacionPeru\Producto;
 
 class SeguirPedidosController extends Controller
 {

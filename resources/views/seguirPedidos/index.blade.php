@@ -57,8 +57,6 @@ $(document).ready(function() {
     $(event.currentTarget).find('#id_pedido_por_aprobar').val(id);
   });
 
-
-
   $('#modal-ejecutar-pedido').on('show.bs.modal',function(event){
     var id= $(event.relatedTarget).data('id');
     $(event.currentTarget).find('#id_pedido_ejecutar').val(id);

@@ -19,7 +19,7 @@
         </div>  <!--/.row --> 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success pull-right"><span class="fa fa-check"></span>&nbsp;Ejecutar</button>
+        <button type="submit" class="btn btn-info pull-right"><span class="fa fa-pause-circle-o" ></span>&nbsp;Ejecutar</button>
         <button type="" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
       </div>
     </form>
