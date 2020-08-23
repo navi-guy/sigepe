@@ -1,9 +1,6 @@
-<div class="row">
-  <div class="col-xs-12">
+<div>
+  <div>
     <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Lista de trabajadores</h3>
-      </div><!-- /.box-header -->
       <div class="box-body">
         <table id="tabla-trabajadores" class="table table-bordered table-striped">
           <thead>

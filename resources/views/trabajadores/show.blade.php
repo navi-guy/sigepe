@@ -11,9 +11,6 @@
           <div class="col-md-6">
             <!-- general form elements -->
             <div class="box box-success">
-              <div class="box-header with-border">
-                <h2 class="box-title">Ver Trabajador</h2>
-              </div><!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
                   <label for="dni-show">DNI</label>
@@ -42,9 +39,6 @@
           <div class="col-md-6">
             <!-- general form elements -->
             <div class="box">
-              <div class="box-header with-border">
-                <h2 class="box-title">Datos complementarios</h2>
-              </div><!-- /.box-header -->
               <div class="box-body">
                 <div class="form-group">
                   <label for="email-show">Correo Electronico</label>
