@@ -48,13 +48,11 @@ $(document).ready(function() {
       dataType : 'json',
       success: (data)=>{
         //console.log(data);
-        //llenamos datos del insumo
         document.getElementById('nombre-modal').value = data.insumo.nombre;
         document.getElementById('unidad_medida-modal').value = getUnidadMedida(data.insumo.unidad_medida);
         document.getElementById('cantidad-modal').value = data.insumo.cantidad;
         document.getElementById('id_insumo-modal').value = data.insumo.id;
         
-        //llenamos la tabla (de manera dinamica :'v)
         let prov = "";
         let html = "";
         html += '<div id="teibol"> <table id="tabla-proveedor" class="table table-bordered table-striped">';

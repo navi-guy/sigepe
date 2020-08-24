@@ -56,7 +56,7 @@ php artisan key:generate
 ```
 _10. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public._
 
-###Roles y credenciales
+### Roles y credenciales
                     
 Rol   | Usuario  | Contraseña
 ----- |---------- | ------------
