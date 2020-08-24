@@ -126,12 +126,15 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         $proveedor=Proveedor::findOrFail($id);
-
-        return $proveedor->insumos;
-        $proveedor->insumos()->detach();
-        $proveedor->delete();
+        if (count($proveedor->insumos)==0) {
+            $proveedor->insumos()->detach();
+            $proveedor->delete();
+            return  back()->with('alert-type','warning')->with('status','Proveedor borrado con exito');
+        } else{
+            return  back()->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
+        }       
             
-        return  back()->with('alert-type','warning')->with('status','Proveedor borrado con exito');
+        
     }
 
 }
