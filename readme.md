@@ -54,13 +54,19 @@ _9. Ejecutar el siguiente comando, que creará una key en el archivo .env_
 ```
 php artisan key:generate
 ```
-_10. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public ._
-```
-User: sigespro@gmail.com
-```
-```
-Contraseña: 123456
-```
+_10. Listo ya configuraste lo necesario. Ahora en tu navegador dirigite a http://localhost/sigepe/public._
+
+###Roles y credenciales
+                    
+Rol   | Usuario  | Contraseña
+----- |---------- | ------------
+Administrador | `sigepe@sigepe.com`|`sigepe`
+Jefe de Compras | `jcompras@sigepe.com` | `sigepe`
+Jefe de Producción | `jproduccion@sigepe.com` | `sigepe`
+Operario de Producción| `oproduccion@sigepe.com` | `sigepe`
+Atención al Cliente | `acliente@sigepe.com` | `sigepe`
+
+
 ## Posibles errores que ocurran durante la instalación y configuración 🤬🤬
 Si estás una versión reciente de Mysql, puede que ocurra un error en el paso de las migraciones, para solucionarlo puedes ejecutar el siguiente comando SQL, desde tu usario root.
 ```
@@ -71,14 +77,12 @@ Donde _DB_USERNAME=sigepe_user_, _DB_PASSWORD=sigepe_pass_ y _DB_DATABASE=_sigep
 
 
 
-
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Laravel](https://laravel.com/docs/5.6) - El framework web usado
 * [Composer](https://getcomposer.org/) - Manejador de dependencias
-
 
 
 

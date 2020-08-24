@@ -20,13 +20,10 @@
           @foreach ($insumos as $insumo)
             <tr>
               <td>{{$loop->iteration}}</td>
-              {{-- <td>{{$insumo->nombre}}</td> --}}
               <td>
               <i class="mr-2 glyphicon glyphicon-cog"></i>     
                 <span style="font-size: 105%; font-weight: bold; " >{{$insumo->nombre}}</span>
               </td>
-           {{--    <td>{{$insumo->cantidad}}</td> --}}
-            {{--   <td>{{$insumo->getUnidadMedida()}}</td> --}}
               <td>{{$insumo->razon_social}}</td>
               <td>S/. {{$insumo->precio_compra}}</td>
               <td>{{$insumo->solicitado}} unidades</td>
@@ -37,7 +34,6 @@
                 @else
                   <label for="" class="label label-info">{{$insumo->getEstadoSolicitud()}}</label>
                 @endif
-
                 <label for=""></label>
               </td>
               <td>

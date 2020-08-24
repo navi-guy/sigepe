@@ -2,7 +2,6 @@
 
 namespace CorporacionPeru\Http\Controllers;
 use Illuminate\Http\Request;
-use CorporacionPeru\Planta;
 use CorporacionPeru\Proveedor;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
@@ -60,45 +59,6 @@ class ProveedorController extends Controller
     {
         $proveedor = Proveedor::findOrFail($proveedor_id);
         return view('proveedores.insumos.index',compact('proveedor'));
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \CorporacionPeru\Proveedor  $proveedor
-     * @return \Illuminate\Http\Response
-     */
-    public function asignarInsumo(Request $request)
-    {
-        $proveedor = Proveedor::findOrFail($proveedor_id);
-    
-    }
-
-        /**
-     * Display the specified resource.
-     *
-     * @param  \CorporacionPeru\Proveedor  $proveedor
-     * @return \Illuminate\Http\Response
-     */
-    public function updateAsignacion(Request $request)
-    {
-        return $request;
-        $asignacion = ProveedoInsumo::findOrFail($request->id_asignacion);
-        $proveedor = Proveedor::findOrFail($proveedor_id);
-    
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \CorporacionPeru\Proveedor  $proveedor
-     * @return \Illuminate\Http\Response
-     */
-    public function desAsignarInsumo($id)
-    {
-       $proveedor = Proveedor::findOrFail($proveedor_id);
-    
     }
 
 
@@ -165,19 +125,13 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
-        $contador = 0;
-        $plantas=Planta::where('proveedor_id',"=",$id)->get();
-        $contador = count($plantas);
+        $proveedor=Proveedor::findOrFail($id);
 
-        if( $contador <= 0){
-             Proveedor::destroy($id);
-             return  back()->with('alert-type','warning')->with('status','Proveedor borrado con exito');
-
-        } else{
-
-        return  back()->with('alert-type','error')->with('status','No es posible eliminar, elimine los insumos asociados primero');
-        }
-       
+        return $proveedor->insumos;
+        $proveedor->insumos()->detach();
+        $proveedor->delete();
+            
+        return  back()->with('alert-type','warning')->with('status','Proveedor borrado con exito');
     }
 
 }

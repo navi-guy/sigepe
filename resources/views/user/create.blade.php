@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal-create-user" style="display: hidden;">
-  <div class="modal-dialog">
+  <div class="modal-dialog" >
     <form action="{{ route('users.store') }}" method="post" class="modal-content">
       @csrf
       <div class="modal-header">

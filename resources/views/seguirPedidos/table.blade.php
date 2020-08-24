@@ -22,7 +22,7 @@
                   <td>{{$pedido->nombre_cli}}</td>
                   <td>{{$pedido->ruc_cli}}</td>
                   <td>
-                    @switch($pedido->estado_pedido)
+                  @switch($pedido->estado_pedido)
                     @case(1)<!-- En espera -->
                    
                         <button class="btn btn-sm  " style="text-align: left">
@@ -58,48 +58,15 @@
                         @break
                     @default
                         <span>Error xd</span>
-                @endswitch  
-
-
-
-
-                    {{-- @if($pedido->isAprobed())
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}"><span class="">
-                      {{$pedido->getEstado()}}
-                    </span></button>
-                    @else 
-                      @if($pedido->isEsperaInsumos())
-                      <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-aprobar-pedido" data-id="{{$pedido->id}}"><span class="">
-                          {{$pedido->getEstado()}}
-                      </span></button>
-                      @else
-                          @if($pedido->isEjecucion())
-                          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-terminar-pedido" data-id="{{$pedido->id}}"><span class="">
-                            {{$pedido->getEstado()}}
-                        </span></button>
-                        @else
-                           @if($pedido->isTerminado())
-                              <label for="" class="label label-default">
-                              {{$pedido->getEstado()}}
-                            </label> 
-                            @endif  
-                        @endif
-                      @endif
-                    @endif                                    --}}
+                  @endswitch  
                   </td>
                   <td>{{$pedido->monto_neto}}</td>
                   <td>                      
-                    {{-- <a class="btn btn-info btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
-                      <span class="fa fa-eye"></span>
-                    </a> --}}
-
-
                     <div class="row"> 
                       <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
                         <span class="fa fa-eye"></span> Ver detalle
                       </a>
-  
-                      @switch($pedido->estado_pedido)
+                    @switch($pedido->estado_pedido)
   
                       @case(2)<!-- Aprobado -->
                           <button class="btn btn-sm  " style="background-color:  #00add8;  color: white; text-align: left" data-toggle="modal" data-target="#modal-ejecutar-pedido" data-id="{{$pedido->id}}" >
@@ -121,9 +88,8 @@
                           @break
                       @default
                           <span>Error xd</span>
-                  @endswitch  
-                </div>
-
+                    @endswitch  
+                    </div>
                   </td>
                 </tr>
               @endforeach

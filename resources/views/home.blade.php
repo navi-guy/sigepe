@@ -22,6 +22,7 @@
             </div>
           @endif
           <div class="row">
+            @if( Auth::user()->hasRole('Admin') || Auth::user()->hasRole('AtencionCliente'))
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-green">
@@ -35,7 +36,9 @@
                 <a href="{{route('pedidos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
+          @endif
+          @if( Auth::user()->hasRole('Admin') || Auth::user()->hasRole('JefeProduccion'))
+            <!-- ./col -->            
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-orange">
@@ -49,6 +52,8 @@
                 <a href="{{route('categorias.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+          @endif
+          @if( Auth::user()->hasRole('Admin'))
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-teal">
@@ -62,9 +67,8 @@
                 <a href="{{route('trabajadores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
-          </div>
-            <!-- ./col -->
-          <div class="row">
+          @endif
+          @if( Auth::user()->hasRole('Admin') || Auth::user()->hasRole('JefeCompras'))
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-purple">
@@ -78,6 +82,8 @@
                 <a href="{{route('proveedores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+          @endif
+          @if( Auth::user()->hasRole('Admin') || Auth::user()->hasRole('JefeProduccion'))
             <!-- ./col -->
             <div class="col-md-4">
               <!-- small box -->
@@ -92,8 +98,9 @@
                 <a href="{{route('productos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+          @endif
             <!-- ./col -->
-            <!-- ./col -->
+          @if( !Auth::user()->hasRole('AtencionCliente'))
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-gray">
@@ -107,6 +114,7 @@
                 <a href="{{route('revisarStock.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+          @endif
             <!-- ./col -->
           </div> <!-- end.row-->
         </div> <!-- end.card-body-->

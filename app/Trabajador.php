@@ -7,10 +7,8 @@ use Carbon\Carbon;
 
 class Trabajador extends Model
 {
-    //
     protected $table = 'trabajadores';
-    protected $fillable=[
-        'dni','nombres','apellido_paterno','apellido_materno','fecha_nacimiento',
+    protected $fillable=[ 'dni','nombres','apellido_paterno','apellido_materno',
         'telefono','genero','email','direccion'
     ];
 
@@ -24,11 +22,4 @@ class Trabajador extends Model
     	return $this->user!=null;
     }
 
-    public function setFechaNacimientoAttribute($value){ 
-        $this->attributes['fecha_nacimiento']=Carbon::createFromFormat('d/m/Y',$value)->format('Y-m-d');
-    }
-
-    public function getFechaNacimientoAttribute($value){ 
-        return $value ? Carbon::createFromFormat('Y-m-d',$value)->format('d/m/Y') : $value;
-    }
 }
