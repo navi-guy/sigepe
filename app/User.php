@@ -43,7 +43,39 @@ class User extends Authenticatable
     	return $this->belongsTo(Trabajador::class,'trabajador_id');
     }
 
+    public function rol()
+    {
+        return $this->belongsTo(Role::class,'role_id');
+    }
+
     public function setPasswordAttribute($value){ 
         $this->attributes['password']=bcrypt($value);
+    }
+
+    public function authorizeRoles($roles){
+        abort_unless($this->hasAnyRole($roles), 401);
+        return true;
+    }
+
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach($roles as $role){
+                if($this->hasRole($role)){
+                    return true;
+                }
+            }
+        } else {
+            return $this->hasRole($roles);
+        }
+        return false;
+    }
+
+    public function hasRole($role)
+    {
+        if ( $this->rol()->where('nombre', $role)->first()) {
+            return true;
+        }
+        return false;
     }
 }

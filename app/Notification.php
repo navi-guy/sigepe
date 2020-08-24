@@ -23,7 +23,7 @@ class Notification
     public static function setAlertSession( $type = "" ,$message="" )
     {
         if (!in_array($type, self::TYPES_ALLOWED)){
-            $type = 'error';
+            $type = self::DANGER;
         }
         Session::flash(self::ALERT, $type);
         Session::flash(self::STATUS, $message);

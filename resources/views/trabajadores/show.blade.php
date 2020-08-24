@@ -28,10 +28,6 @@
                   <label for="apellido_materno-show">Apellido Materno</label>
                   <input id="apellido_materno-show" type="text" class="form-control" readonly>
                 </div>
-                <div class="form-group">
-                  <label for="fecha_nacimiento-show">Fecha de nacimiento</label>
-                  <input id="fecha_nacimiento-show" type="text" class="form-control" readonly>
-                </div>
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!--/.col (left) -->
@@ -51,10 +47,6 @@
                 <div class="form-group">
                   <label for="genero-show">Genero</label>
                   <input id="genero-show" type="text" class="form-control" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="direccion-show">Direccion</label>
-                  <input id="direccion-show" type="text" class="form-control" readonly>
                 </div>
               </div><!-- /.box-body -->
             </div><!-- /.box -->

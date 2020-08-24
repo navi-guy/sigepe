@@ -9,7 +9,6 @@
               <th>DNI</th>
               <th>Nombres</th>
               <th>Apellidos</th>
-              <th>Fecha de Nacimiento</th>
               <th>Telefono</th>
               <th>Acciones</th>
             </tr>
@@ -21,7 +20,6 @@
                 <td>{{$trabajador->dni}}</td>
                 <td>{{$trabajador->nombres}}</td>
                 <td>{{$trabajador->apellido_paterno}}</td>
-                <td>{{date('d/m/Y', strtotime($trabajador->fecha_nacimiento))}}</td>
                 <td>{{$trabajador->telefono}}</td>
                 <td>
                   <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-show-trabajador"
@@ -32,12 +30,13 @@
                             data-id="{{$trabajador->id}}">
                     <span class="glyphicon glyphicon-edit"></span>
                   </button>
+                  @if(!$trabajador->hasAccount())
                   <form style="display:inline" method="POST" action="{{ route('trabajadores.destroy', $trabajador->id) }}">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
                   </form>
-                  @if(!$trabajador->hasAccount())
+                  
                   <button class="btn bg-purple btn-xs" data-toggle="modal" data-target="#modal-create-user"
                     data-trabajador_id="{{$trabajador->id}}">
                     <span class="fa fa-fw fa-user-plus"></span>

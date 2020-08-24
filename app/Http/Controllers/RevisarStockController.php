@@ -28,18 +28,15 @@ class RevisarStockController extends Controller
      */
     public function store(Request $request)
     {
-        $idInsProv = ProveedorInsumo::where('insumo_id', '=', $request->input('id_insumo'))->select('id', 'cantidad')->get();
-        // Para recorrer las cantidades pedidas
-        $i = 0;
-        foreach ($idInsProv as $idr) {
-            $cant = $request->cantidad[$i];
-            if ($cant != 0) {
-                $proveedorInsumo = ProveedorInsumo::find($idr->id);
-                $proveedorInsumo->cantidad += $cant;
+        $ids_proveedor = $request->proveedor_id;
+        for ($i=0; $i < count($ids_proveedor) ; $i++) { 
+            $cantSolicitud = $request->cantidad[$i];
+            if ($cantSolicitud != 0) {
+                $proveedorInsumo = ProveedorInsumo::where('proveedor_id',$request->proveedor_id[$i])->where('insumo_id',$request->id_insumo)->first();
+                $proveedorInsumo->cantidad += $cantSolicitud;
                 $proveedorInsumo->estado = 2;
                 $proveedorInsumo->save();
             }
-            $i += 1;
         }
         return  back()->with('alert-type', 'success')->with('status', 'Solicitud agregada con éxito');
     }

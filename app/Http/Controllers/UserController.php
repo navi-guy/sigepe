@@ -16,19 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
         $users = User::all();
         return view('users.index', compact('users'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,32 +28,10 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
         User::create($request->validated());
         return back()->with(['alert-type' => 'success', 'status' => 'Usuario creado con exito']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \CorporacionPeru\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \CorporacionPeru\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -73,9 +40,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(UpdateUserRequest $request)
     {
-        //
         $id = $request->id;
         User::findOrFail($id)->update($request->validated());
         return back()->with(['alert-type' => 'success', 'status' => 'Usuario editado con exito']);

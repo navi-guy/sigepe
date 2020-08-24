@@ -20,16 +20,6 @@ class TrabajadorController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,7 +27,6 @@ class TrabajadorController extends Controller
      */
     public function store(StoreTrabajadorRequest $request)
     {
-        //
         Trabajador::create($request->validated());
         return back()->with(['alert-type' => 'success', 'status' => 'Trabajador creado con exito']);
     }
@@ -50,7 +39,6 @@ class TrabajadorController extends Controller
      */
     public function show(Trabajador $trabajadore)
     {
-        //
         return response()->json(['trabajador' => $trabajadore]);
     }
 
@@ -62,7 +50,6 @@ class TrabajadorController extends Controller
      */
     public function edit(Trabajador $trabajadore)
     {
-        //
         return response()->json(['trabajador' => $trabajadore]);
     }
 
@@ -73,9 +60,8 @@ class TrabajadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreTrabajadorRequest $request, $id)
+    public function update(StoreTrabajadorRequest $request)
     {
-        //
         $id = $request->id;
         Trabajador::findOrFail($id)->update($request->validated());
         return back()->with(['alert-type' => 'success', 'status' => 'Trabajador editado con exito']);
@@ -89,7 +75,6 @@ class TrabajadorController extends Controller
      */
     public function destroy(Trabajador $trabajadore)
     {
-        //
         $trabajadore->delete();
         return back()->with(['alert-type' => 'warning', 'status' => 'Trabajador eliminado con exito']);
     }

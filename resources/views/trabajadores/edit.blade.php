@@ -37,11 +37,6 @@
                   <input id="apellido_materno-edit" type="text" class="form-control"
                           name="apellido_materno" placeholder="Ingrese el apellido materno" required>
                 </div>
-                <div class="form-group">
-                  <label for="fecha_nacimiento-edit">Fecha de nacimiento</label>
-                  <input id="fecha_nacimiento-edit" type="text" class="form-control" 
-                          name="fecha_nacimiento" placeholder="Ingrese la fecha nacimiento" required>
-                </div>
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!--/.col (left) -->
@@ -68,7 +63,7 @@
                   <div class="form-inline">
                     <div class="radio">
                       <label>
-                        <input id="genero-edit-1" type="radio" name="genero" value="1" required>
+                        <input id="genero-edit-1" type="radio" name="genero" value="1">
                         Masculino
                       </label>
                     </div>
@@ -79,17 +74,12 @@
                       </label>
                     </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="direccion-edit">Direccion</label>
-                  <input id="direccion-edit" type="text" class="form-control" 
-                          name="direccion" placeholder="Ingrese la direccion">
-                </div>
+                </div>               
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!--/.col (right) -->
         </div> 
-        <input type="hidden" name="id">
+        <input type="hidden" id="id-edit" name="id">
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary pull-left">Guardar cambios</button>
