@@ -84,21 +84,22 @@
           <div class="row">
             <div class="col-md-12">
               <table class="table table-bordered" id="product_info_table">
+              <caption>información del producto</caption>
                 <thead>
                   <tr>
-                    <th style="width:50%">Producto
+                    <th th scope="col" style="width:50%">Producto
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%">Cantidad
+                    <th th scope="col" style="width:10%">Cantidad
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%">Precio Unitario
+                    <th th scope="col" style="width:10%">Precio Unitario
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:20%">Monto
+                    <th th scope="col" style="width:20%">Monto
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                    <th th scope="col" style="width:10%"><button type="button" id="add_row" class="btn btn-default"><em class="fa fa-plus"></em></button></th>
                   </tr>
                 </thead>
 
@@ -122,7 +123,7 @@
                         <input type="text" name="amount[]" id="amount_{{$loop->iteration}}" class="form-control" disabled autocomplete="off" value="{{$producto_selected->pivot->monto}}">
                         <input type="hidden" name="amount_value[]" id="amount_value_{{$loop->iteration}}" class="form-control" autocomplete="off" value="{{$producto_selected->pivot->monto}}">
                         </td>
-                      <td><button type="button" class="btn btn-default" onclick="removeRow({{$loop->iteration}})"><i class="fa fa-close"></i></button></td>
+                      <td><button type="button" class="btn btn-default" onclick="removeRow({{$loop->iteration}})"><em class="fa fa-close"></em></button></td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -172,11 +173,11 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
           <button class="btn btn-default pull-left">
-            <i class="fa fa-arrow-left"></i>
+            <em class="fa fa-arrow-left"></em>
             Atrás
           </button>
           <button type="submit" class="btn pull-right btn-success">
-            <i class="fa fa-save"> </i>
+            <em class="fa fa-save"> </em>
               Guardar cambios
           </button>          
         </div><!-- /.box-footer -->

@@ -82,21 +82,22 @@
           <div class="row">
             <div class="col-md-12">
               <table class="table table-bordered" id="product_info_table">
+              <caption>Productos que vende la empresa</caption>
                 <thead>
                   <tr>
-                    <th style="width:50%">Producto
+                    <th scope="col"  style="width:50%">Producto
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%">Cantidad
+                    <th scope="col"  style="width:10%">Cantidad
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%">Precio Unitario
+                    <th scope="col"  style="width:10%">Precio Unitario
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:20%">Monto
+                    <th scope="col"  style="width:20%">Monto
                       <span class="mandatory" >*</span>
                     </th>
-                    <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                    <th scope="col"  style="width:10%"><button type="button" id="add_row" class="btn btn-default"><em class="fa fa-plus"></em></button></th>
                   </tr>
                 </thead>
 
@@ -120,7 +121,7 @@
                       <input type="text" name="amount[]" id="amount_1" class="form-control" disabled autocomplete="off">
                       <input type="hidden" name="amount_value[]" id="amount_value_1" class="form-control" autocomplete="off">
                       </td>
-                    <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
+                    <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><em class="fa fa-close"></em></button></td>
                   </tr>
                 </tbody>
               </table>
@@ -169,11 +170,11 @@
         </div><!-- /.box-body -->
         <div class="box-footer">
           <a class="btn btn-default pull-left" href="{{ route('pedidos.index') }}">
-            <i class="fa fa-arrow-left"></i>
+            <em class="fa fa-arrow-left"></em>
             Atrás
           </a>
           <button type="submit" class="btn pull-right btn-success">
-            <i class="fa fa-save"> </i>
+            <em class="fa fa-save"> </em>
               Registrar nuevo pedido
           </button>          
         </div><!-- /.box-footer -->

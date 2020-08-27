@@ -87,12 +87,13 @@
                 </div> <!--  end.box register- -->
                 <!-- Table insumos-->
                 <table class="table table-bordered" id="product_info_table">
+                <caption>Información del producto</caption>
                   <thead>
                     <tr>
-                      <th style="width:50%">Insumo <span class="mandatory">*</span></th>
-                      <th style="width:10%">Cantidad <span class="mandatory">*</span></th>
-                      <th style="width:10%">
-                        <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
+                      <th scope="col"  style="width:50%">Insumo <span class="mandatory">*</span></th>
+                      <th scope="col"  style="width:10%">Cantidad <span class="mandatory">*</span></th>
+                      <th scope="col"  style="width:10%">
+                        <button type="button" id="add_row" class="btn btn-default"><em class="fa fa-plus"></em></button>
                       </th>
                     </tr>
                   </thead>
@@ -110,7 +111,7 @@
                         <input type="number"  min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_{{$loop->iteration}}" class="form-control" value="{{ $insumo_selected->pivot->cantidad}}" required>
                       </td>
                       <td><button type="button" class="btn btn-default" onclick="removeRow({{$loop->iteration}})">
-                        <i class="fa fa-close"></i></button>
+                        <em class="fa fa-close"></em></button>
                       </td>
                     </tr>
                     @endforeach
@@ -120,7 +121,7 @@
                   <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
                   <button type="submit" class="btn btn-success pull-right"><span class="fa fa-save"></span>
                     &nbsp; Guardar Cambios</button>
-                  <a href="{{ route('productos.index') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Atrás</a>
+                  <a href="{{ route('productos.index') }}" class="btn btn-default"><em class="fa fa-arrow-left"></em> Atrás</a>
                 </div>
               </form>
             </div>
@@ -133,8 +134,8 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="avatar pull-left" align="center">      
-      <img src="{{ asset('dist/img/icons/create_product.png') }}">
+    <div class="avatar pull-left" align="center" alt="Icono de avatar">      
+      <img src="{{ asset('dist/img/icons/create_product.png') }}" alt="Icono de crear producto">
     </div>
   </div>  
 </div>

@@ -109,7 +109,7 @@ class ProveedorController extends Controller
      * @param  \CorporacionPeru\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProveedorRequest $request,$id)
+    public function update(UpdateProveedorRequest $request)
     {
         $id=$request->id;
         $proveedor=Proveedor::findOrFail($id);

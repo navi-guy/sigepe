@@ -4,7 +4,7 @@
       <!-- general form elements -->
     <div class="box box-success">
       <div class="box-header with-border">
-        <h3 class="box-title">Datos insumo&nbsp;|&nbsp; <b> Asignar insumo a Proveedor</b></h3>
+        <h3 class="box-title">Datos insumo&nbsp;|&nbsp; <strong> Asignar insumo a Proveedor</strong></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="row">
@@ -61,7 +61,7 @@
       <div class="box-footer">
         <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
         <button type="submit" class="btn pull-right btn-success">
-            <i class="fa fa-chain"> </i>
+            <em class="fa fa-chain"> </em>
               Asignar 
           </button>
           

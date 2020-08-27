@@ -2,16 +2,17 @@
       <div class="box box-success">
         <div class="box-body">
           <table id="tabla-productos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
-            <thead>
+          <caption>Tabla de productos</caption>
+          <thead>
               <tr>
-                <th>Código</th>
-                <th>Imagen</th>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Categoria</th>
-                <th>Material</th>
-                <th>U. Medida</th>
-                <th>Acciones</th>
+                <th scope="col">Código</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Material</th>
+                <th scope="col">U. Medida</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>

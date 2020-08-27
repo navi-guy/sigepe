@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-success">
       <div class="box-header with-border">
-        <h3 class="box-title">Datos Proveedor &nbsp;|  &nbsp;<b> Crear nuevo Proveedor</b></h3>
+        <h3 class="box-title">Datos Proveedor &nbsp;|  &nbsp;<strong> Crear nuevo Proveedor</strong></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="row">
@@ -60,7 +60,7 @@
       <div class="box-footer">
          <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
         <button type="submit" class="btn pull-right btn-success">
-          <i class="fa fa-plus"> </i>
+          <em class="fa fa-plus"> </em>
             Registrar nuevo proveedor
         </button>
       </div><!-- /.box-footer -->

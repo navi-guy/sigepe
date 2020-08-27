@@ -4,15 +4,16 @@
       <div class="box-body">
         <table id="tabla-revisarPedidos" class="table table-bordered table-striped responsive display nowrap"
           style="width:100%" cellspacing="0">
+          <caption>Yabla de productos por revisar</caption>
           <thead>
             <tr>
-              <th>Código Pedido</th>
-              <th>Fecha emisión</th>
-              <th>Cliente</th>
-              <th>RUC</th>
-              <th>Estado</th>
-              <th>Monto Neto</th>
-              <th>Acciones</th>
+              <th scope="col">Código Pedido</th>
+              <th scope="col">Fecha emisión</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">RUC</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Monto Neto</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>

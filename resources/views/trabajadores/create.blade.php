@@ -129,7 +129,7 @@
           <div>
            <div class="form-group">
              <button type="submit" class="btn btn-md btn-success">
-               <i class="fa fa-save"> </i>
+               <em class="fa fa-save"> </em>
                Guardar usuario
              </button>
            </div>

@@ -31,9 +31,9 @@
                   <p>Pedidos totales</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-shopping-cart"></i>
+                  <em class="fa fa-shopping-cart"></em>
                 </div>
-                <a href="{{route('pedidos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('pedidos.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif
@@ -47,9 +47,9 @@
                   <p>Número de Categorias</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-tasks"></i>
+                  <em class="fa fa-tasks"></em>
                 </div>
-                <a href="{{route('categorias.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('categorias.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif
@@ -62,9 +62,9 @@
                   <p>Usuarios Registrados</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-users"></i>
+                  <em class="fa fa-users"></em>
                 </div>
-                <a href="{{route('trabajadores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('trabajadores.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif
@@ -77,9 +77,9 @@
                   <p>Proveedores de la empresa</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-truck"></i>
+                  <em class="fa fa-truck"></em>
                 </div>
-                <a href="{{route('proveedores.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('proveedores.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif
@@ -93,9 +93,9 @@
                   <p>Productos en stock</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-tags"></i>
+                  <em class="fa fa-tags"></em>
                 </div>
-                <a href="{{route('productos.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('productos.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif
@@ -109,9 +109,9 @@
                   <p>Insumos en stock</p>
                 </div>
                 <div class="icon">
-                  <i class="glyphicon glyphicon-cog"></i>
+                  <em class="glyphicon glyphicon-cog"></em>
                 </div>
-                <a href="{{route('revisarStock.index')}}" class="small-box-footer">Más información &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{route('revisarStock.index')}}" class="small-box-footer">Más información &nbsp;<em class="fa fa-arrow-circle-right"></em></a>
               </div>
             </div>
           @endif

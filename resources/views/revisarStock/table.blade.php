@@ -1,16 +1,17 @@
 <div class="box">
   <div class="box-body">
     <table id="tabla-stock" class="table table-bordered table-striped">
+    <caption>Tabla del stock por revisar</caption>
       <thead>
         <tr>
-          <th>COD</th>
-          <th>Nombre </th>
-          <th>Unidad de Medida </th>
-          <th>Stock insumo </th>
-          <th>Estado</th>
+          <th scope="col">COD</th>
+          <th scope="col">Nombre </th>
+          <th scope="col">Unidad de Medida </th>
+          <th scope="col">Stock insumo </th>
+          <th scope="col">Estado</th>
           @if(!Auth::user()->hasRole('AtencionCliente') &&
               !Auth::user()->hasRole('JefeCompras'))
-            <th>Acciones</th>
+            <th scope="col">Acciones</th>
           @endif
         </tr>
       </thead>
@@ -19,7 +20,7 @@
           <tr>
             <td>{{ $insumo->id }}</td>
             <td>
-              <i class="mr-2 glyphicon glyphicon-cog"></i>
+              <em class="mr-2 glyphicon glyphicon-cog"></em>
               <span style="font-size: 105%; font-weight: bold; ">{{ $insumo->nombre }}</span>
             </td>
             <td>{{ $insumo->getUnidadMedida() }}</td>

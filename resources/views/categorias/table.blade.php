@@ -1,11 +1,12 @@
 <div class="box">
     <div class="box-body">
         <table id="tabla-categorias" class="table table-bordered table-striped">
+        <caption>Categorías de productos con los que trabaja la empresa</caption>
             <thead>
                 <tr>
-                    <th style="width: 25px">COD</th>
-                    <th>Nombre de la categoría </th>
-                    <th style="width: 100px">Acciones</th>
+                    <th scope="col" style="width: 25px">COD</th>
+                    <th scope="col">Nombre de la categoría </th>
+                    <th scope="col" style="width: 100px">Acciones</th>
                 </tr>
             </thead>
             <tbody>
