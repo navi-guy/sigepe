@@ -24,7 +24,7 @@
             <div class="col-md-12">
               <div class="form-group pull-right" >
                 <button type="submit" class="btn btn-success">
-                  <i class="fa fa-plus"></i> &nbsp;
+                  <em class="fa fa-plus"></em> &nbsp;
                     Guardar categoría
                 </button>
               </div>

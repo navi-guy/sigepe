@@ -24,13 +24,14 @@
               
             <br>
             <table class="table table-bordered table-striped">
+            <caption>Tabla de compra de insumos</caption>
               <thead>
                 <tr>
-                  <th>Insumo</th>
-                  <th>Proveedor</th>
-                  <th>Precio x Unidad</th>
-                  <th>Cantidad Solicitada</th>   
-                  <th>Costo Total</th> 
+                  <th scope="col">Insumo</th>
+                  <th scope="col">Proveedor</th>
+                  <th scope="col">Precio x Unidad</th>
+                  <th scope="col">Cantidad Solicitada</th>   
+                  <th scope="col">Costo Total</th> 
                 </tr>
                 <tbody>
                   <td><span id="modal-insumo"></span></td>

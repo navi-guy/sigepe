@@ -34,7 +34,7 @@
         <div align="center">
            <p class="login-box-msg"  style="font-size: 200%;
            font-weight: thin; color: black;">Sistema de Gestión de Pedidos</p>
-        <img src="{{ asset('dist/img/icons/key.png')}}" style="width: 20%; height: auto;" />
+        <img src="{{ asset('dist/img/icons/key.png')}}" alt = “icono de llave” style="width: 20%; height: auto;" />
         </div>
         <br>
         <form action="{{ route('login') }}" method="post">

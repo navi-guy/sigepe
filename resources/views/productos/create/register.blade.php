@@ -74,14 +74,15 @@
                 </div> <!--  end.box register- -->
                 <!-- Table insumos-->
                 <table class="table table-bordered" id="product_info_table">
+                <caption>Tabla de información de producto</caption>
                   <thead>
                     <tr>
-                      <th style="width:50%">
+                      <th scope="col" style="width:50%">
                           <label for="">Insumo <span class="mandatory">*</span></label>                                        
                       </th>
-                      <th style="width:10%">Cantidad <span class="mandatory">*</span></th>
-                      <th style="width:10%">
-                        <button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button>
+                      <th scope="col" style="width:10%">Cantidad <span class="mandatory">*</span></th>
+                      <th scope="col" style="width:10%">
+                        <button type="button" id="add_row" class="btn btn-default"><em class="fa fa-plus"></em></button>
                       </th>
                     </tr>
                   </thead>
@@ -108,7 +109,7 @@
                       <td><input type="number" min="1" max="500" pattern="^[0-9]+" name="qty[]" id="qty_1" class="form-control" required value="{{old('qty.0')}}">
                       </td>
                       <td><button type="button" class="btn btn-default" onclick="removeRow('1')">
-                        <i class="fa fa-close"></i></button>
+                        <em class="fa fa-close"></em></button>
                       </td>
                     </tr>
                   </tbody>
@@ -130,7 +131,7 @@
   </div>
   <div class="col-md-6">
     <div class="avatar pull-left" align="center">      
-      <img src="{{ asset('dist/img/icons/create_product.png') }}">
+      <img src="{{ asset('dist/img/icons/create_product.png') }}" alt="icono de crear producto">
     </div>
   </div>  
 </div>

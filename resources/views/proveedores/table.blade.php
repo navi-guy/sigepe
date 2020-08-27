@@ -3,13 +3,14 @@
       <div class="box box-success">
         <div class="box-body">
           <table id="tabla-proveedores" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
-            <thead>
+          <caption>Tabla de proveedores</caption>
+          <thead>
               <tr>
-                <th>Razon Social</th>
-                <th>Ruc</th>
-                <th>Dirección</th>
-                <th>Tipo</th>
-                <th>Acciones</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Ruc</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>

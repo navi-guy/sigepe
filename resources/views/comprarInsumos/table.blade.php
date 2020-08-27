@@ -2,18 +2,19 @@
   <div class="box">
     <div class="box-body">
       <table id="tabla-insumos-solicitados" class="table table-bordered table-striped">
+      <caption>Tabla de insumos solicitados</caption>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Insumo  </th>
-            {{-- <th>Stock insumo </th> --}}
-    {{--         <th>Unidad de Medida </th> --}}
-            <th>Proveedor</th>
-            <th>Precio x Unidad</th>
-            <th>Solicitado</th>   
-            <th>Costo </th> 
-            <th>Estado</th>  
-            <th>Acciones</th>
+            <th scope="col">#</th>
+            <th scope="col">Insumo  </th>
+            {{-- <th scope="col">Stock insumo </th> --}}
+    {{--         <th scope="col">Unidad de Medida </th> --}}
+            <th scope="col">Proveedor</th>
+            <th scope="col">Precio x Unidad</th>
+            <th scope="col">Solicitado</th>   
+            <th scope="col">Costo </th> 
+            <th scope="col">Estado</th>  
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +22,7 @@
             <tr>
               <td>{{$loop->iteration}}</td>
               <td>
-              <i class="mr-2 glyphicon glyphicon-cog"></i>     
+              <em class="mr-2 glyphicon glyphicon-cog"></em>     
                 <span style="font-size: 105%; font-weight: bold; " >{{$insumo->nombre}}</span>
               </td>
               <td>{{$insumo->razon_social}}</td>

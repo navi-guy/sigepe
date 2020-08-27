@@ -32,8 +32,8 @@
   <div class="wrapper">
     <header class="main-header">
       <a href="#" class="logo" style="font-size: 15px; background-color: #171717!important;">
-        <img class="logo-mini img-circle" src="{{ asset('dist/img/iconoCorp.png') }}" width="50px">
-        <span class="logo-lg"><b style="font-size: 20px;">SIGEPE</b></span>
+        <img class="logo-mini img-circle" src="{{ asset('dist/img/iconoCorp.png') }}" alt="icono circular" width="50px">
+        <span class="logo-lg"><strong style="font-size: 20px;">SIGEPE</strong></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation"
           style="font-size: 15px; background-color: #171717!important;">
@@ -79,23 +79,23 @@
       <section class="sidebar">
         <br>
         <ul class="sidebar-menu" data-widget="tree">
-          <li id="sidebar-btn-panel-control"><a href="{{ route('home.index') }}"><i
-                      class="fa fa-bar-chart"></i> <span>Panel de Control</span> </a>
+          <li id="sidebar-btn-panel-control"><a href="{{ route('home.index') }}"><em
+                      class="fa fa-bar-chart"></em> <span>Panel de Control</span> </a>
           </li>
             @if ( Auth::user()->hasRole('JefeCompras') || Auth::user()->hasRole('Admin') )
               <li id="treeview-proveedores" class="treeview">
                 <a href="#">
-                  <i class="fa fa-truck"></i> <span>Proveedores</span>
+                  <em class="fa fa-truck"></em> <span>Proveedores</span>
                   <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
+                      <em class="fa fa-angle-left pull-right"></em>
                   </span>
                 </a>
                 <ul class="treeview-menu" id="treeview-menu-proveedores" style="display: none;">
                   <li id="sidebar-btn-proveedores"><a href="{{ route('proveedores.index') }}">
-                    <i class="fa fa-th-large"></i>Proveedores</a></li>
+                    <em class="fa fa-th-large"></em>Proveedores</a></li>
                   <li id="sidebar-btn-insumos-proveedores"><a
-                          href="{{ route('comprar_insumos.index') }}"><i
-                              class="fa fa-cubes"></i>Insumos/Proveedores</a></li>
+                          href="{{ route('comprar_insumos.index') }}"><em
+                              class="fa fa-cubes"></em>Insumos/Proveedores</a></li>
                 </ul>
               </li>
             @endif
@@ -103,52 +103,52 @@
             @if ( Auth::user()->hasRole('JefeProduccion') || Auth::user()->hasRole('Admin') )
               <li id="treeview-productos" class="treeview">
                 <a href="#">
-                  <i class="fa fa-archive"></i> <span>Productos</span>
+                  <em class="fa fa-archive"></em> <span>Productos</span>
                   <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
+                      <em class="fa fa-angle-left pull-right"></em>
                   </span>
                 </a>
                 <ul id="treeview-menu-productos" class="treeview-menu">
-                  <li id="sidebar-btn-categorias"><a href="{{ route('categorias.index') }}"><i
-                              class="glyphicon glyphicon-tasks"></i>Categorías</a></li>
-                  <li id="sidebar-btn-productos"><a href="{{ route('productos.index') }}"><i
-                              class="glyphicon glyphicon-tag"></i>Productos</a></li>
+                  <li id="sidebar-btn-categorias"><a href="{{ route('categorias.index') }}"><em
+                              class="glyphicon glyphicon-tasks"></em>Categorías</a></li>
+                  <li id="sidebar-btn-productos"><a href="{{ route('productos.index') }}"><em
+                              class="glyphicon glyphicon-tag"></em>Productos</a></li>
                 </ul>
               </li>
             @endif
 
             @if (! Auth::user()->hasRole('AtencionCliente'))
-              <li id="sidebar-btn-stock-insumos"><a href="{{ route('revisarStock.index') }}"><i
-                          class="glyphicon glyphicon-search"></i><span>Stock de insumos</span> </a></li>
+              <li id="sidebar-btn-stock-insumos"><a href="{{ route('revisarStock.index') }}"><em
+                          class="glyphicon glyphicon-search"></em><span>Stock de insumos</span> </a></li>
             @endif
 
             @if (Auth::user()->hasRole('AtencionCliente') || Auth::user()->hasRole('Admin') )
-              <li id="sidebar-btn-registrar-pedidos"><a href="{{ route('pedidos.index') }}"><i
-                          class="fa fa-cart-plus"></i><span>Registrar pedidos</span> </a></li>
+              <li id="sidebar-btn-registrar-pedidos"><a href="{{ route('pedidos.index') }}"><em
+                          class="fa fa-cart-plus"></em><span>Registrar pedidos</span> </a></li>
             @endif
 
             @if (!Auth::user()->hasRole('AtencionCliente') && 
                  !Auth::user()->hasRole('JefeCompras') )
               <li id="treeview-revisar-pedidos" class="treeview">
                 <a href="#">
-                  <i class="fa fa-first-order"></i> <span>Revisión de pedidos</span>
+                  <em class="fa fa-first-order"></em> <span>Revisión de pedidos</span>
                   <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
+                      <em class="fa fa-angle-left pull-right"></em>
                   </span>
                 </a>
                   <ul class="treeview-menu" id="treeview-menu-revisar-pedidos" style="display: none;">
                     @if (Auth::user()->hasRole('JefeProduccion') ||
                          Auth::user()->hasRole('Admin') )
                       <li id="sidebar-btn-evaluar-pedidos"><a
-                        href="{{ route('revisarPedidos.index') }}"><i
-                        class="fa fa-check-square"></i>Evaluación de pedidos</a>
+                        href="{{ route('revisarPedidos.index') }}"><em
+                        class="fa fa-check-square"></em>Evaluación de pedidos</a>
                       </li>
                     @endif
                     @if (Auth::user()->hasRole('OperarioProduccion') || 
                          Auth::user()->hasRole('Admin') )
                       <li id="sidebar-btn-ejecutar-pedidos"><a
-                        href="{{ route('seguirPedidos.index') }}"><i
-                        class="fa fa-cogs"></i>Ejecución de Pedidos</a>
+                        href="{{ route('seguirPedidos.index') }}"><em
+                        class="fa fa-cogs"></em>Ejecución de Pedidos</a>
                       </li>
                     @endif
                   </ul>
@@ -157,14 +157,14 @@
             @if( Auth::user()->hasRole('Admin') )
               <li id="treeview-usuarios" class="treeview">
                 <a href="#">
-                  <i class="fa fa-users"></i> <span>Usuarios</span>
+                  <em class="fa fa-users"></em> <span>Usuarios</span>
                   <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
+                      <em class="fa fa-angle-left pull-right"></em>
                   </span>
                 </a>
                 <ul class="treeview-menu" style="display: none;">
-                  <li id="sidebar-btn-usuarios"><a href="{{ route('trabajadores.index') }}"><i
-                              class="fa fa fa-user"></i>Usuarios</a></li>
+                  <li id="sidebar-btn-usuarios"><a href="{{ route('trabajadores.index') }}"><em
+                              class="fa fa fa-user"></em>Usuarios</a></li>
                 </ul>
               </li>
             @endif

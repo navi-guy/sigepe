@@ -3,14 +3,15 @@
     <div class="box">
       <div class="box-body">
         <table id="tabla-trabajadores" class="table table-bordered table-striped">
+        <caption>Tabla de trabajadores</caption>
           <thead>
             <tr>
-              <th>#</th>
-              <th>DNI</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>
-              <th>Telefono</th>
-              <th>Acciones</th>
+              <th scope="col">#</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>

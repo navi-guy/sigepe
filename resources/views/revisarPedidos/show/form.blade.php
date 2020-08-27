@@ -52,12 +52,13 @@
         <div class="row">
           <div class="col-md-12">
             <table class="table table-bordered" id="product_info_table">
+            <caption>Tabla de productor por revisar</caption>
               <thead>
                 <tr>
-                  <th style="width:50%">Producto</th>
-                  <th style="width:10%">Cantidad</th>
-                  <th style="width:10%">Precio Unitario </th>
-                  <th style="width:20%">Monto</th>
+                  <th scope="col" style="width:50%">Producto</th>
+                  <th scope="col" style="width:10%">Cantidad</th>
+                  <th scope="col" style="width:10%">Precio Unitario </th>
+                  <th scope="col" style="width:20%">Monto</th>
                 </tr>
               </thead>
 
