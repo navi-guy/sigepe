@@ -70,7 +70,6 @@ class ProveedorController extends Controller
      */
     public function store(StoreProveedorRequest $request)
     {
-   
         Proveedor::create($request->validated());
         return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
      
@@ -129,9 +128,9 @@ class ProveedorController extends Controller
         if (count($proveedor->insumos)==0) {
             $proveedor->insumos()->detach();
             $proveedor->delete();
-            return  redirect()->action('ProductoController@index')->with('alert-type','warning')->with('status','Proveedor borrado con exito');
+            return  redirect()->action('ProveedorController@index')->with('alert-type','warning')->with('status','Proveedor borrado con exito');
         } else{
-            return  redirect()->action('ProductoController@index')->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
+            return  redirect()->action('ProveedorController@index')->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
         }       
             
         

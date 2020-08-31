@@ -14,8 +14,8 @@ class UserCanManteinProductoTest extends TestCase
     const URI_PRODUCTO = '/productos';
     const ALERT_STATUS = 'status';
     const NAME_PRODUCTO = 'nombre';
+    const ID_PRODUCTO = ['id' => 62];
     const LIST_PRODUCTO = ['nombre' => 'pruebita', 'precio_unitario' => '5.90', 'material' => '1', 'categoria_id' => '1', 'unidad_medida' => '1', 'descripcion' => 'prueba', 'insumo' => ['1'], 'qty' => ['2']];
-    const LIST_PRODUCTO_ID = ['id' => 62,'nombre' => 'pruebita', 'precio_unitario' => '5.90', 'material' => '1', 'categoria_id' => '1', 'unidad_medida' => '1', 'descripcion' => 'prueba', 'insumo' => ['1'], 'qty' => ['2']];
 
     /**
      * A basic feature test  for show productos.
@@ -71,7 +71,7 @@ class UserCanManteinProductoTest extends TestCase
     function UserCanUpdateProduct()
     {
         $this->actingAs(User::findOrFail(1));
-        $response = $this->json('PUT', self::URI_PRODUCTO . '/62', self::LIST_PRODUCTO_ID);
+        $response = $this->json('PUT', self::URI_PRODUCTO . '/62', array_merge(self::ID_PRODUCTO, self::LIST_PRODUCTO));
         $response->assertSessionHas(self::ALERT_STATUS, 'Producto editado con exito');
         $response->assertRedirect(self::URI_PRODUCTO);
         $response->assertStatus(302);  //redirect to /categorias

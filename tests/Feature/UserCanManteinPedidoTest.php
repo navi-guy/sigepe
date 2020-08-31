@@ -15,7 +15,6 @@ class UserCanManteinPedidoTest extends TestCase
     const ALERT_STATUS = 'status';
     const NAME_PEDIDO = 'FISI-PED-000038';
     const LIST_PEDIDO = ['cod_pedido' => self::NAME_PEDIDO, 'nombre_cli' => 'nombre', 'direccion_cli' => 'dir', 'telefono_cli' => '123123123', 'ruc_cli' => '12312312312', 'fecha' => '2020-08-31', 'product' => ['1'], 'qty' => ['1'], 'rate_value' => ['100.00'], 'amount_value' => ['100.00'], 'monto_bruto' => '100.00', 'descuento' => null, 'monto_neto' => '118.00'];
-    const LIST_PEDIDO_ID = ['id' => 12,'cod_pedido' => self::NAME_PEDIDO, 'nombre_cli' => 'nombre', 'direccion_cli' => 'dir', 'telefono_cli' => '123123123', 'ruc_cli' => '12312312312', 'fecha' => '2020-08-31', 'product' => ['1'], 'qty' => ['1'], 'rate_value' => ['100.00'], 'amount_value' => ['100.00'], 'monto_bruto' => '100.00', 'descuento' => null, 'monto_neto' => '118.00'];
 
     /**
      * A basic feature test  for show categorias.
@@ -70,7 +69,7 @@ class UserCanManteinPedidoTest extends TestCase
     function UserCanUpdateOrder()
     {
         $this->actingAs(User::findOrFail(1));
-        $response = $this->json('PUT', self::URI_PEDIDO . '/12', self::LIST_PEDIDO_ID);
+        $response = $this->json('PUT', self::URI_PEDIDO . '/14', self::LIST_PEDIDO);
         $response->assertSessionHas(self::ALERT_STATUS, 'Pedido editado con exito');
         $response->assertRedirect(self::URI_PEDIDO);
         $response->assertStatus(302);  //redirect to /categorias
@@ -80,7 +79,6 @@ class UserCanManteinPedidoTest extends TestCase
      * A basic feature test for delete category.
      * @test
      * @return void
-     * @group failing
      */
     function UserCantDeleteOrder()
     {
