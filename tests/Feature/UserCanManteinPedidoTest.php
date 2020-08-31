@@ -85,7 +85,8 @@ class UserCanManteinPedidoTest extends TestCase
     function UserCantDeleteOrder()
     {
         $this->actingAs(User::findOrFail(1));
-        $response = $this->json('DELETE', self::URI_PEDIDO . '/12');
+        $pedido = Pedido::create(self::LIST_PEDIDO);
+        $response = $this->json('DELETE', self::URI_PEDIDO . '/' . $pedido->id);
         $response->assertSessionHas(self::ALERT_STATUS,'Pedido eliminado con exito');
         $response->assertRedirect(self::URI_PEDIDO);
         $response->assertStatus(302);
