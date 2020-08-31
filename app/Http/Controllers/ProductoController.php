@@ -133,7 +133,7 @@ class ProductoController extends Controller
         */
         $producto->insumos()->detach();
         $producto->delete();
-        return  back()->with('alert-type', 'success')->with('status', 'Producto eliminado con exito');
+        return  redirect()->action('ProductoController@index')->with('alert-type', 'success')->with('status', 'Producto eliminado con exito');
     }
 
     public function getKeyValueCantidad($value){

@@ -127,6 +127,6 @@ class PedidoController extends Controller
 
         $pedido->productos()->detach();
         $pedido->delete();
-        return  back()->with('alert-type', 'success')->with('status', 'Pedido eliminado con exito');
+        return  redirect()->action('ProductoController@index')->with('alert-type', 'success')->with('status', 'Pedido eliminado con exito');
     }
 }

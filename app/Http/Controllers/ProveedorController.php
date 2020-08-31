@@ -129,9 +129,9 @@ class ProveedorController extends Controller
         if (count($proveedor->insumos)==0) {
             $proveedor->insumos()->detach();
             $proveedor->delete();
-            return  back()->with('alert-type','warning')->with('status','Proveedor borrado con exito');
+            return  redirect()->action('ProductoController@index')->with('alert-type','warning')->with('status','Proveedor borrado con exito');
         } else{
-            return  back()->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
+            return  redirect()->action('ProductoController@index')->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
         }       
             
         
