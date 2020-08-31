@@ -10,6 +10,8 @@ use CorporacionPeru\Http\Requests\StoreCategoriaRequest;
 
 class CategoriaController extends Controller
 {
+    const CATEGORIA_INDEX = 'CategoriaController@index';
+
     /**
      * Muestra la vista de categorías.
      *
@@ -21,6 +23,7 @@ class CategoriaController extends Controller
         return view('categorias.index', compact('categorias'));
     }
 
+
     /**
      * Almacena una categoría en la base de datos.
      *
@@ -30,9 +33,10 @@ class CategoriaController extends Controller
     public function store(StoreCategoriaRequest $request)
     {
         Categoria::create($request->validated());
-        Notification::setAlertSession(Notification::SUCCESS,'Categoria Registrada con exito');
-        return back();
+        Notification::setAlertSession(Notification::SUCCESS,'Categoria registrada con exito');
+        return redirect()->action(self::CATEGORIA_INDEX); 
     }
+
 
     /**
      * Retorna una categoría en JSON.
@@ -56,7 +60,7 @@ class CategoriaController extends Controller
         $id = $request->id;
         Categoria::findOrFail($id)->update($request->validated());
         Notification::setAlertSession(Notification::SUCCESS,'Categoria editada con exito');
-        return back();
+        return redirect()->action(self::CATEGORIA_INDEX);
     }
 
     /**
@@ -71,10 +75,10 @@ class CategoriaController extends Controller
         $exists = Producto::where('categoria_id', $categoria->id)->exists();
         if ($exists) {
             Notification::setAlertSession(Notification::WARNING,'Categoría tiene un producto asociado');
-            return back();
+            return redirect()->action(self::CATEGORIA_INDEX); 
         }
         $categoria->delete();
         Notification::setAlertSession(Notification::SUCCESS,'Categoría eliminada con exito');
-        return back();
+        return redirect()->action(self::CATEGORIA_INDEX); 
     }
 }

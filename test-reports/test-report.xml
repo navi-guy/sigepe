@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="4" assertions="6" errors="0" failures="1" skipped="0" time="14.795836">
+    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="3.466412">
+      <testsuite name="Tests\Unit\ExampleTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Unit\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="3.466412">
+        <testcase name="testBasicTest" class="Tests\Unit\ExampleTest" classname="Tests.Unit.ExampleTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Unit\ExampleTest.php" line="15" assertions="1" time="3.466412"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature" tests="3" assertions="5" errors="0" failures="1" skipped="0" time="11.329424">
+      <testsuite name="Tests\Feature\ExampleTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="4.073213">
+        <testcase name="testBasicTest" class="Tests\Feature\ExampleTest" classname="Tests.Feature.ExampleTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\ExampleTest.php" line="15" assertions="1" time="4.073213"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\UserCanMainteinCategoryTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\UserCanManteinCategoryTest.php" tests="2" assertions="4" errors="0" failures="1" skipped="0" time="7.256211">
+        <testcase name="UserCanCreateCategory" class="Tests\Feature\UserCanMainteinCategoryTest" classname="Tests.Feature.UserCanMainteinCategoryTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\UserCanManteinCategoryTest.php" line="18" assertions="1" time="2.812841">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\UserCanMainteinCategoryTest::UserCanCreateCategory
+Expected status code 200 but received 404.
+Failed asserting that false is true.
+
+D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\vendor\laravel\framework\src\Illuminate\Foundation\Testing\TestResponse.php:151
+D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\UserCanManteinCategoryTest.php:27
+</failure>
+        </testcase>
+        <testcase name="LoadsCategoryList" class="Tests\Feature\UserCanMainteinCategoryTest" classname="Tests.Feature.UserCanMainteinCategoryTest" file="D:\Ciclo 9\Calidad y pruebas\sonar-scanner-4.4.0.2170-windows\bin\sigepe\tests\Feature\UserCanManteinCategoryTest.php" line="41" assertions="3" time="4.443370"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
