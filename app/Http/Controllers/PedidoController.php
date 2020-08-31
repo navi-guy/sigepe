@@ -81,7 +81,7 @@ class PedidoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Pedido $pedido)
-    {   
+    {
         $pedido = $pedido->load('productos');
         $productos = Producto::all();
         return view('pedidos.edit.index', compact('productos','pedido'));
@@ -124,9 +124,8 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-
         $pedido->productos()->detach();
         $pedido->delete();
-        return  redirect()->action('ProductoController@index')->with('alert-type', 'success')->with('status', 'Pedido eliminado con exito');
+        return  redirect()->action('PedidoController@index')->with('alert-type', 'success')->with('status', 'Pedido eliminado con exito');
     }
 }
