@@ -16,27 +16,22 @@ class UserCanMainteinCategoryTest extends TestCase
     const NAME_CATEGORIA = 'nombre';
 
     /**
-     * A basic feature test  for index.
+     * A basic feature test  for show categorias.
      * @test
      * @return void
      */
-    public function LoadsCategoryList()
+    public function UserLoadsCategoryList()
     {
-        $user = User::find(1); // find specific user
-        if ($user) {
-            $this->actingAs($user);
-            $response = $this->get(self::URI_CATEGORIA);
-            $response->assertSeeText('Categorías de productos con los que trabaja la empresa');
-            $response->assertViewHas('categorias');
-            $response->assertStatus(200); //success
-        } else{
-            $response->assertStatus(302); //redirect to login
-        }
+        $this->actingAs(User::find(1));
+        $response = $this->get(self::URI_CATEGORIA);
+        $response->assertSeeText('Categorías de productos con los que trabaja la empresa');
+        $response->assertViewHas('categorias');
+        $response->assertStatus(200); //success
         
     }
 
     /**
-     * A basic feature test store.
+     * A basic feature test store categoria.
      * @test
      * @return void
      */
