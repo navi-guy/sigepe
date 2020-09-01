@@ -6,9 +6,11 @@ use CorporacionPeru\User;
 use Illuminate\Http\Request;
 use CorporacionPeru\Http\Requests\StoreUserRequest;
 use CorporacionPeru\Http\Requests\UpdateUserRequest;
+use CorporacionPeru\Notification;
 
 class UserController extends Controller
 {
+    const USER_INDEX = 'UserController@index';
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +31,8 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         User::create($request->validated());
-        return back()->with(['alert-type' => 'success', 'status' => 'Usuario creado con exito']);
+        Notification::setAlertSession(Notification::SUCCESS,'Usuario creado con exito');
+        return redirect()->action(self::USER_INDEX);
     }
 
 
@@ -44,7 +47,8 @@ class UserController extends Controller
     {
         $id = $request->id;
         User::findOrFail($id)->update($request->validated());
-        return back()->with(['alert-type' => 'success', 'status' => 'Usuario editado con exito']);
+        Notification::setAlertSession(Notification::SUCCESS,'Usuario editado con exito');
+        return redirect()->action(self::USER_INDEX);
     }
 
     /**
@@ -56,6 +60,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return back()->with(['alert-type' => 'warning', 'status' => 'Usuario eliminado con exito']);
+        Notification::setAlertSession(Notification::WARNING,'Usuario eliminado con exito');
+        return redirect()->action(self::USER_INDEX);
     }
 }

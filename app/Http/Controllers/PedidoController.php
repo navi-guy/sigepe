@@ -10,9 +10,11 @@ use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StorePedidoRequest;
 use CorporacionPeru\Http\Requests\UpdatePedidoRequest;
 use Carbon\Carbon;
+use CorporacionPeru\Notification;
 
 class PedidoController extends Controller
 {
+    const PEDIDO_INDEX = 'PedidoController@index';
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +62,9 @@ class PedidoController extends Controller
                 ['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);
         }
         $pedido->save();
-        return  redirect()->action('PedidoController@index')->with('alert-type','success')->with('status','Pedido creado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Pedido creado con exito');
+
+        return redirect()->action(self::PEDIDO_INDEX);
     }
 
     /**
@@ -81,7 +85,7 @@ class PedidoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Pedido $pedido)
-    {   
+    {
         $pedido = $pedido->load('productos');
         $productos = Producto::all();
         return view('pedidos.edit.index', compact('productos','pedido'));
@@ -112,8 +116,9 @@ class PedidoController extends Controller
                                         => ['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);            
         }
         $pedido->productos()->sync($pedido_producto);
-        
-        return redirect()->action('PedidoController@index')->with('alert-type','success')->with('status','Pedido editado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Pedido editado con exito');
+
+        return redirect()->action(self::PEDIDO_INDEX);
     }
 
     /**
@@ -124,9 +129,10 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-
         $pedido->productos()->detach();
         $pedido->delete();
-        return  back()->with('alert-type', 'success')->with('status', 'Pedido eliminado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Pedido eliminado con exito');
+        return redirect()->action(self::PEDIDO_INDEX);
+
     }
 }

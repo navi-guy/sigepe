@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreProveedorInsumoRequest extends FormRequest
 {
+    const REQUIRED_NUM = 'required|numeric|gt:0';
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,9 +26,9 @@ class StoreProveedorInsumoRequest extends FormRequest
     public function rules()
     {
         return [
-            'insumo_id'     => 'required|numeric|gt:0',
-            'proveedor_id'  => 'required|numeric|gt:0',
-            'precio_compra' => 'required|numeric|gt:0'     
+            'insumo_id'     => self::REQUIRED_NUM,
+            'proveedor_id'  => self::REQUIRED_NUM,
+            'precio_compra' => self::REQUIRED_NUM     
             ];
     }
 }

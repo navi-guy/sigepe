@@ -15,7 +15,7 @@ class Insumo extends Model
     }
 
     public function proveedores(){
-        return $this->belongsToMany(Proveedor::class, 'insumos_proveedor')->withPivot('precio_compra');;
+        return $this->belongsToMany(Proveedor::class, 'insumos_proveedor')->withPivot('precio_compra');
     }
 
     public function proveedorInsumo(){
@@ -62,7 +62,7 @@ class Insumo extends Model
         switch($this->unidad_medida){
            
            case 3:
-                $result="Metros cúbicas (m3)";
+                $result="Metros cúbicos (m3)";
                 break;
             case 2: 
                 $result="Pulgadas (µm)";

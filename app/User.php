@@ -10,6 +10,7 @@ use Carbon\Carbon;
 class User extends Authenticatable
 {
     use Notifiable;
+    const PASSWORD_ATTRIB = 'password';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password','trabajador_id','role_id'
+        'id', 'email', self::PASSWORD_ATTRIB,'trabajador_id','role_id'
     ];
     
     /**
@@ -26,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        self::PASSWORD_ATTRIB, 'remember_token',
     ];
 
     /**
@@ -49,7 +50,7 @@ class User extends Authenticatable
     }
 
     public function setPasswordAttribute($value){ 
-        $this->attributes['password']=bcrypt($value);
+        $this->attributes[self::PASSWORD_ATTRIB]=bcrypt($value);
     }
 
     public function authorizeRoles($roles){

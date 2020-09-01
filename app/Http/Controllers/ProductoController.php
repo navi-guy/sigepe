@@ -8,10 +8,13 @@ use CorporacionPeru\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use CorporacionPeru\Http\Requests\StoreProductoRequest;
+use CorporacionPeru\Notification;
 
 
 class ProductoController extends Controller
 {
+    const PRODUCTO_INDEX = 'ProductoController@index';
+
     /**
      * Display a listing of the resource.
      *
@@ -53,8 +56,9 @@ class ProductoController extends Controller
             $producto->insumos()->attach($insumos_id[$i], $this->getKeyValueCantidad($cantidad));
         }
         $producto->save();
+        Notification::setAlertSession(Notification::SUCCESS,'Producto creado con exito');
 
-        return  redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto creado con exito');
+        return redirect()->action(self::PRODUCTO_INDEX);
     }
 
     /**
@@ -117,7 +121,9 @@ class ProductoController extends Controller
         }
         $producto->insumos()->sync($producto_insumo);
 
-        return redirect()->action('ProductoController@index')->with('alert-type','success')->with('status','Producto editado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Producto editado con exito');
+
+        return redirect()->action(self::PRODUCTO_INDEX);
     }
 
     /**
@@ -133,7 +139,9 @@ class ProductoController extends Controller
         */
         $producto->insumos()->detach();
         $producto->delete();
-        return  back()->with('alert-type', 'success')->with('status', 'Producto eliminado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Producto eliminado con exito');
+
+        return redirect()->action(self::PRODUCTO_INDEX);
     }
 
     public function getKeyValueCantidad($value){

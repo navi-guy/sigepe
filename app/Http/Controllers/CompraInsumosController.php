@@ -10,6 +10,8 @@ use CorporacionPeru\Notification;
 
 class CompraInsumosController extends Controller
 {
+    const INSUMO_ID= 'insumos.id';
+    const COMPRA_INSUMOS_INDEX = 'CompraInsumosController@index';
     /**
      * Mostrar todos los insumos con solicitudes
      *
@@ -17,8 +19,8 @@ class CompraInsumosController extends Controller
      */
     public function index()
     {
-        $insumos = Insumo::groupBy('insumos.id','proveedores.id')
-                    ->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', 'insumos.id')
+        $insumos = Insumo::groupBy(self::INSUMO_ID,'proveedores.id')
+                    ->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', self::INSUMO_ID)
                     ->join('proveedores', 'insumos_proveedor.proveedor_id', '=', 'proveedores.id')
                     ->selectRaw('insumos.id, insumos.nombre, insumos.cantidad,
                              insumos.unidad_medida, insumos_proveedor.insumo_id,
@@ -28,7 +30,7 @@ class CompraInsumosController extends Controller
                              SUM(insumos_proveedor.cantidad) AS solicitado')
                     ->where('estado','=','2')
                     ->orWhere('estado','=','3')
-                    ->orderBy('insumos.id', 'DESC')
+                    ->orderBy(self::INSUMO_ID, 'DESC')
                     ->get();
 
         return view('comprarInsumos.index', compact('insumos'));
@@ -48,7 +50,8 @@ class CompraInsumosController extends Controller
         $solicitudInsumo->cantidad = 0;
         $solicitudInsumo->save();
         Notification::setAlertSession(Notification::WARNING,'Solicitud rechazada');
-        return back();
+        return redirect()->action(self::COMPRA_INSUMOS_INDEX);
+        
     }
 
 
@@ -64,7 +67,7 @@ class CompraInsumosController extends Controller
         $solicitudInsumo->estado = 3;
         $solicitudInsumo->save();
         Notification::setAlertSession(Notification::SUCCESS,'Solicitud aceptada');
-        return back();
+        return redirect()->action(self::COMPRA_INSUMOS_INDEX);
     }
 
     /**
@@ -74,7 +77,7 @@ class CompraInsumosController extends Controller
      */
     public function registrarCompra(Request $request)
     {
-        /**Transaction*/
+        /** Transaction */
         DB::beginTransaction();
         try {
             $id = $request->id_insumo_proveedor;
@@ -88,11 +91,11 @@ class CompraInsumosController extends Controller
             $insumo->save();
             Notification::setAlertSession(Notification::SUCCESS,'Compra de insumos registrada');
         DB::commit();
-        return back();
+        return redirect()->action(self::COMPRA_INSUMOS_INDEX);
         } catch (\Exception  $e) {
             DB::rollback();
             Notification::setAlertSession(Notification::DANGER,'Ocurrió un error en el servidor');
-            return  back();
+            return redirect()->action(self::COMPRA_INSUMOS_INDEX);
         }
     }
 }

@@ -2,8 +2,9 @@
 
 namespace CorporacionPeru\Http\Controllers;
 
-use CorporacionPeru\Insumo;
+use CorporacionPeru\Producto;
 use Illuminate\Http\Request;
+use CorporacionPeru\Notification;
 
 class InsumoController extends Controller
 {
@@ -12,29 +13,9 @@ class InsumoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function getDisponibles(){
         $insumos = Insumo::where('cantidad','>',0)->get();
         return response()->json(['insumos' => $insumos]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -60,37 +41,4 @@ class InsumoController extends Controller
         return response()->json(['insumo' => $insumo]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \CorporacionPeru\Insumo  $insumo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Insumo $insumo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \CorporacionPeru\Insumo  $insumo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Insumo $insumo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \CorporacionPeru\Insumo  $insumo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Insumo $insumo)
-    {
-        //
-    }
 }

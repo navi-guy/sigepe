@@ -28,7 +28,6 @@ class Producto extends Model
     }  
 
     public function getMaterial(){
-        $result="";
         switch($this->material){
             case 3: 
                 $result="Material de Cobre";
@@ -39,16 +38,17 @@ class Producto extends Model
             case 1:
                 $result="Material de Laton";
                 break;
+            default:
+                    $result=""; 
         }
         return $result;
     }
 
     public function getUnidadMedida(){
-        $result="";
-        switch($this->unidad_medida){
-           
+
+        switch($this->unidad_medida){    
            case 3:
-                $result="Metros cúbicas (m3)";
+                $result="Metros cúbicos (m3)";
                 break;
             case 2: 
                 $result="Pulgadas (µm)";
@@ -59,6 +59,8 @@ class Producto extends Model
             case 0:
                 $result="Unidad (u)";
                 break;
+            default:
+                    $result=""; 
         }
         return $result;
     }

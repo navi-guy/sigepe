@@ -3,7 +3,6 @@
 namespace CorporacionPeru;
 
 use Illuminate\Database\Eloquent\Model;
-use CorporacionPeru\Planta;
 
 class Proveedor extends Model
 {
@@ -19,7 +18,7 @@ class Proveedor extends Model
     }
 
     public function getTipo(){
-        $result="";
+
         switch($this->tipo){
             case 2: 
                 $result="Fábrica";
@@ -27,6 +26,8 @@ class Proveedor extends Model
             case 1:
                 $result="Mecánica";
                 break;
+            default:
+                $result=""; 
         }
         return $result;
     }
