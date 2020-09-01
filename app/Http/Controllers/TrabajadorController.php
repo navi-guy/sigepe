@@ -4,10 +4,12 @@ namespace CorporacionPeru\Http\Controllers;
 
 use CorporacionPeru\Trabajador;
 use Illuminate\Http\Request;
+use CorporacionPeru\Notification;
 use CorporacionPeru\Http\Requests\StoreTrabajadorRequest;
 
 class TrabajadorController extends Controller
 {
+    const TRABAJADOR_INDEX = 'TrabajadorController@index';
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +30,8 @@ class TrabajadorController extends Controller
     public function store(StoreTrabajadorRequest $request)
     {
         Trabajador::create($request->validated());
-        return back()->with(['alert-type' => 'success', 'status' => 'Trabajador creado con exito']);
+        Notification::setAlertSession(Notification::SUCCESS,'Trabajador creado con exito');
+        return redirect()->action(self::TRABAJADOR_INDEX);
     }
 
     /**
@@ -64,7 +67,8 @@ class TrabajadorController extends Controller
     {
         $id = $request->id;
         Trabajador::findOrFail($id)->update($request->validated());
-        return back()->with(['alert-type' => 'success', 'status' => 'Trabajador editado con exito']);
+        Notification::setAlertSession(Notification::SUCCESS,'Trabajador editado con exito');
+        return redirect()->action(self::TRABAJADOR_INDEX);
     }
 
     /**
@@ -76,6 +80,7 @@ class TrabajadorController extends Controller
     public function destroy(Trabajador $trabajadore)
     {
         $trabajadore->delete();
-        return back()->with(['alert-type' => 'warning', 'status' => 'Trabajador eliminado con exito']);
+        Notification::setAlertSession(Notification::WARNING,'Trabajador eliminado con exito');
+        return redirect()->action(self::TRABAJADOR_INDEX);
     }
 }

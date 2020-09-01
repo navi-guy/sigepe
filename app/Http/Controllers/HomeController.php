@@ -31,7 +31,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $numeroPedido= Pedido::all()->count();
         $numeroUsuarios= User::all()->count();
         $numeroProductos= Producto::all()->count();
@@ -46,8 +45,6 @@ class HomeController extends Controller
         'ninsumo'    => $numerodeInsumos,
         'nproveedor' => $numeroProveedores,
         ];
-        //dd($array['npedido']);
-        //obtener valores de las cartillas y pasarlos a la vista
         return view('home',compact('array'));
     }
 }

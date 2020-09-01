@@ -7,9 +7,11 @@ use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StoreProveedorRequest;
 use CorporacionPeru\Http\Requests\UpdateProveedorRequest;
+use CorporacionPeru\Notification;
 
 class ProveedorController extends Controller
 {
+    const PROVEEDOR_INDEX = 'ProveedorController@index';
     /**
      * Display a listing of the resource.
      *
@@ -71,8 +73,9 @@ class ProveedorController extends Controller
     public function store(StoreProveedorRequest $request)
     {
         Proveedor::create($request->validated());
-        return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor creado con exito');
-     
+        Notification::setAlertSession(Notification::SUCCESS,'Proveedor creado con exito');
+
+        return redirect()->action(self::PROVEEDOR_INDEX);    
     }
 
     /**
@@ -113,7 +116,9 @@ class ProveedorController extends Controller
         $id=$request->id;
         $proveedor=Proveedor::findOrFail($id);
         $proveedor->update($request->validated());
-        return  redirect()->action('ProveedorController@index')->with('alert-type','success')->with('status','Proveedor editado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Proveedor editado con exito');
+
+        return redirect()->action(self::PROVEEDOR_INDEX);    
     }
 
     /**
@@ -128,9 +133,13 @@ class ProveedorController extends Controller
         if (count($proveedor->insumos)==0) {
             $proveedor->insumos()->detach();
             $proveedor->delete();
-            return  redirect()->action('ProveedorController@index')->with('alert-type','warning')->with('status','Proveedor borrado con exito');
+            Notification::setAlertSession(Notification::SUCCESS,'Proveedor borrado con exito');
+            return redirect()->action(self::PROVEEDOR_INDEX); 
+
         } else{
-            return  redirect()->action('ProveedorController@index')->with('alert-type','warning')->with('status','Elimine los insumos asociados al proveedor primero');
+
+            Notification::setAlertSession(Notification::DANGER,'Elimine los insumos asociados al proveedor primero');
+            return redirect()->action(self::PROVEEDOR_INDEX); 
         }       
             
         

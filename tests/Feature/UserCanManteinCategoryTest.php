@@ -17,7 +17,8 @@ class UserCanMainteinCategoryTest extends TestCase
 
     /**
      * A basic feature test  for show categorias.
-     * @test
+     * @test 
+     * @group feature
      * @return void
      */
     public function UserLoadsCategoryList()
@@ -69,7 +70,9 @@ class UserCanMainteinCategoryTest extends TestCase
     function UserCanUpdateCategory()
     {
         $this->actingAs(User::findOrFail(1));
-        $response = $this->json('PUT', self::URI_CATEGORIA . '/1', ['id' => 1, self::NAME_CATEGORIA => 'name actualizado']);
+        $categoria = Categoria::latest()->first();
+        $response = $this->json('PUT', self::URI_CATEGORIA . '/0', ['id' => $categoria->id, self::NAME_CATEGORIA => 'name actualizado']);
+
         $response->assertSessionHas(self::ALERT_STATUS, 'Categoria editada con exito');
         $response->assertRedirect(self::URI_CATEGORIA);
         $response->assertStatus(302);  //redirect to /categorias
@@ -99,7 +102,7 @@ class UserCanMainteinCategoryTest extends TestCase
     function UserCanDeleteCategory()
     {
         $this->actingAs(User::findOrFail(1));
-        $categoria = Categoria::create([ self::NAME_CATEGORIA => "Cat a eliminar"]);
+        $categoria = Categoria::latest()->first();
         $response = $this->json('DELETE', self::URI_CATEGORIA  . '/' . $categoria->id);
         $response->assertSessionHas(self::ALERT_STATUS,'Categoría eliminada con exito');
         $response->assertRedirect(self::URI_CATEGORIA);

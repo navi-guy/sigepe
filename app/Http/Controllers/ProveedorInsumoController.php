@@ -6,11 +6,12 @@ use CorporacionPeru\Proveedor;
 use CorporacionPeru\ProveedorInsumo;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests\StoreProveedorInsumoRequest;
+use CorporacionPeru\Notification;
 
 class ProveedorInsumoController extends Controller
 {
 
-
+    const PROVEEDOR_INSUMO_INDEX = 'ProveedorInsumoController@index';
     /**
      * Asigna un insumo a un proveedor
      *
@@ -20,7 +21,9 @@ class ProveedorInsumoController extends Controller
     public function store(StoreProveedorInsumoRequest $request)
     {
         ProveedorInsumo::create($request->validated());
-        return  back()->with('alert-type','success')->with('status','Asignación creada con exito');
+
+        Notification::setAlertSession(Notification::SUCCESS,'Asignación creada con exito');
+        return  back();
      
     }
 
@@ -63,7 +66,8 @@ class ProveedorInsumoController extends Controller
         $id=$request->id;
         $proveedorInsumo=ProveedorInsumo::findOrFail($id);
         $proveedorInsumo->update($request->validated());
-        return  back()->with('alert-type','success')->with('status','Insumo asignado editado con exito');
+        Notification::setAlertSession(Notification::SUCCESS,'Insumo asignado editado con exito');
+        return  back();
     }
 
     /**
@@ -74,10 +78,9 @@ class ProveedorInsumoController extends Controller
      */
     public function destroy($id)
     {
-
         ProveedorInsumo::destroy($id);
-        return  back()->with('alert-type','success')->with('status','Insumo asignado removido con exito');
-
+        Notification::setAlertSession(Notification::SUCCESS,'Insumo asignado removido con exito');
+        return  back(); 
     }
 
 }

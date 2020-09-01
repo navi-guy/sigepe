@@ -34,7 +34,7 @@ class CategoriaController extends Controller
     {
         Categoria::create($request->validated());
         Notification::setAlertSession(Notification::SUCCESS,'Categoria registrada con exito');
-        return redirect()->action(self::CATEGORIA_INDEX); 
+        return redirect()->action(self::CATEGORIA_INDEX);
     }
 
 

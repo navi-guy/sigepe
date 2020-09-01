@@ -4,7 +4,7 @@
       <div class="box-body">
         <table id="tabla-revisarPedidos" class="table table-bordered table-striped responsive display nowrap"
           style="width:100%" cellspacing="0">
-          <caption>Yabla de productos por revisar</caption>
+          <caption>Tabla de productos por revisar</caption>
           <thead>
             <tr>
               <th scope="col">Código Pedido</th>

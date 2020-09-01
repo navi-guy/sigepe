@@ -5,9 +5,11 @@ namespace CorporacionPeru\Http\Controllers;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\ProveedorInsumo;
 use Illuminate\Http\Request;
+use CorporacionPeru\Notification;
 
 class RevisarStockController extends Controller
 {
+    const REVISAR_STOCK= 'RevisarStockController@index';
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +40,8 @@ class RevisarStockController extends Controller
                 $proveedorInsumo->save();
             }
         }
-        return  back()->with('alert-type', 'success')->with('status', 'Solicitud agregada con éxito');
+        Notification::setAlertSession(Notification::SUCCESS,'Solicitud agregada con éxito');
+        return redirect()->action(self::REVISAR_STOCK);
     }
 
 }

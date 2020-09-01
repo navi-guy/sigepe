@@ -8,5 +8,4 @@ use Carbon\Carbon;
 class ProductoInsumos extends Model
 {
     protected $table = 'producto_insumos';
-/*     protected $fillable= ['pedido_id','producto_id','cantidad'];   */
 }
