@@ -47,8 +47,7 @@ class ProveedorController extends Controller
     {
         $proveedor = Proveedor::findOrFail($id);
         $array_ids_insumo = $proveedor->insumos->pluck('id');
-        $insumos_sin_asignar = Insumo::whereNotIn('id',$array_ids_insumo)->get();
-        return $insumos_sin_asignar;
+        return Insumo::whereNotIn('id',$array_ids_insumo)->get();
     }
 
     /**
@@ -79,20 +78,6 @@ class ProveedorController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \CorporacionPeru\Proveedor  $proveedor
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $planta = Planta::findOrFail($id);
-        $id = $planta->proveedor_id;
-        $proveedor = Proveedor::findOrFail($id);
-        return $proveedor;
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \CorporacionPeru\Proveedor  $proveedor
@@ -100,8 +85,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        $proveedor = Proveedor::findOrFail($id);
-        return $proveedor;
+        return Proveedor::findOrFail($id);
     }
 
     /**
