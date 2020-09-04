@@ -5,6 +5,7 @@ namespace CorporacionPeru\Http\Controllers;
 use CorporacionPeru\Producto;
 use Illuminate\Http\Request;
 use CorporacionPeru\Notification;
+use CorporacionPeru\Insumo;
 
 class InsumoController extends Controller
 {
