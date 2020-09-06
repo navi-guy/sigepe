@@ -66,8 +66,7 @@ class CategoriaController extends Controller
      */
   
     public function update(StoreCategoriaRequest $request)
-    {  
-        
+        {
          $id = $request->id;
          $nombre = $request->nombre;
         if( Categoria::where('nombre', '=', $nombre)->where('id', '!=', $id)->get()->count() == 0 )

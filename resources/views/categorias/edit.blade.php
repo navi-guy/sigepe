@@ -19,7 +19,7 @@
                 <div class="form-group @error('nombre') has-error @enderror">
                   <label for="nombre-edit">Nombre de la categoría</label>
                   <input id="nombre-edit" type="text" class="form-control"
-                          name="nombre" placeholder="Ingrese la categoría" required>
+                          name="nombre" placeholder="Ingrese la categoría" required  pattern="^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$"   title="La categoria puede contener letras y/o numeros, no debe comenzar con espacios en blanco">
                   @error('nombre')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
