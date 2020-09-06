@@ -78,6 +78,11 @@ class ProveedorInsumoController extends Controller
      */
     public function destroy($id)
     {
+        $proveedorInsumo = ProveedorInsumo::findOrFail($id);
+        if ($proveedorInsumo->cantidad > 0) {
+            Notification::setAlertSession(Notification::WARNING,'Debes culminar el proceso de solicitud de este insumo primero');
+            return  back();
+        }
         ProveedorInsumo::destroy($id);
         Notification::setAlertSession(Notification::SUCCESS,'Insumo asignado removido con exito');
         return  back(); 

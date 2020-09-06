@@ -27,7 +27,7 @@ class StoreProductoRequest extends FormRequest
             'nombre'          =>'required|min: 3|max: 64|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1\.\-]*$/|unique:productos',
             'material'        =>'required|numeric|gt:0',
             'unidad_medida'   =>'required|numeric|gte:0',
-            'descripcion'     =>'nullable|min: 3|max: 200|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1]*$/',
+            'descripcion'     =>'nullable|min: 3|max: 200|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1\.\-]*$/',
             'image'           =>'nullable|image|mimes:png,jpg|max:2048',
             'precio_unitario' =>'required|numeric|gt:0',
             'categoria_id'    =>'required',

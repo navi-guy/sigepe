@@ -13,7 +13,7 @@
             <div class="col-md-12">
               <div class="form-group @error('nombre') has-error @enderror">
                 <input id="nombre" type="text" class="form-control" value="{{old("nombre")}}"
-                        name="nombre" placeholder="Nombre de la categoría" required pattern="^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$"   title="La categoria puede contener letras y/o numeros, no debe comenzar con espacios en blanco"> 
+                        name="nombre" placeholder="Nombre de la categoría" required pattern="^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$"  minlength="3" maxlength="64" title="La categoria puede contener letras y/o numeros, no debe comenzar con espacios en blanco"> 
                 @error('nombre')
                 <span class="help-block" role="alert">
                   <strong>{{ $message }}</strong>
