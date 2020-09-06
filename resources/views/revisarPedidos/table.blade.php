@@ -71,14 +71,14 @@
                     @endif
                     @if ($pedido->isEsperaInsumos())
                       <button class="btn btn-primary btn-sm"
-                        href="{{ route('pedidos.show', $pedido->id) }}">
+                        href="{{ route('pedidos.visualizarPedido',['id'=>$pedido->id, 'type'=>'revisar'])}}">
                         <span class="fa fa-check-square-o"></span> Solicitar insumos</button>
                     @endif
                     <button class="btn btn-danger btn-sm" data-toggle="modal"
                       data-target="#modal-rechazar-pedido" data-id="{{ $pedido->id }}">
                       <span class="fa fa-close"></span> Rechazar</button>
                   @endif
-                  <a class="btn btn-default btn-sm" href="{{ route('pedidos.show', $pedido->id) }}">
+                  <a class="btn btn-default btn-sm" href="{{ route('pedidos.visualizarPedido',['id'=>$pedido->id, 'type'=>'revisar'])}}">
                     <span class="fa fa-eye"></span> Ver detalle
                   </a>
                 </td>

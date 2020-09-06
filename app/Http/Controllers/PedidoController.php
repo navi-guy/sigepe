@@ -67,15 +67,17 @@ class PedidoController extends Controller
         return redirect()->action(self::PEDIDO_INDEX);
     }
 
+
     /**
      * Display the specified resource.
      *
      * @param  \CorporacionPeru\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedido $pedido)
+    public function visualizarPedido($id, $type)
     {
-        return view('revisarPedidos.show.index', compact('pedido'));
+        $pedido  = Pedido::findOrFail($id);        
+        return view('revisarPedidos.show.index', compact('pedido', 'type'));
     }
 
     /**
@@ -98,7 +100,7 @@ class PedidoController extends Controller
      * @param  \CorporacionPeru\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePedidoRequest $request,  $id)
+    public function update(StorePedidoRequest $request,  $id)
     {
         Pedido::findOrFail($id)->update($request->validated());
         $pedido = Pedido::findOrFail($id);

@@ -68,7 +68,12 @@ $(document).ready(function() {
     $("#product_{{$loop->iteration}}").select2();
   @endforeach
 
-  $("#categoria_select").select2();
+
+  $("#categoria_select").prop("selectedIndex", -1);
+  $("#categoria_select").select2({
+    placeholder: "Ingresa la categoría",
+    allowClear:true
+  });
   $("#categoria_select").val({{$producto->categoria_id}}).trigger('change.select2');
 
   $("#add_row").unbind('click').bind('click', function() {

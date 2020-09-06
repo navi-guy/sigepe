@@ -27,7 +27,7 @@
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
                         <label for="product_name">Nombre del producto <span class="mandatory">*</span></label>
-                        <input type="text" class="form-control" id="product_name" name="nombre" placeholder="Nombre del producto" value="{{$producto->nombre}}" required/>
+                        <input type="text" class="form-control" id="product_name" name="nombre" placeholder="Nombre del producto" value="{{$producto->nombre}}" minlength="3" maxlength="64" required/>
                       </div>
                     </div>
                   </div>
@@ -42,6 +42,7 @@
                     <div class="col-md-6 col-xs-6">
                       <label for="tipo_proveedor">Material del Producto <span class="mandatory">*</span></label>
                       <select class="form-control" id="material" name="material" required>
+                        <option value="" selected="">Seleccione una opción</option>
                         <option value="1" @if (1 == old('material', $producto->material))
                           selected="selected" @endif>Material de Laton</option>
                         <option value="2" @if (2 == old('material', $producto->material))
@@ -55,7 +56,7 @@
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
                         <label for="category">Categoría <span class="mandatory">*</span></label>
-                        <select class="form-control" name="categoria_id" id="categoria_select">
+                        <select class="form-control" name="categoria_id" id="categoria_select" required="">
                           <!-- setear desde js -->
                           @foreach($categorias as $categoria)
                             <option value="{{$categoria->id}}" >{{$categoria->nombre}}</option>
@@ -66,7 +67,8 @@
                     <div class="col-md-6 col-xs-6">
                       <div class="form-group">
                       <label for="tipo_proveedor">Unidad de Medida <span class="mandatory">*</span></label>
-                        <select class="form-control" id="unidad_medida" name="unidad_medida" >
+                        <select class="form-control" id="unidad_medida" name="unidad_medida" required="">
+                          <option value="" selected="">Seleccione una opción</option>
                           @foreach($unidades_medida as $unidad_medida)
                             <option value="{{$unidad_medida['id']}}" 
                               @if ($unidad_medida['id'] == old('unidad_medida', $producto->unidad_medida)) 
@@ -80,7 +82,7 @@
                     <div class="col-md-12 col-xs-12">
                       <div class="form-group">
                         <label for="descripcion">Descripción</label>
-                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;">{{$producto->descripcion}}</textarea>
+                        <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del producto" autocomplete="off" style="resize: none;" minlength="3" maxlength="200">{{$producto->descripcion}}</textarea>
                       </div>
                     </div>
                   </div>

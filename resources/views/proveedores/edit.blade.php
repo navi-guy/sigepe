@@ -21,9 +21,9 @@
               <div class="box-body">
               
                 <div class="form-group @error('razon_social') has-error @enderror">
-                  <label for="razon_social-edit">Razon Social</label>
+                  <label for="razon_social-edit">Razon Social <span class="mandatory">*</span></label>
                   <input id="razon_social-edit" type="text" class="form-control" 
-                          name="razon_social" value="{{ old('razon_social') }}" placeholder="Ingrese la Razon Social" required>
+                          name="razon_social" value="{{ old('razon_social') }}" placeholder="Ingrese la Razon Social"  minlength="3" maxlength="150" required>
                   @error('razon_social')
                     <span class="help-block" role="alert">
                       <strong>{{ $message }}</strong>
@@ -31,8 +31,10 @@
                   @enderror
                 </div>
               <div class="form-group @error('ruc') has-error @enderror">
-                <label for="ruc">RUC*</label>
-                <input id="ruc-edit" type="text" class="form-control" name="ruc" placeholder="Ingrese su RUC" value="{{ old('ruc') }}" pattern="[0-9]{11}" title="Formato: 11 dígitos" required>
+                <label for="ruc">RUC <span class="mandatory">*</span></label>
+                <input id="ruc-edit" type="number" class="form-control" name="ruc" placeholder="Ingrese su RUC" value="{{ old('ruc') }}" max="99999999999" step="1"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                 title="El RUC debe tener 11 dígitos" required="">
                 @error('ruc')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -51,7 +53,7 @@
               <div class="box-body">
                 <div class="form-group @error('direccion') has-error @enderror">
                   <label for="direccion">Dirección</label>
-                  <input id="direccion-edit" type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}">
+                  <input id="direccion-edit" type="text" class="form-control" name="direccion" placeholder="Dirección" value="{{ old('direccion') }}" minlength="3" maxlength="150">
                   @error('direccion')
                     <span class="help-block" role="alert">
                       <strong>{{ $message }}</strong>
@@ -59,8 +61,9 @@
                   @enderror
                 </div>  
                 <div class="form-group @error('tipo') has-error @enderror">
-                  <label for="tipo">Tipo</label>
-                  <select name="tipo" id="tipo-edit" class="form-control">                   
+                  <label for="tipo">Tipo <span class="mandatory">*</span></label>
+                  <select name="tipo" id="tipo-edit" class="form-control"required="">                
+                    <option value="" selected="">Seleccione una opción</option>                         
                     <option value="1" @if (old('tipo') == "1") {{ 'selected' }} @endif>Mecánica</option>
                     <option value="2" @if (old('tipo') == "2") {{ 'selected' }} @endif>Fábrica</option>
                   </select>   
@@ -71,6 +74,7 @@
         </div> 
       </div>
       <div class="modal-footer">
+        <p>Los campos marcados con (<span class="mandatory" >*</span>) son obligatorios.</p>
         <button type="submit" class="btn btn-success pull-left">Guardar cambios</button>
         <button type="" class="btn btn-default" data-dismiss="modal">Cancelar</button>
       </div>

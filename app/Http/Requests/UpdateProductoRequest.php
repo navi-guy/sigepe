@@ -4,7 +4,7 @@ namespace CorporacionPeru\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductoRequest extends FormRequest
+class UpdateProductoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class StoreProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'          =>'required|min: 3|max: 64|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1\.\-]*$/|unique:productos',
+            'nombre'          =>'required|min: 3|max: 64|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1\.\-]*$/',
             'material'        =>'required|numeric|gt:0',
             'unidad_medida'   =>'required|numeric|gte:0',
             'descripcion'     =>'nullable|min: 3|max: 200|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1]*$/',

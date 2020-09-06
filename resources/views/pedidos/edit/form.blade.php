@@ -17,7 +17,7 @@
                   <span class="mandatory" >*</span>
                 </label>
                 <input id="nombre_cli" type="text" class="form-control" name="nombre_cli" 
-                placeholder="Ingrese el nombre del cliente" value="{{ $pedido->nombre_cli}}" required>
+                placeholder="Ingrese el nombre del cliente" value="{{ $pedido->nombre_cli}}" minlength="3" maxlength="150" required >
                 @error('nombre_cli')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                 <label for="direccion_cli">Dirección del cliente
                   <span class="mandatory" >*</span>
                 </label>
-                <input id="direccion_cli" type="text" class="form-control" name="direccion_cli" placeholder="Ingrese la dirección del cliente" value="{{ $pedido->direccion_cli}}" required>
+                <input id="direccion_cli" type="text" class="form-control" name="direccion_cli" placeholder="Ingrese la dirección del cliente" value="{{ $pedido->direccion_cli}}"  minlength="3" maxlength="150" required>
                 @error('direccion_cli')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -45,7 +45,8 @@
                 <label for="telefono_cli">Teléfono del cliente 
                   <span class="mandatory" >*</span>
                 </label>
-                <input id="telefono_cli" type="text" class="form-control" name="telefono_cli" placeholder="Ingrese su el teléfono del cliente" value="{{  $pedido->telefono_cli }}">
+                <input id="telefono_cli" type="number" class="form-control" name="telefono_cli" placeholder="Ingrese su el teléfono del cliente" value="{{  $pedido->telefono_cli }}" max="99999999999999999999" step="1" 
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"               required>
                 @error('telefono_cli')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -58,7 +59,8 @@
                 <label for="ruc_cli">RUC del cliente
                   <span class="mandatory" >*</span>
                 </label>
-                <input id="ruc_cli" type="text" class="form-control" name="ruc_cli" placeholder="Ingrese RUC del cliente" value="{{ $pedido->ruc_cli }}" pattern="[0-9]{11}" title="Formato: 11 dígitos" required>
+                <input id="ruc_cli" type="number" class="form-control" name="ruc_cli" placeholder="Ingrese RUC del cliente" value="{{ $pedido->ruc_cli }}" max="99999999999" step="1"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"               required>
                 @error('ruc_cli')
                   <span class="help-block" role="alert">
                     <strong>{{ $message }}</strong>

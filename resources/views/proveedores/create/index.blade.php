@@ -39,6 +39,16 @@
 <script type="text/javascript">
 
 $(document).ready(function () {
+  
+  $('input[type=number][max]:not([max=""])').on('input', function(ev) {
+    var $this = $(this);
+    var maxlength = $this.attr('max').length;
+    var value = $this.val();
+    if (value && value.length >= maxlength) {
+      $this.val(value.substr(0, maxlength));
+    }
+  });
+
   $select_insumo = $("#insumo_id");
   $datos_asignacion = $('#datos-asignacion :input').prop('disabled', true);
   let $proveedor = $('#proveedor');
@@ -47,7 +57,7 @@ $(document).ready(function () {
     let id_proveedor = $proveedor.val();
     if (id_proveedor) {
       getInsumosSinAsignar(id_proveedor).done((data) => {
-        //console.log(data);
+        console.log(data);
         $select_insumo.html('');
         inicializarSelect2($select_insumo, 'Seleccione el insumo a asignar', data.insumos);
         if (data.insumos.length >= 1) {
@@ -74,7 +84,7 @@ $(document).ready(function () {
 function handleInsumosChanges(id_insumo){
   if (id_insumo) {
     getInsumoById(id_insumo).done((data) => {
-      //console.log(data);
+      console.log(data);
       $('#unidad_medida').val(getUnidadMedida(data.insumo.unidad_medida));    
     }).fail((error) => {
       toastr.error('Ocurrio un Error!', 'Error Alert', { timeOut: 2000 });

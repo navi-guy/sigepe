@@ -6,7 +6,6 @@ use CorporacionPeru\Proveedor;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StoreProveedorRequest;
-use CorporacionPeru\Http\Requests\UpdateProveedorRequest;
 use CorporacionPeru\Notification;
 
 class ProveedorController extends Controller
@@ -111,7 +110,7 @@ class ProveedorController extends Controller
      * @param  \CorporacionPeru\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProveedorRequest $request)
+    public function update(StoreProveedorRequest $request)
     {
         $id=$request->id;
         $proveedor=Proveedor::findOrFail($id);

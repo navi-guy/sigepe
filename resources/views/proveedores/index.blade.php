@@ -6,6 +6,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{asset('dist/css/alt/AdminLTE-select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
+<style  rel="stylesheet" type="text/css">
+  .mandatory {
+    color: red;
+    font-weight: bold;
+  }
+</style>
 @endsection
 
 @section('breadcrumb')
@@ -48,6 +54,14 @@ $(document).ready(function() {
   document.getElementById('treeview-menu-proveedores').style.display = 'block';
   $('#sidebar-btn-proveedores').addClass("active");  
 //end sidebar
+  $('input[type=number][max]:not([max=""])').on('input', function(ev) {
+    var $this = $(this);
+    var maxlength = $this.attr('max').length;
+    var value = $this.val();
+    if (value && value.length >= maxlength) {
+      $this.val(value.substr(0, maxlength));
+    }
+  });
 
   $('#tabla-proveedores').DataTable({
       "order": [[ 0, "desc" ]],       

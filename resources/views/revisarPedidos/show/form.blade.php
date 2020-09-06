@@ -3,11 +3,31 @@
     <div class="box box-success">
       <div class="box-header with-border">
         <h3 class="box-title">{{$pedido->cod_pedido}}</h3>
+           
+        @switch($type)
+          @case("pedidos")
+            <a href="{{ route('pedidos.index') }}">
+              <button class="btn btn-success pull-right">
+                <span class="fa fa-arrow-left"></span> &nbsp; Volver a pedidos
+              </button>
+            </a> 
+            @break
+          @case("revisar")
             <a href="{{ route('revisarPedidos.index') }}">
-      <button class="btn btn-success pull-right">
-        <span class="fa fa-arrow-left"></span> &nbsp; Volver a la evaluación de pedidos
-      </button>
-    </a> 
+              <button class="btn btn-success pull-right">
+            <span class="fa fa-arrow-left"></span> &nbsp; Volver a revisar pedidos
+              </button>
+            </a> 
+            @break
+          @case("seguir")
+            <a href="{{ route('seguirPedidos.index') }}">
+              <button class="btn btn-success pull-right">
+            <span class="fa fa-arrow-left"></span> &nbsp; Volver a ejecutar pedidos
+              </button>
+            </a> 
+            @break
+        @endswitch
+
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="row">
