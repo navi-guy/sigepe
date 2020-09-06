@@ -7,7 +7,7 @@ use CorporacionPeru\Producto;
 use CorporacionPeru\Notification;
 use Illuminate\Http\JsonResponse;
 use CorporacionPeru\Http\Requests\StoreCategoriaRequest;
-
+use Illuminate\Support\Facades\Session;
 class CategoriaController extends Controller
 {
     const CATEGORIA_INDEX = 'CategoriaController@index';
@@ -32,9 +32,18 @@ class CategoriaController extends Controller
      */
     public function store(StoreCategoriaRequest $request)
     {
-        Categoria::create($request->validated());
-        Notification::setAlertSession(Notification::SUCCESS,'Categoria registrada con exito');
-        return redirect()->action(self::CATEGORIA_INDEX);
+        $nombre = $request->nombre;
+        if( Categoria::where('nombre', '=', $nombre)->get()->count() == 0 )
+        {
+            Categoria::create($request->validated());
+            Notification::setAlertSession(Notification::SUCCESS,'Categoria registrada con exito');
+            return redirect()->action(self::CATEGORIA_INDEX);
+        }
+        else{
+            Notification::setAlertSession(Notification::WARNING,'No se registro, ya existe categoría con el mismo nombre' );
+            return redirect()->action(self::CATEGORIA_INDEX);
+        }
+      
     }
 
 
@@ -55,12 +64,25 @@ class CategoriaController extends Controller
      * @param  StoreCategoriaRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+  
     public function update(StoreCategoriaRequest $request)
-    { 
-        $id = $request->id;
-        Categoria::findOrFail($id)->update($request->validated());
-        Notification::setAlertSession(Notification::SUCCESS,'Categoria editada con exito');
-        return redirect()->action(self::CATEGORIA_INDEX);
+    {  
+        
+         $id = $request->id;
+         $nombre = $request->nombre;
+        if( Categoria::where('nombre', '=', $nombre)->where('id', '!=', $id)->get()->count() == 0 )
+
+        {
+            Categoria::findOrFail($id)->update($request->validated());
+            Notification::setAlertSession(Notification::SUCCESS,'Categoria editada con exito');
+            return redirect()->action(self::CATEGORIA_INDEX);
+        }
+        else{
+            Notification::setAlertSession(Notification::WARNING,'No se edito, ya existe categoría con el mismo nombre' );
+            return redirect()->action(self::CATEGORIA_INDEX);
+        }
+
+       
     }
 
     /**
