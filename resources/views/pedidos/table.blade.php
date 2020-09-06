@@ -77,7 +77,8 @@
                         <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                       </form>
                       @else
-                        <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                        <a class="btn btn-default btn-sm" 
+                        href="{{ route('pedidos.visualizarPedido',['id'=>$pedido->id, 'type'=>'pedidos'])}}" >
                         <span class="fa fa-eye"></span> Ver detalle
                     </a>
                     @endif

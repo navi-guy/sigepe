@@ -42,6 +42,12 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('/pedidos', 'PedidoController');
 	});
 
+	Route::group(['middleware' => 'role:Admin,AtencionCliente,JefeProduccion,OperarioProduccion'], function () {
+		/* Solo visualizar pedidos */					
+		Route::get('/visualizar_pedido/{id}/tipo/{type}', 'PedidoController@visualizarPedido')
+				->name('pedidos.visualizarPedido');
+	});
+
 	Route::group(['middleware' => ['role:Admin,JefeProduccion']], function () {
     	/** Revisar Pedidos */
 		Route::resource('/revisarPedidos', 'RevisarPedidosController');

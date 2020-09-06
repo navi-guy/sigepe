@@ -27,9 +27,9 @@ class ProveedoresTableSeeder extends Seeder
         ]);
 
         DB::table('proveedores')->insert([
-            'razon_social'=>'EXIMPORT DISTRIBUIDORES DEL PERU SA | EDIPESA',
+            'razon_social'=>'EXIMPORT DISTRIBUIDORES DEL PERU SA - EDIPESA',
             'ruc' => '20100041520',
-            'direccion' =>'Av. Argentina Nro. 1710 (Alt Av Nicolas Dueñas)',
+            'direccion' =>'Av. Argentina Nro. 1710 Alt Av Nicolas Dueñas',
             'tipo' => '2',
             'costo_flete' => '215'
         ]);
@@ -45,7 +45,7 @@ class ProveedoresTableSeeder extends Seeder
         DB::table('proveedores')->insert([
             'razon_social'=>'FAME S.A.C.',
             'ruc' => '20100073844',
-            'direccion' =>'Ex Hacienda Nievería s/n Km. 3.5 Carretera Cajamarquilla, Lurigancho Chosica - Lima',
+            'direccion' =>'Ex Hacienda Nievería sn Km. 3.5 Carretera Cajamarquilla Lurigancho Chosica - Lima',
             'tipo' => '2',
             'costo_flete' => '235'
         ]);

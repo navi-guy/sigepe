@@ -63,7 +63,13 @@ $(document).ready(function() {
   });
 
   $("#product_1").select2();
-  $("#categoria_select").select2();
+
+  $("#categoria_select").prop("selectedIndex", -1);
+
+  $("#categoria_select").select2({
+    placeholder: "Ingresa la categoría",
+    allowClear:true
+  });
 
   $("#add_row").unbind('click').bind('click', function() {
     var table = $("#product_info_table");

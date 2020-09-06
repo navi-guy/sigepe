@@ -30,13 +30,11 @@
                   <td>                      
                     <a class="btn btn-warning btn-sm" href="{{ route('productos.edit',$producto->id)}}" >
                       <span class="glyphicon glyphicon-pencil"></span></a>
-                    @if($producto->pedidos->isEmpty())
                       <form style="display:inline" method="POST" onsubmit="return confirmarDeleteProducto()" action="{{ route('productos.destroy', $producto->id) }}">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                       </form>
-                    @endif
                   </td>
                 </tr>
               @endforeach

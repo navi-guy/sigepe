@@ -6,7 +6,6 @@ use CorporacionPeru\Proveedor;
 use CorporacionPeru\Insumo;
 use CorporacionPeru\Http\Requests;
 use CorporacionPeru\Http\Requests\StoreProveedorRequest;
-use CorporacionPeru\Http\Requests\UpdateProveedorRequest;
 use CorporacionPeru\Notification;
 
 class ProveedorController extends Controller

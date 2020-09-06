@@ -64,7 +64,7 @@
                   <td>{{$pedido->monto_neto}}</td>
                   <td>                      
                     <div class="row"> 
-                      <a class="btn btn-default btn-sm" href="{{ route('pedidos.show',$pedido->id)}}" >
+                      <a class="btn btn-default btn-sm" href="{{ route('pedidos.visualizarPedido',['id'=>$pedido->id, 'type'=>'seguir'])}}">
                         <span class="fa fa-eye"></span> Ver detalle
                       </a>
                     @switch($pedido->estado_pedido)
@@ -88,7 +88,7 @@
                            
                           @break
                       @default
-                          <span>Error xd</span>
+                          <span>Error</span>
                     @endswitch  
                     </div>
                   </td>

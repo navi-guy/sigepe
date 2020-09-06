@@ -8,6 +8,7 @@ use CorporacionPeru\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use CorporacionPeru\Http\Requests\StoreProductoRequest;
+use CorporacionPeru\Http\Requests\UpdateProductoRequest;
 use CorporacionPeru\Notification;
 
 
@@ -105,10 +106,16 @@ class ProductoController extends Controller
      * @param  \CorporacionPeru\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProductoRequest $request,  $id)
+    public function update(UpdateProductoRequest $request,  $id)
     {
-        Producto::findOrFail($id)->update($request->validated());
         $producto = Producto::findOrFail($id);
+        $nameProduct = $request->nombre;
+        if (Producto::where('nombre',$nameProduct)->where('id','!=',$id)->first()) {
+            Notification::setAlertSession(Notification::DANGER,'El nombre del producto debe ser único');
+            return back();
+        }
+        $producto->update($request->validated());
+
         $this->saveImageOnStorage($request, $producto);
         $insumos_id = $request->insumo;
         $qty_insumos = $request->qty;
@@ -134,13 +141,16 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        /* add restricciones
-        Eliminar imagenes too
-        */
-        $producto->insumos()->detach();
-        $producto->delete();
-        Notification::setAlertSession(Notification::SUCCESS,'Producto eliminado con exito');
 
+        $producto=Producto::findOrFail($producto->id);
+        if (count($producto->pedidos)==0) {
+            $producto->insumos()->detach();
+            $producto->delete();
+            Notification::setAlertSession(Notification::SUCCESS,'Producto eliminado con exito');
+        } else{
+            Notification::setAlertSession(Notification::WARNING,'Existe un pedido asociado');
+        }
+        
         return redirect()->action(self::PRODUCTO_INDEX);
     }
 

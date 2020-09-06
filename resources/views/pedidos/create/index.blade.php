@@ -37,7 +37,16 @@ $(document).ready(function() {
     $(".select_group").select2();
     $("#mainOrdersNav").addClass('active');
     $("#addOrderNav").addClass('active');
-    
+
+    $('input[type=number][max]:not([max=""])').on('input', function(ev) {
+      var $this = $(this);
+      var maxlength = $this.attr('max').length;
+      var value = $this.val();
+      if (value && value.length >= maxlength) {
+        $this.val(value.substr(0, maxlength));
+      }
+    });
+      
     var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
         'onclick="alert(\'Call your custom code here.\')">' +
         '<i class="glyphicon glyphicon-tag"></i>' +
