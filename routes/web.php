@@ -30,10 +30,6 @@ Route::middleware(['auth'])->group(function () {
 	});
 	
 	Route::group(['middleware' => ['role:JefeProduccion,Admin']], function () {
-		/** Insumos */
-		Route::resource('/insumos', 'InsumoController');
-		Route::get('/insumos_disponibles','InsumoController@getDisponibles')
-				  ->name('insumos.getDisponibles');
 		/* Categoria & Producto  */					
 		Route::resource('/categorias', 'CategoriaController');
 		Route::resource('/productos', 'ProductoController');
@@ -58,8 +54,13 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::group(['middleware' => 
 			['role:Admin,JefeCompras,JefeProduccion,OperarioProduccion']], function () {
+					/** Insumos */
+		Route::resource('/insumos', 'InsumoController');
+		Route::get('/insumos_disponibles','InsumoController@getDisponibles')
+				  ->name('insumos.getDisponibles');
 			/** Revisar Stock  */
 		Route::resource('/revisarStock', 'RevisarStockController');
+
 	});
 
 	Route::group(['middleware' => ['role:Admin,OperarioProduccion']], function () {
