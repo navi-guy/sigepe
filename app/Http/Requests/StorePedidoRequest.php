@@ -29,8 +29,8 @@ class StorePedidoRequest extends FormRequest
     {
         return [
             'cod_pedido'    => self::ONLY_REQUIRED,            
-            'nombre_cli'    => 'required|min: 3|max: 150|regex:/^[ a-zA-ZÀ-ÿ\u00f1\u00d1]*$/',
-            'direccion_cli' => 'required|min: 3|max: 150|regex:/^[ a-zA-ZÀ-ÿ0-9\u00f1\u00d1\.\-]*$/',         
+            'nombre_cli'    => 'required|min: 3|max: 150|regex:/^[ a-zA-ZÀ-ÿ\x{00f1}\x{00d1}]*$/',
+            'direccion_cli' => 'required|min: 3|max: 150|regex:/^[ a-zA-ZÀ-ÿ0-9\x{00f1}\x{00d1}\.\-]*$/',         
             'telefono_cli'  => self::REQUIRED_NUM,
             'ruc_cli'       => 'required|digits: 11',
             'monto_bruto'   => self::REQUIRED_NUM_BILL,
