@@ -136,7 +136,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="avatar pull-left" align="center" alt="Icono de avatar">      
+    <div class="avatar pull-left" alt="Icono de avatar">      
       <img src="{{ asset('dist/img/icons/create_product.png') }}" alt="Icono de crear producto">
     </div>
   </div>  

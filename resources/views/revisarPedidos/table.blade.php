@@ -3,7 +3,7 @@
     <div class="box box-success">
       <div class="box-body">
         <table id="tabla-revisarPedidos" class="table table-bordered table-striped responsive display nowrap"
-          style="width:100%" cellspacing="0">
+          style="width:100%">
           <caption>Tabla de productos por revisar</caption>
           <thead>
             <tr>

@@ -3,7 +3,7 @@
       <div class="box box-success">
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tabla-pedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
+          <table id="tabla-pedidos" class="table table-bordered table-striped responsive display nowrap" style="width:100%">
            <caption>Tabla de pedidos</caption>
             <thead>
               <tr>

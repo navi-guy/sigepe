@@ -34,7 +34,7 @@
         background-size: cover;">
     <div class="login-box" style="margin: 0;position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
         <div class="login-box-body" style="border-radius: 1em!important;">
-            <div align="center">
+            <div>
                 <p class="login-box-msg" style="font-size: 200%;
            font-weight: thin; color: black;"><strong>SIGEPE</strong></p>
                 <img src="{{ asset('dist/img/icons/key.png') }}" alt=“icono de llave”

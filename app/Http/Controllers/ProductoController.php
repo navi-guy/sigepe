@@ -15,6 +15,7 @@ use CorporacionPeru\Notification;
 class ProductoController extends Controller
 {
     const PRODUCTO_INDEX = 'ProductoController@index';
+    const INSUMO = 'insumos';
 
     /**
      * Display a listing of the resource.
@@ -37,7 +38,7 @@ class ProductoController extends Controller
         $insumos = Insumo::disponibles()->get();
         $categorias = Categoria::all();
         $unidades_medida = config('constants.unidades_medida');
-        return view('productos.create.index', compact('insumos','categorias','unidades_medida'));
+        return view('productos.create.index', compact(self::INSUMO,'categorias','unidades_medida'));
     }
 
     /**
@@ -92,11 +93,11 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        $producto = $producto->load('insumos');
+        $producto = $producto->load(self::INSUMO);
         $insumos = Insumo::disponibles()->get();
         $categorias = Categoria::all();
         $unidades_medida = config('constants.unidades_medida');
-        return view('productos.edit.index', compact('insumos','producto','categorias','unidades_medida'));
+        return view('productos.edit.index', compact(self::INSUMO,'producto','categorias','unidades_medida'));
     }
 
     /**

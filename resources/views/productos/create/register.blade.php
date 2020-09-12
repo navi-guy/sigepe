@@ -132,7 +132,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="avatar pull-left" align="center">      
+    <div class="avatar pull-left">      
       <img src="{{ asset('dist/img/icons/create_product.png') }}" alt="icono de crear producto">
     </div>
   </div>  

@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-md-12">
             <br>
-            <div align="center">
+            <div>
               <span  style="font-size: 16px; font-weight: bold;">
                 ¿Está seguro de aceptar la siguiente solicitud?
               </span>
