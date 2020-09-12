@@ -32,9 +32,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::group(['middleware' => ['role:JefeProduccion,Admin']], function () {
 		/* Categoria & Producto  */					
 		Route::resource('/categorias', 'CategoriaController');
-		Route::resource('/productos', 'ProductoController');
-		Route::get('/productos_disponibles','ProductoController@getDisponibles')
-				  ->name('productos.getDisponibles');
+		
 	});
 
 	Route::group(['middleware' => 'role:Admin,AtencionCliente'], function () {
@@ -46,6 +44,10 @@ Route::middleware(['auth'])->group(function () {
 		/* Solo visualizar pedidos */					
 		Route::get('/visualizar_pedido/{id}/tipo/{type}', 'PedidoController@visualizarPedido')
 				->name('pedidos.visualizarPedido');
+		// Mantener pedidos
+		Route::resource('/productos', 'ProductoController');
+		Route::get('/productos_disponibles','ProductoController@getDisponibles')
+				  ->name('productos.getDisponibles');
 	});
 
 	Route::group(['middleware' => ['role:Admin,JefeProduccion']], function () {
