@@ -22,7 +22,8 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    const CORREO = 'correo electrónico';
+    const CONTRASENA = 'password';
     /**
      * Where to redirect users after registration.
      *
@@ -49,8 +50,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            self::CORREO => ['required', 'string', self::CORREO, 'max:255', 'unique:users'],
+            self::CONTRASENA => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -63,8 +64,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            self::CORREO => $data[self::CORREO],
+            self::CONTRASENA => Hash::make($data[self::CONTRASENA]),
             'trabajador_id'=>$data['trabajador_id']
         ]);
     }

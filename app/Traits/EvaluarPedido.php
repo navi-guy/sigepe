@@ -48,8 +48,7 @@ trait EvaluarPedido {
         $pedidoUpdate = Pedido::findOrFail($id_pedido);
         $pedidoUpdate->estado_pedido = 2;
         $pedidoUpdate->save();
-        $isAprobado = true;
-        return $isAprobado; // aprobado! | TRUE
+        return true; // aprobado! | TRUE
     }
 
 }
