@@ -15,7 +15,7 @@ use CorporacionPeru\Notification;
 class PedidoController extends Controller
 {
     const PEDIDO_INDEX = 'PedidoController@index';
-    const PRODUCTS = 'productos',
+    const PRODUCTS = 'productos';
     /**
      * Display a listing of the resource.
      *
