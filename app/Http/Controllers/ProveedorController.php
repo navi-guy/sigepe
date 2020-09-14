@@ -46,7 +46,7 @@ class ProveedorController extends Controller
     {
         $proveedor = Proveedor::findOrFail($id);
         $array_ids_insumo = $proveedor->insumos->pluck('id');
-        return $insumos_sin_asignar = Insumo::whereNotIn('id',$array_ids_insumo)->get();
+        return Insumo::whereNotIn('id',$array_ids_insumo)->get();
     }
 
     /**

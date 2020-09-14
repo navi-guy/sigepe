@@ -13,7 +13,7 @@ class Role
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, ...$roles)
+    public function handle($request, Closure $next)
     {
         $user=Auth::user();
         if($user->isAdmin()){
