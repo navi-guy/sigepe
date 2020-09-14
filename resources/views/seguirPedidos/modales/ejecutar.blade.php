@@ -12,7 +12,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <div class="form-group" align="center">
+            <div class="form-group" style="text-align: center;">
               <label for="razon_social-edit" style="font-size: 15px;">¿Estás seguro de ejecutar este pedido?</label>
             </div>
           </div><!--/.col --> 

@@ -72,7 +72,8 @@
           </ul>
         </div>
       </nav>
-      <div style="font-size: 4px; background-color: #3d9970!important;" align="right"><label></label>
+      <div style="font-size: 4px; background-color: #3d9970!important; text-align: right;">
+        <label></label>
       </div>
     </header>
     <aside class="main-sidebar" style="font-size: 15px; background-color: #171717!important;">

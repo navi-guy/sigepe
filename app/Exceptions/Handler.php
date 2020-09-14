@@ -4,6 +4,7 @@ namespace CorporacionPeru\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 
 class Handler extends ExceptionHandler
 {
@@ -35,6 +36,7 @@ class Handler extends ExceptionHandler
     public function report(Exception $exception)
     {
         parent::report($exception);
+        Log::info('Log example');
     }
 
     /**
@@ -46,6 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        Log::info('Log example2');
         return parent::render($request, $exception);
     }
 }

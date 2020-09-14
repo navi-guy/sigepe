@@ -10,6 +10,7 @@ use CorporacionPeru\Notification;
 class RevisarStockController extends Controller
 {
     const REVISAR_STOCK= 'RevisarStockController@index';
+    const INSUMO_ID = 'insumos.id';
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,11 @@ class RevisarStockController extends Controller
      */
     public function index()
     {
-        $insumos = Insumo::groupBy('insumos.id')->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', 'insumos.id')->selectRaw('insumos.id, insumos.nombre, insumos.cantidad, insumos.unidad_medida, insumos_proveedor.insumo_id, MAX(insumos_proveedor.estado) AS estado, SUM(insumos_proveedor.cantidad) AS solicitado')->orderBy('insumos.id', 'DESC')->get();
+        $insumos = Insumo::groupBy(self::INSUMO_ID)
+            ->join('insumos_proveedor', 'insumos_proveedor.insumo_id', '=', self::INSUMO_ID)
+            ->selectRaw('insumos.id, insumos.nombre, insumos.cantidad, insumos.unidad_medida, insumos_proveedor.insumo_id, MAX(insumos_proveedor.estado) AS estado, SUM(insumos_proveedor.cantidad) AS solicitado')
+            ->orderBy(self::INSUMO_ID, 'DESC')
+            ->get();
 
         return view('revisarStock.index', compact('insumos'));
     }

@@ -18,7 +18,7 @@ class ExpiredPeriodNotification extends Notification
      */
     public function __construct()
     {
-        //
+        // Do nothing because here will be the construct.
     }
 
     /**

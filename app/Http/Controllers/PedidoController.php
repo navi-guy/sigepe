@@ -15,6 +15,7 @@ use CorporacionPeru\Notification;
 class PedidoController extends Controller
 {
     const PEDIDO_INDEX = 'PedidoController@index';
+    const PRODUCTS = 'productos',
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +40,7 @@ class PedidoController extends Controller
         $last_id = ($last_pedido)?$last_pedido->id:0;
         $cod_pedido = $pedidoX->getNewCodigo($last_id);
         $date = Carbon::now()->format('Y-m-d');
-        return view('pedidos.create.index', compact('productos','date','cod_pedido'));
+        return view('pedidos.create.index', compact(self::PRODUCTS,'date','cod_pedido'));
     }
 
     /**
@@ -88,9 +89,9 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        $pedido = $pedido->load('productos');
+        $pedido = $pedido->load(self::PRODUCTS);
         $productos = Producto::all();
-        return view('pedidos.edit.index', compact('productos','pedido'));
+        return view('pedidos.edit.index', compact(self::PRODUCTS,'pedido'));
     }
 
     /**

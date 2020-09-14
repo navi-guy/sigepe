@@ -2,7 +2,7 @@
     <div class="col-xs-12">
       <div class="box box-success">
         <div class="box-body">
-          <table id="tabla-proveedores" class="table table-bordered table-striped responsive display nowrap" style="width:100%" cellspacing="0">
+          <table id="tabla-proveedores" class="table table-bordered table-striped responsive display nowrap" style="width:100%; border-collapse: collapse; border-spacing: 0;">
           <caption>Tabla de proveedores</caption>
           <thead>
               <tr>
