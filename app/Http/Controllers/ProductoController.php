@@ -73,6 +73,17 @@ class ProductoController extends Controller
         return response()->json(['productos' => $productos]);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \CorporacionPeru\Producto  $producto
+     * @return \Illuminate\Http\Response
+     */
+    public function getDetails($id_producto)
+    {
+        $producto = Producto::findOrFail($id_producto);
+        return response()->json(['producto' => $producto]);
+    }
 
     /**
      * Display the specified resource.
@@ -173,6 +184,18 @@ class ProductoController extends Controller
             $path = Storage::disk('public')->put('img_products', $image_requested);
             $producto->fill([ Producto::IMAGE => $path]);
         }
+    }
+
+    /**
+     * Obtiene los productos de una categoria.
+     *
+     * @param  \CorporacionPeru\Producto  $producto
+     * @return \Illuminate\Http\Response
+     */
+    public function productosByCategoria($id_categoria)
+    {
+        $productos = Producto::where('categoria_id',$id_categoria)->get();
+        return response()->json(['productos' => $productos]);
     }
 
 }

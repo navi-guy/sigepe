@@ -2,17 +2,25 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+/* PRODUCTOS  */	
+# Lista de productos disponibles
+# /api/productos_disponibles 	
+Route::get('/productos','ProductoController@getDisponibles');
+
+# Lista de productos por categoria
+# /api/productos_by_categoria/{id} 
+Route::get('/productos_by_categoria/{id}','ProductoController@productosByCategoria');
+
+# Detalles de un producto
+# /api/productos/{id}
+Route::get('/producto_details/{id}','ProductoController@getDetails');
+
+	/* PEDIDOS  */	
+# Crear un pedido
+# /api/pedidos 
+Route::post('/pedidos','PedidoController@savePedido');
+
+# Lista de pedidos
+# /api/pedidos 
+Route::get('/pedidos','PedidoController@getAllPedidos');

@@ -11,9 +11,12 @@ use CorporacionPeru\Http\Requests\StorePedidoRequest;
 use CorporacionPeru\Http\Requests\UpdatePedidoRequest;
 use Carbon\Carbon;
 use CorporacionPeru\Notification;
+use CorporacionPeru\Traits\GuardarPedido;
 
 class PedidoController extends Controller
 {
+    use GuardarPedido; # trait
+
     const PEDIDO_INDEX = 'PedidoController@index';
     const PRODUCTS = 'productos';
     /**
@@ -25,6 +28,17 @@ class PedidoController extends Controller
     {
         $pedidos = Pedido::orderBy('id','DESC')->get();    
         return view('pedidos.index',compact('pedidos'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllPedidos()
+    {
+        return $pedidos = Pedido::orderBy('id','DESC')->get();    
+       //return view('pedidos.index',compact('pedidos'));
     }
 
     /**
@@ -43,6 +57,28 @@ class PedidoController extends Controller
         return view('pedidos.create.index', compact(self::PRODUCTS,'date','cod_pedido'));
     }
 
+   /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function savePedido(StorePedidoRequest $request)
+    {        
+        try {
+            $pedido = $this->almacenarPedido($request);
+            $last_pedido = Pedido::all()->last();
+            $last_id = ($last_pedido)?$last_pedido->id:0;
+            $cod_pedido = $pedido->getNewCodigo($last_id);
+            $pedido->cod_pedido = $cod_pedido;
+            $pedido->save();
+            return response()->json(['success' => 'success', 'pedido'=>$pedido], 200);
+
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'invalid', 'e'=> $e->getMessage()], 401);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -51,20 +87,13 @@ class PedidoController extends Controller
      */
     public function store(StorePedidoRequest $request)
     {
-        $pedido = Pedido::create($request->validated());
-        $productos_id = $request->product;
-        $qty_insumos = $request->qty;        
-        for ($i=0; $i < count($productos_id); $i++) { 
-            $producto = Producto::findOrFail($productos_id[$i]);
-            $cantidad = $qty_insumos[$i];
-            $pu = $producto->precio_unitario;
-            $monto = $cantidad*$pu;
-            $pedido->productos()->attach($producto->id,
-                ['cantidad'=> $cantidad ,'pu'=>$pu, 'monto'=>$monto]);
-        }
-        $pedido->save();
-        Notification::setAlertSession(Notification::SUCCESS,'Pedido creado con exito');
+        try {
+            $pedido = $this->almacenarPedido($request);
+            Notification::setAlertSession(Notification::SUCCESS,'Pedido creado con exito');
 
+        } catch (\Exception $e) {
+            Notification::setAlertSession(Notification::ERROR,'Ocurrio un problema en el servidor');
+        }
         return redirect()->action(self::PEDIDO_INDEX);
     }
 
