@@ -69,6 +69,7 @@ class PedidoController extends Controller
             $pedido = $this->almacenarPedido($request);
             $last_pedido = Pedido::all()->last();
             $last_id = ($last_pedido)?$last_pedido->id:0;
+            $last_id -= 1; # Se le quita uno yaque el código es para el pedido actual y no para el sgte
             $cod_pedido = $pedido->getNewCodigo($last_id);
             $pedido->cod_pedido = $cod_pedido;
             $pedido->save();

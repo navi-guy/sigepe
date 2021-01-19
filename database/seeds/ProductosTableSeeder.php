@@ -16,7 +16,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '3',
             'unidad_medida'=>'1',
             'descripcion' => 'Barra de aleación para uso industrial',
-            'image'=>'dist/img/product_image/imagen1.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954073267437609/imagen1.jpg',
             'precio_unitario' => '100',
             'categoria_id'=>'1'
         ]);
@@ -26,7 +26,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte metálico para autos ',
-            'image'=>'dist/img/product_image/imagen2.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954182148161536/imagen2.jpg',
             'precio_unitario' => '19.9',
             'categoria_id'=>'2'
         ]);
@@ -36,7 +36,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte plástico para autos',
-            'image'=>'dist/img/product_image/imagen3.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954300699377664/imagen3.jpg',
             'precio_unitario' => '15.9',
             'categoria_id'=>'2'
         ]);
@@ -46,7 +46,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte metálico para motos',
-            'image'=>'dist/img/product_image/imagen4.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954409382445106/imagen4.jpg',
             'precio_unitario' => '19.9',
             'categoria_id'=>'2'
         ]);
@@ -56,7 +56,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con soporte plástico para motos',
-            'image'=>'dist/img/product_image/imagen5.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954524873130014/imagen5.jpg',
             'precio_unitario' => '15.9',
             'categoria_id'=>'2'
         ]);
@@ -66,7 +66,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas para residencial',
-            'image'=>'dist/img/product_image/imagen6.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954696122368030/imagen6.jpg',
             'precio_unitario' => '4.9',
             'categoria_id'=>'2'
         ]);
@@ -76,7 +76,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas con diseño para residencial',
-            'image'=>'dist/img/product_image/imagen7.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800954937197723658/imagen7.jpg',
             'precio_unitario' => '6.9',
             'categoria_id'=>'2'
         ]);
@@ -86,7 +86,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves metálicas con soporte de plástico para residencial',
-            'image'=>'dist/img/product_image/imagen8.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955023718088704/imagen8.jpg',
             'precio_unitario' => '5.9',
             'categoria_id'=>'2'
         ]);
@@ -96,7 +96,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves con paleta forjada para residencial',
-            'image'=>'dist/img/product_image/imagen9.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955089375723530/imagen9.jpg',
             'precio_unitario' => '10.9',
             'categoria_id'=>'2'
         ]);
@@ -106,7 +106,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves megacanal de alta seguridad',
-            'image'=>'dist/img/product_image/imagen10.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955154811322368/imagen10.jpg',
             'precio_unitario' => '9.9',
             'categoria_id'=>'2'
         ]);
@@ -116,7 +116,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves tetra de alta seguridad',
-            'image'=>'dist/img/product_image/imagen11.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955233005207552/imagen11.jpg',
             'precio_unitario' => '11.9',
             'categoria_id'=>'2'
         ]);
@@ -126,7 +126,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'',
             'descripcion' => 'Llaves transponder de alta tecnología',
-            'image'=>'dist/img/product_image/imagen12.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955349884600374/imagen12.jpg',
             'precio_unitario' => '19.9',
             'categoria_id'=>'2'
         ]);
@@ -136,7 +136,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '1',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Perfil refilado para uso industrial',
-            'image'=>'dist/img/product_image/imagen13.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955448923783198/imagen13.jpg',
             'precio_unitario' => '89.9',
             'categoria_id'=>'3'
         ]);
@@ -146,7 +146,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Tubo "T" para uso industrial',
-            'image'=>'dist/img/product_image/imagen14.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/784644828893675550/800955517752442950/imagen14.jpg',
             'precio_unitario' => '20.9',
             'categoria_id'=>'4'
         ]);
@@ -156,7 +156,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Válvulas de uso industrial',
-            'image'=>'dist/img/product_image/imagen15.jpg',
+            'image'=>'https://cdn.discordapp.com/attachments/765870162997411853/800955170989146112/imagen15.jpg',
             'precio_unitario' => '40.9',
             'categoria_id'=>'5'
         ]);
@@ -166,7 +166,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Portaválvula de acero para uso industrial',
-            'image'=>'dist/img/product_image/imagen16.jpg',
+            'image'=>'https://media.discordapp.net/attachments/765870162997411853/800954468899225600/imagen16.jpg',
             'precio_unitario' => '10.9',
             'categoria_id'=>'6'
         ]);
@@ -176,7 +176,7 @@ class ProductosTableSeeder extends Seeder
             'material' => '2',
             'unidad_medida'=>'Pulgadas',
             'descripcion' => 'Peritas para cerraduras',
-            'image'=>'dist/img/product_image/imagen17.jpg',
+            'image'=>'https://media.discordapp.net/attachments/784644828893675550/800953153989247026/imagen17.jpg',
             'precio_unitario' => '5.9',
             'categoria_id'=>'7'
         ]);

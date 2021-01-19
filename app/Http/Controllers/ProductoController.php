@@ -64,12 +64,12 @@ class ProductoController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Retorna lista de productos disponibles.
      *
      * @return \Illuminate\Http\Response
      */
     public function getDisponibles(){
-        $productos = Producto::all();
+        $productos = Producto::orderBy('id','DESC')->get();;
         return response()->json(['productos' => $productos]);
     }
 

@@ -19,7 +19,7 @@ class CreateProductosTable extends Migration
             $table->integer('material');
             $table->integer('unidad_medida');
             $table->string('descripcion')->nullable();
-            $table->string('image')->default('dist/img/product_image/defecto.jpg');
+            $table->string('image')->default('https://media.discordapp.net/attachments/784644828893675550/800956292113498122/defecto.jpg');
             $table->decimal('precio_unitario',9,2);            
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
